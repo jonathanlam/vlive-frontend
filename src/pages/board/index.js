@@ -152,13 +152,9 @@ const Board = () => {
                   <BoardItem
                     post_id={board_item.postId}
                     title={board_item.title}
-                    duration={board_item.officialVideo.playTime}
-                    views={board_item.officialVideo.playCount}
-                    likes={board_item.officialVideo.likeCount}
-                    comments={board_item.officialVideo.commentCount}
-                    thumbnail={board_item.officialVideo.thumb}
                     author={board_item.author}
                     createdAt={board_item.createdAt}
+                    officialVideo={board_item.officialVideo}
                   />
                 ))}
               </ul>

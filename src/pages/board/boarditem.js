@@ -27,17 +27,13 @@ function formatNum(n) {
   return Math.round(n / 1e5) / 10 + "M";
 }
 
-const BoardItem = ({
-  post_id,
-  title,
-  views,
-  likes,
-  comments,
-  thumbnail,
-  duration,
-  author,
-  createdAt,
-}) => {
+const BoardItem = ({ post_id, title, author, createdAt, officialVideo }) => {
+  const duration = officialVideo.playTime;
+  const views = officialVideo.playCount;
+  const likes = officialVideo.likeCount;
+  const comments = officialVideo.commentCount;
+
+  const thumbnail_url = `https://f004.backblazeb2.com/file/vlive-itzy/${post_id}/${post_id}-thumb.jpg`;
   return (
     <>
       <li className="post_item--3Brrv -video--1s9IA">
@@ -119,7 +115,7 @@ const BoardItem = ({
                     <span
                       className="covered_image--1rVY7 -lazyload--2r3VM thumbnail--2cQXj"
                       style={{
-                        backgroundImage: "url('" + thumbnail + "')",
+                        backgroundImage: "url('" + thumbnail_url + "')",
                       }}
                     ></span>
                     <span className="badge_area--1JrzS -bottom--13Qfe">
