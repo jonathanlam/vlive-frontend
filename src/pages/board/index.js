@@ -3,11 +3,27 @@ import ChannelArea from "./channelarea.js";
 import ChannelInfo from "./channelinfo.js";
 import BoardItem from "./boarditem.js";
 import LayoutTop from "./../../components/layouttop.js";
+import { useParams } from "react-router";
 import "../styles.css";
 
 import data from "../../assets/itzy_vods.json";
+import artist_data from "../../assets/artists.json";
+
+const get_artist_data = (name) => {
+  var result = artist_data.filter((obj) => {
+    return obj.channel === name;
+  });
+  if (result.length === 0) return null;
+  return result[0];
+};
 
 const Board = () => {
+  const { artist_name } = useParams();
+  // use axios to grab from /static/vods/${group}.json
+  // loading screen
+  // scrolling lazy loading?
+  const artist = get_artist_data(artist_name);
+
   const data2 = data.slice(0, 100);
   return (
     <>
@@ -17,7 +33,7 @@ const Board = () => {
           <div className="snb--dI3H2">
             <nav className="nav--Lwe6x">
               <div className="channel_area--3-r0f">
-                <ChannelArea />
+                <ChannelArea artist={artist} />
               </div>
               <ul className="board_group_list--3BSLj">
                 <li className="board_group_item--uTaOQ">
@@ -39,7 +55,7 @@ const Board = () => {
                         className="board_link--10CG-"
                         href="/channel/BAE889/board/5745"
                       >
-                        ITZY Board<em className="blind">selected</em>
+                        {artist.name} Board<em className="blind">selected</em>
                       </a>
                     </li>
                   </ul>
@@ -93,7 +109,7 @@ const Board = () => {
           <div className="layout_content--3-hGQ">
             <div className="lnb--3RTnS -right_menu_text--23eET">
               <div className="lnb_inner--1EWFM">
-                <h2 className="lnb_pc_title--1lAio">ITZY Board</h2>
+                <h2 className="lnb_pc_title--1lAio">{artist.name} Board</h2>
               </div>
             </div>
             <div className="board_container--jTnd3">
