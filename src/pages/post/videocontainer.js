@@ -11,7 +11,7 @@ const VideoContainer = ({ postId, title, officialVideo }) => {
   const comments = officialVideo.commentCount.toLocaleString();
   const video_url = `https://cdn.vlivearchive.com/file/vlive-itzy/${postId}/${postId}-video.mp4`;
 
-  const subtitles = subtitles_list[postId];
+  const subtitles = subtitles_list[postId] || [];
 
   return (
     <>
@@ -104,6 +104,25 @@ const VideoContainer = ({ postId, title, officialVideo }) => {
           </div>
           <div className="detail_content_wrap--A4_IF">
             <div className="player_area--1jBsZ">
+              {/* <video
+                width="100%"
+                height="400px"
+                crossorigin="anonymous"
+                controls
+              >
+                <source src={video_url} type="video/mp4" />
+                {subtitles.map((e) => (
+                  <track
+                    src={
+                      "https://cdn.vlivearchive.com/file/vlive-itzy/" +
+                      e.file_name
+                    }
+                    kind="subtitles"
+                    srclang="en"
+                    label={e.name}
+                  ></track>
+                ))}
+              </video> */}
               <ReactPlayer
                 url={video_url}
                 height="400px"
@@ -113,7 +132,6 @@ const VideoContainer = ({ postId, title, officialVideo }) => {
                   file: {
                     attributes: {
                       crossOrigin: true,
-                      controlsList: "nodownload",
                     },
                     tracks: subtitles.map((e) => ({
                       kind: "subtitles",
