@@ -2,12 +2,16 @@ import React from "react";
 import ReactPlayer from "react-player";
 import CommentIcon from "../../components/icons/comment";
 import HeartIcon from "../../components/icons/heart";
+import subtitles_list from "../../assets/itzy_subtitles.json";
+
 const VideoContainer = ({ postId, title, officialVideo }) => {
   // format as raw number but with commas
   const plays = officialVideo.playCount.toLocaleString();
   const likes = officialVideo.likeCount.toLocaleString();
   const comments = officialVideo.commentCount.toLocaleString();
   const video_url = `https://cdn.vlivearchive.com/file/vlive-itzy/${postId}/${postId}-video.mp4`;
+
+  const subtitles = subtitles_list[postId];
 
   return (
     <>
@@ -111,24 +115,14 @@ const VideoContainer = ({ postId, title, officialVideo }) => {
                       crossOrigin: true,
                       controlsList: "nodownload",
                     },
-                    tracks: [
-                      {
-                        kind: "subtitles",
-                        src: "https://cdn.vlivearchive.com/file/vlive-itzy/0-18280747/vtt-subs/0-18280747-video.official.en_US.vtt",
-                        srcLang: "en",
-                        default: true,
-                      },
-                      {
-                        kind: "subtitles",
-                        src: "subs/subtitles.ja.vtt",
-                        srcLang: "ja",
-                      },
-                      {
-                        kind: "subtitles",
-                        src: "subs/subtitles.de.vtt",
-                        srcLang: "de",
-                      },
-                    ],
+                    tracks: subtitles.map((e) => ({
+                      kind: "subtitles",
+                      src:
+                        "https://cdn.vlivearchive.com/vlive-itzy/" +
+                        e.file_name,
+                      srcLang: e.name,
+                      label: e.name,
+                    })),
                   },
                 }}
               />
