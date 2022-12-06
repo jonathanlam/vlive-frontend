@@ -7,7 +7,7 @@ const VideoContainer = ({ postId, title, officialVideo }) => {
   const plays = officialVideo.playCount.toLocaleString();
   const likes = officialVideo.likeCount.toLocaleString();
   const comments = officialVideo.commentCount.toLocaleString();
-  const video_url = `https://f004.backblazeb2.com/file/vlive-itzy/${postId}/${postId}-video.mp4`;
+  const video_url = `https://cdn.vlivearchive.com/file/vlive-itzy/${postId}/${postId}-video.mp4`;
 
   return (
     <>
@@ -107,10 +107,14 @@ const VideoContainer = ({ postId, title, officialVideo }) => {
                 controls={true}
                 config={{
                   file: {
+                    attributes: {
+                      crossOrigin: true,
+                      controlsList: "nodownload",
+                    },
                     tracks: [
                       {
                         kind: "subtitles",
-                        src: "https://f004.backblazeb2.com/file/vlive-itzy/0-18280747/vtt-subs/0-18280747-video.official.en_US.vtt",
+                        src: "https://cdn.vlivearchive.com/file/vlive-itzy/0-18280747/vtt-subs/0-18280747-video.official.en_US.vtt",
                         srcLang: "en",
                         default: true,
                       },

@@ -33,7 +33,7 @@ const BoardItem = ({ post_id, title, author, createdAt, officialVideo }) => {
   const likes = officialVideo.likeCount;
   const comments = officialVideo.commentCount;
 
-  const thumbnail_url = `https://f004.backblazeb2.com/file/vlive-itzy/${post_id}/${post_id}-thumb.jpg`;
+  const thumbnail_url = `https://cdn.vlivearchive.com/file/vlive-itzy/${post_id}/${post_id}-thumb.jpg`;
   return (
     <>
       <li className="post_item--3Brrv -video--1s9IA">

@@ -8,7 +8,7 @@ import "../styles.css";
 import data from "../../assets/itzy_vods.json";
 
 const Board = () => {
-  const data2 = data.slice(0, 10);
+  const data2 = data.slice(0, 100);
   return (
     <>
       <div className="layout--2CJge">
