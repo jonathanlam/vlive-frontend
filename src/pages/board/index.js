@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ChannelArea from "./channelarea.js";
 import ChannelInfo from "./channelinfo.js";
 import BoardItem from "./boarditem.js";
 import LayoutTop from "./../../components/layouttop.js";
 import { useParams } from "react-router";
 import "../styles.css";
-
+import axios from "axios";
 import data from "../../assets/itzy_vods.json";
 import artist_data from "../../assets/artists.json";
 
@@ -23,8 +23,21 @@ const Board = () => {
   // loading screen
   // scrolling lazy loading?
   const artist = get_artist_data(artist_name);
+  const [vod_list, setVodList] = useState(null);
 
-  const data2 = data.slice(0, 100);
+  const load = useEffect(() => {
+    axios
+      .get(`https://vlivedata.jonathanlamao.com/vods/${artist_name}_vods.json`)
+      .then(function (response) {
+        console.log(response.data);
+        setVodList(response.data);
+      })
+      .catch(function (error) {});
+  }, [artist_name]);
+
+  if (vod_list == null) return "loading...";
+
+  const data2 = vod_list.slice(0, 100);
   return (
     <>
       <div className="layout--2CJge">
