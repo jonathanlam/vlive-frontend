@@ -106,6 +106,7 @@ const Post = () => {
               bucket={bucket}
               author={post.author}
               channel={channel}
+              artist={artist}
             />
           </div>
           <div className="layout_right--2_POD">

@@ -5,6 +5,7 @@ import HeartIcon from "../../components/icons/heart";
 import subtitles_list from "../../assets/itzy_subtitles.json";
 import * as dayjs from "dayjs";
 import { Link } from "react-router-dom";
+import PostAuthorDP from "../../components/icons/postAuthorDP";
 
 const format_date = (timestamp) => {
   const d = dayjs(timestamp);
@@ -18,6 +19,7 @@ const VideoContainer = ({
   bucket,
   author,
   channel,
+  artist,
 }) => {
   // format as raw number but with commas
   const plays = officialVideo.playCount.toLocaleString();
@@ -39,19 +41,7 @@ const VideoContainer = ({
                     className="thumbnail_wrap--1h0cv -mask--3jxwe"
                     style={{ width: "30px", height: "30px" }}
                   >
-                    <svg width="30" height="30" viewBox="0 0 30 30">
-                      <mask id="thumbnail-mask-30">
-                        <path d="M15 0c8.284 0 15 6.716 15 15 0 .677-.045 1.343-.132 1.996C28.722 16.36 27.403 16 26 16c-4.418 0-8 3.582-8 8 0 1.976.716 3.784 1.903 5.18-1.536.531-3.186.82-4.903.82-8.284 0-15-6.716-15-15C0 6.716 6.716 0 15 0z"></path>
-                      </mask>
-                      <image
-                        mask="url(#thumbnail-mask-30)"
-                        x="0"
-                        y="0"
-                        width="100%"
-                        height="100%"
-                        preserveAspectRatio="xMidYMid slice"
-                      ></image>
-                    </svg>
+                    <PostAuthorDP image_url={artist.image} />
                     <svg
                       width="30"
                       height="30"
