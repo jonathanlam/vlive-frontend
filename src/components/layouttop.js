@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const LayoutTop = () => {
   return (
@@ -6,7 +7,7 @@ const LayoutTop = () => {
       <div className="layout_top">
         <div className="gnb--1pa9M">
           <h1 className="heading--2tVTX">
-            <a href="/" className="heading_link--18fPh">
+            <Link to="/" className="heading_link--18fPh">
               <svg
                 width="100"
                 height="30"
@@ -28,7 +29,7 @@ const LayoutTop = () => {
                 </g>
               </svg>
               <span className="blind">VLIVE</span>
-            </a>
+            </Link>
           </h1>
           <div className="button_area--2QGJv">
             <div className="button_wrap--3tCh_"></div>
