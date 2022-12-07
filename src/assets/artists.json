@@ -1,20 +1,23 @@
 [
   {
-    "name": "Itzy",
+    "name": "ITZY",
     "channel": "itzy",
-    "image": "https://weverse-phinf.pstatic.net/MjAyMjA5MjZfMjIg/MDAxNjY0MTgzNzgxOTUw.fHFCmXCaWyMCe__8oXF3pmvWBtMqlQdw3a5fsScXzpAg.GUzhHrZkMBpYE2ctkhrqjOFNmDotf-xpHRYsQSuiF90g.JPEG/5705c5e6-beb6-4c89-8410-32e92236386a.jpeg?type=s86",
-    "dp": "https://weverse-phinf.pstatic.net/MjAyMjEwMTFfMTA4/MDAxNjY1NDUzNzIxNjM5.IFERVUeOosG81J1O_tSlQimLlu2x59AbupVGRrbvwPog.SAaZa6Ni8hKZpGILZgx-FDvhRd9fELNjbIjF9IKsphUg.PNG/34405534946628684d3419b0-68f9-4a08-9537-c433a1b64328.png?type=f416_416"
+    "image": "https://vlivedata.jonathanlamao.com/itzy.png",
+    "dp": "https://vlivedata.jonathanlamao.com/itzy.png",
+    "members": "3,729,123"
   },
   {
-    "name": "Weeekly",
+    "name": "Weeekly(위클리)",
     "channel": "weeekly",
-    "image": "https://weverse-phinf.pstatic.net/MjAyMjA2MTZfMTQ4/MDAxNjU1MzU2MzM5Njkw.rUqE6dr0UZ1zl_ZOeyzzPOOyN25XLiw2Przrm1HMc2Ig.t57d261bbnznUXgtDBXz9xiWTnOEWOMi3fSOu3bbJH0g.JPEG/f8635344570a4d1ab5d06ad375f042ba908.jpg?type=s86",
-    "dp": "https://weverse-phinf.pstatic.net/MjAyMjA3MTZfMjA0/MDAxNjU3OTAzNDA4MDk0.hdvcLHbT3exFcfwI0pOswtVLYaxRWlibYBSh2pe44iYg.ALY8OThvO-RKQS66T2ubmMThYg7KhZvHZuTUtOEzv4wg.PNG/5347746935489701866478880-049f-49d7-a2bb-54a8886dbb84.png?type=f416_416"
+    "image": "https://vlivedata.jonathanlamao.com/weeekly.png",
+    "dp": "https://vlivedata.jonathanlamao.com/weeekly.png",
+    "members": "107,645"
   },
   {
-    "name": "LOONA",
+    "name": "이달의 소녀(LOONA)",
     "channel": "loona",
-    "image": "https://weverse-phinf.pstatic.net/MjAyMjA5MjZfMjIg/MDAxNjY0MTgzNzgxOTUw.fHFCmXCaWyMCe__8oXF3pmvWBtMqlQdw3a5fsScXzpAg.GUzhHrZkMBpYE2ctkhrqjOFNmDotf-xpHRYsQSuiF90g.JPEG/5705c5e6-beb6-4c89-8410-32e92236386a.jpeg?type=s86",
-    "dp": "https://weverse-phinf.pstatic.net/MjAyMjEwMTFfMTA4/MDAxNjY1NDUzNzIxNjM5.IFERVUeOosG81J1O_tSlQimLlu2x59AbupVGRrbvwPog.SAaZa6Ni8hKZpGILZgx-FDvhRd9fELNjbIjF9IKsphUg.PNG/34405534946628684d3419b0-68f9-4a08-9537-c433a1b64328.png?type=f416_416"
+    "image": "https://vlivedata.jonathanlamao.com/loona.png",
+    "dp": "https://vlivedata.jonathanlamao.com/loona.png",
+    "members": "525,743"
   }
 ]

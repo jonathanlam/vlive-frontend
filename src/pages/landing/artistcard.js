@@ -6,11 +6,11 @@ const ArtistCard = ({ artist }) => {
       <li className="HomeArtistListSlotView_artist_item__a6gAX">
         <a
           className="HomeArtistListSlotView_artist_link__Mjm6r"
-          href={"/board/" + artist.channel}
+          href={"/channel/" + artist.channel}
         >
           <div className="HomeArtistListSlotView_artist_cover_wrap__TGsNP">
             <img
-              src={artist.dp}
+              src={artist.image}
               width="208"
               height="208"
               className="HomeArtistListSlotView_cover_img__a2krk"

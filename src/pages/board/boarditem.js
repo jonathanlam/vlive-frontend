@@ -39,10 +39,7 @@ const BoardItem = ({ post_id, title, author, createdAt, officialVideo }) => {
       <li className="post_item--3Brrv -video--1s9IA">
         <div className="profile_area--2YO97">
           <div className="profile_info--13f_P">
-            <a
-              className="link_profile--2SQHn"
-              href="/channel/BAE889/member/b16d7cf96e5a1c3a6bd3cc70605ecb86"
-            >
+            <a className="link_profile--2SQHn" href="/channel/itzy">
               <div className="profile_thumbnail--1k1fr">
                 <div
                   className="thumbnail_wrap--1h0cv -mask--3jxwe"

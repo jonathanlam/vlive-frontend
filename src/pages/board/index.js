@@ -53,51 +53,9 @@ const Board = () => {
                       </svg>
                       <a
                         className="board_link--10CG-"
-                        href="/channel/BAE889/board/5745"
+                        href={"/channel/" + artist.channel}
                       >
                         {artist.name} Board<em className="blind">selected</em>
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li className="board_group_item--uTaOQ">
-                  <strong className="group_name--2Ufyg">Fan</strong>
-                  <ul className="board_list--iksmp">
-                    <li className="board_item--8Emtz">
-                      <svg
-                        width="18"
-                        height="18"
-                        viewBox="0 0 18 18"
-                        className="board_icon--3B72f"
-                      >
-                        <path
-                          fill="#B5B5BD"
-                          d="M12 0c3.314 0 6 2.686 6 6v6c0 3.314-2.686 6-6 6H6c-3.314 0-6-2.686-6-6V6c0-3.314 2.686-6 6-6h6zm-.285 5h-5.39l-.114.007c-.446.056-.791.437-.791.898v6.19l.007.114c.056.446.437.791.898.791h4.045l.16-.006c1.168-.081 2.09-1.042 2.09-2.216V5.905l-.007-.114c-.056-.446-.437-.791-.898-.791zM9.47 9.5c.249 0 .45.201.45.45s-.201.45-.45.45H7.22l-.08-.007c-.21-.038-.37-.222-.37-.443 0-.249.201-.45.45-.45zm1.35-2.25c.249 0 .45.201.45.45s-.201.45-.45.45h-3.6l-.08-.007c-.21-.038-.37-.222-.37-.443 0-.249.201-.45.45-.45z"
-                        ></path>
-                      </svg>
-                      <a
-                        className="board_link--10CG-"
-                        href="/channel/BAE889/board/2196"
-                      >
-                        MIDZY Board
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li className="board_group_item--uTaOQ">
-                  <strong className="group_name--2Ufyg">Special</strong>
-                  <ul className="board_list--iksmp">
-                    <li className="board_item--8Emtz">
-                      <div className="badge_vliveplus--13ZOr">
-                        <em className="badge--3Jtfu vliveplus--25hf- -size14--pHo0H">
-                          <span className="blind">VLIVE PLUS</span>
-                        </em>
-                      </div>
-                      <a
-                        className="board_link--10CG- -vlive_plus--3X-PI"
-                        href="/channel/BAE889/board/5746"
-                      >
-                        VLIVE+ Board
                       </a>
                     </li>
                   </ul>

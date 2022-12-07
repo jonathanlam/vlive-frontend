@@ -3,36 +3,31 @@ import React from "react";
 const ChannelArea = ({ artist }) => {
   return (
     <>
-      <a href="/channel/BAE889" class="channel_link--3kVMW">
+      <a href={"/channel/" + artist.channel} class="channel_link--3kVMW">
         <span class="thumbnail_wrapper--1FNPC">
-          <img
-            src="https://v-phinf.pstatic.net/20221108_114/1667833238621nOPdG_PNG/profile1093_34343.png?type=f152_152"
-            alt=""
-            width="76"
-            height="76"
-          />
+          <img src={artist.image} alt="" width="76" height="76" />
         </span>
         <strong class="channel_name--1VIVt" title="ITZY">
           {artist.name}
         </strong>
       </a>
       <span class="member--36HZL">
-        Members <span class="number">3,729,832</span>
+        Members <span class="number">{artist.members}</span>
       </span>
       <button class="register_button--1QhmP">Join</button>
       <ul class="menu_list--1Xv9-">
         <li class="menu_item--2Pf5K -home--1oM8u">
-          <a href="/channel/BAE889" class="menu_link--2EiO4">
+          <a href={"/channel/" + artist.channel} class="menu_link--2EiO4">
             <span>HOME</span>
           </a>
         </li>
         <li class="menu_item--2Pf5K -store--1y_xL">
-          <a class="menu_link--2EiO4" href="/channel/BAE889/store">
+          <a class="menu_link--2EiO4" href={"/channel/" + artist.channel}>
             <span>STORE</span>
           </a>
         </li>
         <li class="menu_item--2Pf5K -chat--WSxZX">
-          <a class="menu_link--2EiO4" href="/channel/BAE889/chat">
+          <a class="menu_link--2EiO4" href={"/channel/" + artist.channel}>
             <span>CHAT</span>
             <span class="red_dot--5VNZE">
               <em
@@ -45,12 +40,12 @@ const ChannelArea = ({ artist }) => {
           </a>
         </li>
         <li class="menu_item--2Pf5K -schedule--1ZHsc">
-          <a class="menu_link--2EiO4" href="/channel/BAE889/schedule">
+          <a class="menu_link--2EiO4" href="#">
             <span>SCHEDULE</span>
           </a>
         </li>
         <li class="menu_item--2Pf5K -my--eR6XS">
-          <a class="menu_link--2EiO4" href="/channel/BAE889/member">
+          <a class="menu_link--2EiO4" href="#">
             <span>MY</span>
           </a>
         </li>
