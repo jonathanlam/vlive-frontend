@@ -1,26 +1,44 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ChannelArea from "./channelarea.js";
 import ChannelInfo from "./channelinfo.js";
 import VideoContainer from "./videocontainer.js";
 import LayoutTop from "../../components/layouttop.js";
+import axios from "axios";
 import { useParams } from "react-router";
-import data from "../../assets/itzy_vods.json";
 
 import "../styles.css";
 const Post = () => {
   const { post_id } = useParams();
-  const search = data.filter((board_item) => board_item.postId === post_id);
-  if (search.length === 0) return <>No post found</>;
+  //const search = data.filter((board_item) => board_item.postId === post_id);
+  //if (search.length === 0) return <>No post found</>;
 
-  const post = search[0];
+  const [search, setSearch] = useState(null);
+  useEffect(() => {
+    axios
+      .get(`https://api.vlivearchive.com/post/${post_id}`)
+      .then(function (response) {
+        console.log(response.data);
+        setSearch(response.data);
+      })
+      .catch(function (error) {
+        console.log("wtfffff");
+      });
+  }, [post_id]);
+
+  console.log(search);
+  if (search === null) return <>loading</>;
+  if (search.length === 0) return <>not found</>;
+  const channel = search[0];
+  const post = search[1];
+  console.log(post);
 
   const bucket_map = {
-    BAE889: "vlive-itzy",
-    E1F3A7: "vlive-loona",
-    A0ABD1: "vlive-weeekly",
+    itzy: "vlive-itzy",
+    loona: "vlive-loona",
+    weeekly: "vlive-weeekly",
   };
 
-  const bucket = bucket_map[post.channel.channelCode];
+  const bucket = bucket_map[channel];
 
   return (
     <>
@@ -30,7 +48,7 @@ const Post = () => {
           <div className="snb--dI3H2">
             <nav className="nav--Lwe6x">
               <div className="channel_area--3-r0f">
-                <ChannelArea />
+                <ChannelArea author={post.author} />
               </div>
               <ul className="board_group_list--3BSLj">
                 <li className="board_group_item--uTaOQ">
@@ -52,49 +70,8 @@ const Post = () => {
                         className="board_link--10CG-"
                         href="/channel/BAE889/board/5745"
                       >
-                        ITZY Board<em className="blind">selected</em>
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li className="board_group_item--uTaOQ">
-                  <strong className="group_name--2Ufyg">Fan</strong>
-                  <ul className="board_list--iksmp">
-                    <li className="board_item--8Emtz">
-                      <svg
-                        width="18"
-                        height="18"
-                        viewBox="0 0 18 18"
-                        className="board_icon--3B72f"
-                      >
-                        <path
-                          fill="#B5B5BD"
-                          d="M12 0c3.314 0 6 2.686 6 6v6c0 3.314-2.686 6-6 6H6c-3.314 0-6-2.686-6-6V6c0-3.314 2.686-6 6-6h6zm-.285 5h-5.39l-.114.007c-.446.056-.791.437-.791.898v6.19l.007.114c.056.446.437.791.898.791h4.045l.16-.006c1.168-.081 2.09-1.042 2.09-2.216V5.905l-.007-.114c-.056-.446-.437-.791-.898-.791zM9.47 9.5c.249 0 .45.201.45.45s-.201.45-.45.45H7.22l-.08-.007c-.21-.038-.37-.222-.37-.443 0-.249.201-.45.45-.45zm1.35-2.25c.249 0 .45.201.45.45s-.201.45-.45.45h-3.6l-.08-.007c-.21-.038-.37-.222-.37-.443 0-.249.201-.45.45-.45z"
-                        ></path>
-                      </svg>
-                      <a
-                        className="board_link--10CG-"
-                        href="/channel/BAE889/board/2196"
-                      >
-                        MIDZY Board
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li className="board_group_item--uTaOQ">
-                  <strong className="group_name--2Ufyg">Special</strong>
-                  <ul className="board_list--iksmp">
-                    <li className="board_item--8Emtz">
-                      <div className="badge_vliveplus--13ZOr">
-                        <em className="badge--3Jtfu vliveplus--25hf- -size14--pHo0H">
-                          <span className="blind">VLIVE PLUS</span>
-                        </em>
-                      </div>
-                      <a
-                        className="board_link--10CG- -vlive_plus--3X-PI"
-                        href="/channel/BAE889/board/5746"
-                      >
-                        VLIVE+ Board
+                        {post.author.nickname} Board
+                        <em className="blind">selected</em>
                       </a>
                     </li>
                   </ul>
@@ -106,7 +83,9 @@ const Post = () => {
           <div className="layout_content--3-hGQ">
             <div className="lnb--3RTnS -right_menu_text--23eET">
               <div className="lnb_inner--1EWFM">
-                <h2 className="lnb_pc_title--1lAio">ITZY Board</h2>
+                <h2 className="lnb_pc_title--1lAio">
+                  {post.author.nickname} Board
+                </h2>
               </div>
             </div>
             <VideoContainer
@@ -114,6 +93,7 @@ const Post = () => {
               postId={post.postId}
               officialVideo={post.officialVideo}
               bucket={bucket}
+              author={post.author}
             />
           </div>
           <div className="layout_right--2_POD">

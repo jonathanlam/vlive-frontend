@@ -6,7 +6,6 @@ import LayoutTop from "./../../components/layouttop.js";
 import { useParams } from "react-router";
 import "../styles.css";
 import axios from "axios";
-import data from "../../assets/itzy_vods.json";
 import artist_data from "../../assets/artists.json";
 
 const get_artist_data = (name) => {
@@ -25,7 +24,7 @@ const Board = () => {
   const artist = get_artist_data(artist_name);
   const [vod_list, setVodList] = useState(null);
 
-  const load = useEffect(() => {
+  useEffect(() => {
     axios
       .get(`https://vlivedata.jonathanlamao.com/vods/${artist_name}_vods.json`)
       .then(function (response) {

@@ -3,8 +3,14 @@ import ReactPlayer from "react-player";
 import CommentIcon from "../../components/icons/comment";
 import HeartIcon from "../../components/icons/heart";
 import subtitles_list from "../../assets/itzy_subtitles.json";
+import * as dayjs from "dayjs";
 
-const VideoContainer = ({ postId, title, officialVideo, bucket }) => {
+const format_date = (timestamp) => {
+  const d = dayjs(timestamp);
+  return d.format("YYYY.MM.DD HH:MM");
+};
+
+const VideoContainer = ({ postId, title, officialVideo, bucket, author }) => {
   // format as raw number but with commas
   const plays = officialVideo.playCount.toLocaleString();
   const likes = officialVideo.likeCount.toLocaleString();
@@ -73,11 +79,13 @@ const VideoContainer = ({ postId, title, officialVideo, bucket }) => {
                     className="writer_link--3fEhm"
                     href="/channel/BAE889/member/b16d7cf96e5a1c3a6bd3cc70605ecb86"
                   >
-                    <span className="text--3pN_c">ITZY</span>
+                    <span className="text--3pN_c">{author.nickname}</span>
                   </a>
                 </div>
                 <div className="post_info_wrap--3oPz4">
-                  <span className="post_info--3AqO0">2022.10.04. 23:02</span>
+                  <span className="post_info--3AqO0">
+                    {format_date(officialVideo.createdAt)}
+                  </span>
                 </div>
               </div>
             </div>

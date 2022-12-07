@@ -17,18 +17,22 @@
     "react-dom": "^18.2.0",
     "react-modal": "^3.11.2",
     "react-player": "^2.11.0",
+    "react-query": "^3.39.2",
     "react-redux": "^7.2.1",
-    "react-router-dom": "^6.4.1",
+    "react-router-dom": "^6.4.4",
     "react-scripts": "3.4.1",
+    "react-tuby": "^0.1.24",
     "redux": "^4.0.5",
     "socket.io-client": "^2.3.0",
     "styled-components": "^5.3.6"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "export HTTPS=true&&SSL_CRT_FILE=cert.pem&&SSL_KEY_FILE=key.pem react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -44,5 +48,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^4.0.0"
   }
 }

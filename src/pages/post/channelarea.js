@@ -1,6 +1,6 @@
 import React from "react";
 
-const ChannelArea = () => {
+const ChannelArea = ({ author }) => {
   return (
     <>
       <a href="/channel/BAE889" class="channel_link--3kVMW">
@@ -13,7 +13,7 @@ const ChannelArea = () => {
           />
         </span>
         <strong class="channel_name--1VIVt" title="ITZY">
-          ITZY
+          {author.nickname}
         </strong>
       </a>
       <span class="member--36HZL">
