@@ -18,7 +18,15 @@ function FMTtimestamp(timestamp) {
   return d.format("MMM D, YYYY");
 }
 function fmtMSS(s) {
-  return (s - (s %= 60)) / 60 + (9 < s ? ":" : ":0") + s;
+  var seconds = parseInt(s, 10); // don't forget the second param
+  var hours = Math.floor(seconds / 3600);
+  var minutes = Math.floor((seconds - hours * 3600) / 60);
+  seconds = seconds - hours * 3600 - minutes * 60;
+
+  if (minutes < 10) minutes = "0" + minutes;
+  if (seconds < 10) seconds = "0" + seconds;
+  if (hours === 0) return minutes + ":" + seconds;
+  return hours + ":" + minutes + ":" + seconds;
 }
 
 function formatNum(n) {
