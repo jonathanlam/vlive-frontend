@@ -142,6 +142,7 @@ const Board = () => {
                     author={board_item.author}
                     createdAt={board_item.createdAt}
                     officialVideo={board_item.officialVideo}
+                    artist={artist}
                   />
                 ))}
               </ul>

@@ -4,20 +4,23 @@
     "channel": "itzy",
     "image": "https://vlivedata.jonathanlamao.com/itzy.png",
     "dp": "https://vlivedata.jonathanlamao.com/itzy.png",
-    "members": "3,729,123"
+    "members": "3,729,123",
+    "bucket": "vlive-itzy"
   },
   {
     "name": "Weeekly(위클리)",
     "channel": "weeekly",
     "image": "https://vlivedata.jonathanlamao.com/weeekly.png",
     "dp": "https://vlivedata.jonathanlamao.com/weeekly.png",
-    "members": "107,645"
+    "members": "107,645",
+    "bucket": "vlive-weeekly"
   },
   {
     "name": "이달의 소녀(LOONA)",
     "channel": "loona",
     "image": "https://vlivedata.jonathanlamao.com/loona.png",
     "dp": "https://vlivedata.jonathanlamao.com/loona.png",
-    "members": "525,743"
+    "members": "525,743",
+    "bucket": "vlive-loona"
   }
 ]

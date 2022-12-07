@@ -4,12 +4,12 @@ import CommentIcon from "../../components/icons/comment";
 import HeartIcon from "../../components/icons/heart";
 import subtitles_list from "../../assets/itzy_subtitles.json";
 
-const VideoContainer = ({ postId, title, officialVideo }) => {
+const VideoContainer = ({ postId, title, officialVideo, bucket }) => {
   // format as raw number but with commas
   const plays = officialVideo.playCount.toLocaleString();
   const likes = officialVideo.likeCount.toLocaleString();
   const comments = officialVideo.commentCount.toLocaleString();
-  const video_url = `https://cdn.vlivearchive.com/file/vlive-itzy/${postId}/${postId}-video.mp4`;
+  const video_url = `https://cdn.vlivearchive.com/file/${bucket}/${postId}/${postId}-video.mp4`;
 
   const subtitles = subtitles_list[postId] || [];
 
@@ -135,9 +135,7 @@ const VideoContainer = ({ postId, title, officialVideo }) => {
                     },
                     tracks: subtitles.map((e) => ({
                       kind: "subtitles",
-                      src:
-                        "https://cdn.vlivearchive.com/vlive-itzy/" +
-                        e.file_name,
+                      src: `https://cdn.vlivearchive.com/${bucket}/${e.file_name}`,
                       srcLang: e.name,
                       label: e.name,
                     })),

@@ -14,6 +14,14 @@ const Post = () => {
 
   const post = search[0];
 
+  const bucket_map = {
+    BAE889: "vlive-itzy",
+    E1F3A7: "vlive-loona",
+    A0ABD1: "vlive-weeekly",
+  };
+
+  const bucket = bucket_map[post.channel.channelCode];
+
   return (
     <>
       <div className="layout--2CJge">
@@ -105,6 +113,7 @@ const Post = () => {
               title={post.title}
               postId={post.postId}
               officialVideo={post.officialVideo}
+              bucket={bucket}
             />
           </div>
           <div className="layout_right--2_POD">
