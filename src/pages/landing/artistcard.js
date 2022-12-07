@@ -1,12 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ArtistCard = ({ artist }) => {
   return (
     <>
       <li className="HomeArtistListSlotView_artist_item__a6gAX">
-        <a
+        <Link
           className="HomeArtistListSlotView_artist_link__Mjm6r"
-          href={"/channel/" + artist.channel}
+          to={"/channel/" + artist.channel}
         >
           <div className="HomeArtistListSlotView_artist_cover_wrap__TGsNP">
             <img
@@ -46,7 +47,7 @@ const ArtistCard = ({ artist }) => {
               </div>
             </strong>
           </div>
-        </a>
+        </Link>
       </li>
     </>
   );

@@ -1,6 +1,5 @@
-import React, { useState, useCallback, useEffect } from "react";
+import React from "react";
 import { BrowserRouter } from "react-router-dom";
-import axios from "axios";
 
 import Routes from "./Routes";
 

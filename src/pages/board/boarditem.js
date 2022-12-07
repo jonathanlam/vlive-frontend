@@ -5,6 +5,7 @@ import PostStarIcon from "../../components/icons/poststar";
 import SmallCommentIcon from "../../components/icons/smallcomment";
 import SmallHeartIcon from "../../components/icons/smallheart";
 import SmallPlayIcon from "../../components/icons/smallplay";
+import { Link } from "react-router-dom";
 import * as dayjs from "dayjs";
 
 function FMTtimestamp(timestamp) {
@@ -54,7 +55,7 @@ const BoardItem = ({
       <li className="post_item--3Brrv -video--1s9IA">
         <div className="profile_area--2YO97">
           <div className="profile_info--13f_P">
-            <a className="link_profile--2SQHn" href="/channel/itzy">
+            <Link className="link_profile--2SQHn" to="/channel/itzy">
               <div className="profile_thumbnail--1k1fr">
                 <div
                   className="thumbnail_wrap--1h0cv -mask--3jxwe"
@@ -89,10 +90,10 @@ const BoardItem = ({
                   </div>
                 </div>
               </div>
-            </a>
+            </Link>
           </div>
         </div>
-        <a className="post_area--3dKbo" href={"/post/" + post_id}>
+        <Link className="post_area--3dKbo" to={"/post/" + post_id}>
           <div className="post_inner--3DzQ8">
             <div className="content_area--24ZuP">
               <div className="post_title--3sJDT">
@@ -145,7 +146,7 @@ const BoardItem = ({
               </div>
             </div>
           </div>
-        </a>
+        </Link>
         <div className="more_button_area--3k5le">
           <div className="more_option_wrap--2qHGk">
             <button
