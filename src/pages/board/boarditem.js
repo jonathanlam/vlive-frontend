@@ -55,13 +55,16 @@ const BoardItem = ({
       <li className="post_item--3Brrv -video--1s9IA">
         <div className="profile_area--2YO97">
           <div className="profile_info--13f_P">
-            <Link className="link_profile--2SQHn" to="/channel/itzy">
+            <Link
+              className="link_profile--2SQHn"
+              to={"/channel/" + artist.channel}
+            >
               <div className="profile_thumbnail--1k1fr">
                 <div
                   className="thumbnail_wrap--1h0cv -mask--3jxwe"
                   style={{ width: "30px", height: "30px" }}
                 >
-                  <PostAuthorDP />
+                  <PostAuthorDP image_url={artist.image} />
                   <svg
                     width="30"
                     height="30"

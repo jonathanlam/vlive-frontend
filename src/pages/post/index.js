@@ -79,7 +79,7 @@ const Post = () => {
                       </svg>
                       <a
                         className="board_link--10CG-"
-                        href="/channel/BAE889/board/5745"
+                        href={"/channel/" + channel}
                       >
                         {post.author.nickname} Board
                         <em className="blind">selected</em>
@@ -105,6 +105,7 @@ const Post = () => {
               officialVideo={post.officialVideo}
               bucket={bucket}
               author={post.author}
+              channel={channel}
             />
           </div>
           <div className="layout_right--2_POD">

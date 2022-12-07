@@ -4,13 +4,21 @@ import CommentIcon from "../../components/icons/comment";
 import HeartIcon from "../../components/icons/heart";
 import subtitles_list from "../../assets/itzy_subtitles.json";
 import * as dayjs from "dayjs";
+import { Link } from "react-router-dom";
 
 const format_date = (timestamp) => {
   const d = dayjs(timestamp);
   return d.format("YYYY.MM.DD HH:MM");
 };
 
-const VideoContainer = ({ postId, title, officialVideo, bucket, author }) => {
+const VideoContainer = ({
+  postId,
+  title,
+  officialVideo,
+  bucket,
+  author,
+  channel,
+}) => {
   // format as raw number but with commas
   const plays = officialVideo.playCount.toLocaleString();
   const likes = officialVideo.likeCount.toLocaleString();
@@ -26,7 +34,7 @@ const VideoContainer = ({ postId, title, officialVideo, bucket, author }) => {
           <div className="post_header--7D-xg -video--3Fg6w">
             <div className="writer_info--3Sw41">
               <div className="writer_thumbnail_wrap--JM7vB">
-                <a href="/channel/BAE889/member/b16d7cf96e5a1c3a6bd3cc70605ecb86">
+                <Link to={"/channel/" + channel}>
                   <div
                     className="thumbnail_wrap--1h0cv -mask--3jxwe"
                     style={{ width: "30px", height: "30px" }}
@@ -71,16 +79,16 @@ const VideoContainer = ({ postId, title, officialVideo, bucket, author }) => {
                       <span className="blind">star</span>
                     </span>
                   </div>
-                </a>
+                </Link>
               </div>
               <div className="writer_info_textarea_wrap--1x9m_">
                 <div className="writer_info_textarea--1rXDF">
-                  <a
+                  <Link
                     className="writer_link--3fEhm"
-                    href="/channel/BAE889/member/b16d7cf96e5a1c3a6bd3cc70605ecb86"
+                    to={"/channel/" + channel}
                   >
                     <span className="text--3pN_c">{author.nickname}</span>
-                  </a>
+                  </Link>
                 </div>
                 <div className="post_info_wrap--3oPz4">
                   <span className="post_info--3AqO0">

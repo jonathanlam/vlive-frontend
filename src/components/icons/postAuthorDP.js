@@ -1,6 +1,6 @@
 import React from "react";
 
-const PostAuthorDP = () => {
+const PostAuthorDP = ({ image_url }) => {
   return (
     <svg width="30" height="30" viewBox="0 0 30 30">
       <mask id="thumbnail-mask-30">
@@ -8,7 +8,7 @@ const PostAuthorDP = () => {
       </mask>
       <image
         mask="url(#thumbnail-mask-30)"
-        href="https://v-phinf.pstatic.net//20221108_162/1667833246253TDu1r_JPEG/image.jpg?type=round60_60"
+        href={image_url}
         x="0"
         y="0"
         width="100%"
