@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import ChannelArea from "./channelarea.js";
+import ChannelArea from "./../../components/channelarea.js";
 import ChannelInfo from "./channelinfo.js";
 import BoardItem from "./boarditem.js";
 import LayoutTop from "./../../components/layouttop.js";

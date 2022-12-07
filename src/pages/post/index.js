@@ -1,12 +1,22 @@
 import React, { useState, useEffect } from "react";
-import ChannelArea from "./channelarea.js";
+import ChannelArea from "./../../components/channelarea.js";
 import ChannelInfo from "./channelinfo.js";
 import VideoContainer from "./videocontainer.js";
 import LayoutTop from "../../components/layouttop.js";
 import axios from "axios";
 import { useParams } from "react-router";
 
+import artist_data from "../../assets/artists.json";
+
 import "../styles.css";
+
+const get_artist_data = (name) => {
+  var result = artist_data.filter((obj) => {
+    return obj.channel === name;
+  });
+  if (result.length === 0) return null;
+  return result[0];
+};
 const Post = () => {
   const { post_id } = useParams();
   //const search = data.filter((board_item) => board_item.postId === post_id);
@@ -39,6 +49,7 @@ const Post = () => {
   };
 
   const bucket = bucket_map[channel];
+  const artist = get_artist_data(channel);
 
   return (
     <>
@@ -48,7 +59,7 @@ const Post = () => {
           <div className="snb--dI3H2">
             <nav className="nav--Lwe6x">
               <div className="channel_area--3-r0f">
-                <ChannelArea author={post.author} />
+                <ChannelArea artist={artist} />
               </div>
               <ul className="board_group_list--3BSLj">
                 <li className="board_group_item--uTaOQ">
