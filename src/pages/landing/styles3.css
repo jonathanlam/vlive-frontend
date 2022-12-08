@@ -305,8 +305,9 @@
   background: no-repeat url("/static/img/logo.png") 0 0 / contain;
   content: "";
   display: block;
-  height: 20px;
+  height: 60px;
   width: 136px;
+  border-radius: 10px;
 }
 .HeaderView_header_layer__CFF0e {
   background: #fff;
