@@ -4,6 +4,7 @@ import ChannelInfo from "./channelinfo.js";
 import VideoContainer from "./videocontainer.js";
 import LayoutTop from "../../components/layouttop.js";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import { useParams } from "react-router";
 
 import artist_data from "../../assets/artists.json";
@@ -27,7 +28,6 @@ const Post = () => {
     axios
       .get(`https://api.vlivearchive.com/post/${post_id}`)
       .then(function (response) {
-        console.log(response.data);
         setSearch(response.data);
       })
       .catch(function (error) {
@@ -35,20 +35,20 @@ const Post = () => {
       });
   }, [post_id]);
 
-  console.log(search);
   if (search === null) return <>loading</>;
   if (search.length === 0) return <>not found</>;
   const channel = search[0];
   const post = search[1];
-  console.log(post);
 
   const bucket_map = {
     itzy: "vlive-itzy",
     loona: "vlive-loona",
     weeekly: "vlive-weeekly",
+    nuest: "vlive-nuest",
+    gidle: "vlive-gidle",
   };
 
-  const bucket = bucket_map[channel];
+  const bucket = bucket_map[channel] || "vlive-other";
   const artist = get_artist_data(channel);
 
   return (
@@ -77,13 +77,13 @@ const Post = () => {
                           d="M12 0c3.314 0 6 2.686 6 6v6c0 3.314-2.686 6-6 6H6c-3.314 0-6-2.686-6-6V6c0-3.314 2.686-6 6-6h6zm-.66 10.303l-1.887 1.373.648.436 1.165.78c.11.075.248.096.376.06.24-.068.38-.319.31-.559l-.376-1.325-.236-.765zm-2.19-5.73c-.235-.082-.493.042-.576.277l-.872 2.48H4.897c-.138 0-.269.063-.354.171-.156.196-.123.48.073.636l2.156 1.711-.706 2.482c-.037.132-.012.275.068.387.146.203.429.25.632.104l6.496-4.671c.118-.085.188-.222.188-.367 0-.25-.202-.453-.452-.453h-2.699l-.871-2.48c-.046-.129-.148-.23-.277-.276z"
                         ></path>
                       </svg>
-                      <a
+                      <Link
                         className="board_link--10CG-"
-                        href={"/channel/" + channel}
+                        to={"/channel/" + channel}
                       >
-                        {post.author.nickname} Board
+                        {artist.name} Board
                         <em className="blind">selected</em>
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </li>
@@ -94,9 +94,7 @@ const Post = () => {
           <div className="layout_content--3-hGQ">
             <div className="lnb--3RTnS -right_menu_text--23eET">
               <div className="lnb_inner--1EWFM">
-                <h2 className="lnb_pc_title--1lAio">
-                  {post.author.nickname} Board
-                </h2>
+                <h2 className="lnb_pc_title--1lAio">{artist.name} Board</h2>
               </div>
             </div>
             <VideoContainer

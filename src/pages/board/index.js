@@ -6,6 +6,7 @@ import LayoutTop from "./../../components/layouttop.js";
 import { useParams } from "react-router";
 import "../styles.css";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import artist_data from "../../assets/artists.json";
 
 const get_artist_data = (name) => {
@@ -63,12 +64,12 @@ const Board = () => {
                           d="M12 0c3.314 0 6 2.686 6 6v6c0 3.314-2.686 6-6 6H6c-3.314 0-6-2.686-6-6V6c0-3.314 2.686-6 6-6h6zm-.66 10.303l-1.887 1.373.648.436 1.165.78c.11.075.248.096.376.06.24-.068.38-.319.31-.559l-.376-1.325-.236-.765zm-2.19-5.73c-.235-.082-.493.042-.576.277l-.872 2.48H4.897c-.138 0-.269.063-.354.171-.156.196-.123.48.073.636l2.156 1.711-.706 2.482c-.037.132-.012.275.068.387.146.203.429.25.632.104l6.496-4.671c.118-.085.188-.222.188-.367 0-.25-.202-.453-.452-.453h-2.699l-.871-2.48c-.046-.129-.148-.23-.277-.276z"
                         ></path>
                       </svg>
-                      <a
+                      <Link
                         className="board_link--10CG-"
-                        href={"/channel/" + artist.channel}
+                        to={"/channel/" + artist.channel}
                       >
                         {artist.name} Board<em className="blind">selected</em>
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </li>
