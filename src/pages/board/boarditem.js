@@ -12,9 +12,9 @@ function FMTtimestamp(timestamp) {
   // i think after 2023 when vlive shuts down,
   // we can just assume all dates will be of the second format and not require the check
   const d = dayjs(timestamp);
-  var curr_year = dayjs().year();
+  //var curr_year = dayjs().year();
   // this is intentionally == not === bc of type conversion
-  if (curr_year == d.format("YYYY")) return d.format("MMM D");
+  // if (curr_year == d.format("YYYY")) return d.format("MMM D");
   // for dates in a different year
   return d.format("MMM D, YYYY");
 }
@@ -64,7 +64,9 @@ const BoardItem = ({
                   className="thumbnail_wrap--1h0cv -mask--3jxwe"
                   style={{ width: "30px", height: "30px" }}
                 >
-                  <PostAuthorDP image_url={"/static/img/dp/"+artist.channel+ ".png"} />
+                  <PostAuthorDP
+                    image_url={"/static/img/dp/" + artist.channel + ".png"}
+                  />
                   <svg
                     width="30"
                     height="30"
