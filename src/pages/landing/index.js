@@ -4,6 +4,7 @@ import "./styles2.css";
 import "./styles3.css";
 import ArtistCard from "./artistcard.js";
 import artist_data from "../../assets/artists.json";
+import { Link } from "react-router-dom";
 
 const Landing = () => {
   const artists = artist_data;
@@ -21,9 +22,9 @@ const Landing = () => {
                   </a>
                 </h1>
               </div>
-              <a href="/about" className="HeaderView_link_sign__jZmkX">
+              <Link to="/about" className="HeaderView_link_sign__jZmkX">
                 About
-              </a>
+              </Link>
             </div>
           </header>
         </div>
