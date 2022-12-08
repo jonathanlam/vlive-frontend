@@ -26,7 +26,7 @@ const Board = () => {
 
   useEffect(() => {
     axios
-      .get(`https://vlivearchive.com/data/vods/${artist_name}_vods.json`)
+      .get(`/static/vods/${artist_name}_vods.json`)
       .then(function (response) {
         console.log(response.data);
         setVodList(response.data);
