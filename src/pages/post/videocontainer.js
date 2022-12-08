@@ -1,11 +1,12 @@
-import React from "react";
-import ReactPlayer from "react-player";
+import React, { useState, useEffect } from "react";
+//import ReactPlayer from "react-player";
 import CommentIcon from "../../components/icons/comment";
 import HeartIcon from "../../components/icons/heart";
-import subtitles_list from "../../assets/itzy_subtitles.json";
+// import subtitles_list from "../../assets/itzy_subtitles.json";
 import * as dayjs from "dayjs";
 import { Link } from "react-router-dom";
 import PostAuthorDP from "../../components/icons/postAuthorDP";
+import axios from "axios";
 
 const format_date = (timestamp) => {
   const d = dayjs(timestamp);
@@ -27,7 +28,25 @@ const VideoContainer = ({
   const comments = officialVideo.commentCount.toLocaleString();
   const video_url = `https://cdn.vlivearchive.com/file/${bucket}/${postId}/${postId}-video.mp4`;
 
-  const subtitles = subtitles_list[postId] || [];
+  const [subtitles, setSubtitles] = useState([]); // = subtitles_list[postId] || [];
+
+  useEffect(() => {
+    axios
+      .get(`https://api.vlivearchive.com/subtitles/${postId}`)
+      .then(function (response) {
+        setSubtitles(response.data);
+      })
+      .catch(function (error) {});
+  }, [postId]);
+
+  var tracks = subtitles.map((e) => ({
+    kind: "subtitles",
+    src: `https://cdn.vlivearchive.com/file/${bucket}/${e.file_name}`,
+    srcLang: e.name,
+    label: e.name,
+  }));
+
+  console.log(tracks);
 
   return (
     <>
@@ -41,7 +60,9 @@ const VideoContainer = ({
                     className="thumbnail_wrap--1h0cv -mask--3jxwe"
                     style={{ width: "30px", height: "30px" }}
                   >
-                    <PostAuthorDP image_url={"/static/img/dp/"+artist.channel+ ".png"} />
+                    <PostAuthorDP
+                      image_url={"/static/img/dp/" + artist.channel + ".png"}
+                    />
                     <svg
                       width="30"
                       height="30"
@@ -110,7 +131,7 @@ const VideoContainer = ({
           </div>
           <div className="detail_content_wrap--A4_IF">
             <div className="player_area--1jBsZ">
-              {/* <video
+              <video
                 width="100%"
                 height="400px"
                 crossorigin="anonymous"
@@ -119,17 +140,14 @@ const VideoContainer = ({
                 <source src={video_url} type="video/mp4" />
                 {subtitles.map((e) => (
                   <track
-                    src={
-                      "https://cdn.vlivearchive.com/file/vlive-itzy/" +
-                      e.file_name
-                    }
+                    src={`https://cdn.vlivearchive.com/file/${bucket}/${e.file_name}`}
                     kind="subtitles"
-                    srclang="en"
+                    srclang={e.name}
                     label={e.name}
                   ></track>
                 ))}
-              </video> */}
-              <ReactPlayer
+              </video>
+              {/* <ReactPlayer
                 url={video_url}
                 height="400px"
                 width="100%"
@@ -141,13 +159,13 @@ const VideoContainer = ({
                     },
                     tracks: subtitles.map((e) => ({
                       kind: "subtitles",
-                      src: `https://cdn.vlivearchive.com/${bucket}/${e.file_name}`,
+                      src: `https://cdn.vlivearchive.com/file/${bucket}/${e.file_name}`,
                       srcLang: e.name,
                       label: e.name,
                     })),
                   },
                 }}
-              />
+              /> */}
             </div>
             <div className="text_area--1z8D6">
               <span className="video_title--3Vd9y">
