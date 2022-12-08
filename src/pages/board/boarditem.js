@@ -64,7 +64,7 @@ const BoardItem = ({
                   className="thumbnail_wrap--1h0cv -mask--3jxwe"
                   style={{ width: "30px", height: "30px" }}
                 >
-                  <PostAuthorDP image_url={artist.image} />
+                  <PostAuthorDP image_url={"/static/img/dp/"+artist.channel+ ".png"} />
                   <svg
                     width="30"
                     height="30"
