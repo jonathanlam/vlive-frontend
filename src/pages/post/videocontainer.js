@@ -28,7 +28,7 @@ const VideoContainer = ({
   const comments = officialVideo.commentCount.toLocaleString();
   const video_url = `https://cdn.vlivearchive.com/file/${bucket}/${postId}/${postId}-video.mp4`;
 
-  const [subtitles, setSubtitles] = useState([]); // = subtitles_list[postId] || [];
+  const [subtitles, setSubtitles] = useState(null); // = subtitles_list[postId] || [];
 
   useEffect(() => {
     axios
@@ -39,14 +39,7 @@ const VideoContainer = ({
       .catch(function (error) {});
   }, [postId]);
 
-  var tracks = subtitles.map((e) => ({
-    kind: "subtitles",
-    src: `https://cdn.vlivearchive.com/file/${bucket}/${e.file_name}`,
-    srcLang: e.name,
-    label: e.name,
-  }));
-
-  console.log(tracks);
+  if (subtitles == null) return <>Loading</>;
 
   return (
     <>
