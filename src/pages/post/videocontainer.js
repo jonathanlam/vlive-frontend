@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-//import ReactPlayer from "react-player";
+import ReactPlayer from "react-player";
 import CommentIcon from "../../components/icons/comment";
 import HeartIcon from "../../components/icons/heart";
 // import subtitles_list from "../../assets/itzy_subtitles.json";
@@ -131,7 +131,7 @@ const VideoContainer = ({
           </div>
           <div className="detail_content_wrap--A4_IF">
             <div className="player_area--1jBsZ">
-              <video
+              {/* <video
                 width="100%"
                 height="400px"
                 crossorigin="anonymous"
@@ -146,8 +146,8 @@ const VideoContainer = ({
                     label={e.name}
                   ></track>
                 ))}
-              </video>
-              {/* <ReactPlayer
+              </video> */}
+              <ReactPlayer
                 url={video_url}
                 height="400px"
                 width="100%"
@@ -165,7 +165,7 @@ const VideoContainer = ({
                     })),
                   },
                 }}
-              /> */}
+              />
             </div>
             <div className="text_area--1z8D6">
               <span className="video_title--3Vd9y">
