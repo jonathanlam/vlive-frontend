@@ -2,25 +2,61 @@
   {
     "name": "ITZY",
     "channel": "itzy",
-    "image": "https://vlivedata.jonathanlamao.com/itzy.png",
-    "dp": "https://vlivedata.jonathanlamao.com/itzy.png",
     "members": "3,729,123",
     "bucket": "vlive-itzy"
   },
   {
     "name": "Weeekly(위클리)",
     "channel": "weeekly",
-    "image": "https://vlivedata.jonathanlamao.com/weeekly.png",
-    "dp": "https://vlivedata.jonathanlamao.com/weeekly.png",
     "members": "107,645",
     "bucket": "vlive-weeekly"
   },
   {
     "name": "이달의 소녀(LOONA)",
     "channel": "loona",
-    "image": "https://vlivedata.jonathanlamao.com/loona.png",
-    "dp": "https://vlivedata.jonathanlamao.com/loona.png",
     "members": "525,743",
     "bucket": "vlive-loona"
+  },
+  {
+    "name": "TWICE",
+    "channel": "twice",
+    "members": "10,526,958",
+    "bucket": "vlive-other"
+  },
+  {
+    "name": "IVE",
+    "channel": "ive",
+    "members": "551,178",
+    "bucket": "vlive-other"
+  },
+  {
+    "name": "Kep1er",
+    "channel": "kepler",
+    "members": "814,856",
+    "bucket": "vlive-other"
+  },
+  {
+    "name": "NMIXX",
+    "channel": "nmixx",
+    "members": "410,788",
+    "bucket": "vlive-other"
+  },
+  {
+    "name": "JEON SOMI (전소미)",
+    "channel": "somi",
+    "members": "300,588",
+    "bucket": "vlive-other"
+  },
+  {
+    "name": "NU'EST",
+    "channel": "nuest",
+    "members": "1,236,139",
+    "bucket": "vlive-nuest"
+  },
+  {
+    "name": "(G)I-DLE",
+    "channel": "gidle",
+    "members": "1,610,924",
+    "bucket": "vlive-gidle"
   }
 ]
