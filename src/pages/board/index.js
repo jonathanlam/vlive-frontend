@@ -9,6 +9,8 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import artist_data from "../../assets/artists.json";
 
+import InfiniteScroll from "react-infinite-scroll-component";
+
 const get_artist_data = (name) => {
   var result = artist_data.filter((obj) => {
     return obj.channel === name;
@@ -34,9 +36,14 @@ const Board = () => {
       .catch(function (error) {});
   }, [artist_name]);
 
+  const [renderNum, setRenderNum] = useState(20);
   if (vod_list == null) return "loading...";
 
-  const data2 = vod_list.slice(0, 100);
+  const data2 = vod_list.slice(0, renderNum);
+  const fetchNextData = () => {
+    setRenderNum(renderNum + 20);
+  };
+
   return (
     <>
       <div className="layout--2CJge">
@@ -134,16 +141,23 @@ const Board = () => {
                 </div>
               </div>
               <ul className="post_list--1l_nP">
-                {data2.map((board_item, key) => (
-                  <BoardItem
-                    post_id={board_item.postId}
-                    title={board_item.title}
-                    author={board_item.author}
-                    createdAt={board_item.createdAt}
-                    officialVideo={board_item.officialVideo}
-                    artist={artist}
-                  />
-                ))}
+                <InfiniteScroll
+                  dataLength={renderNum}
+                  next={fetchNextData}
+                  hasMore={true}
+                  loader={<h4>Loading...</h4>}
+                >
+                  {data2.map((board_item, key) => (
+                    <BoardItem
+                      post_id={board_item.postId}
+                      title={board_item.title}
+                      author={board_item.author}
+                      createdAt={board_item.createdAt}
+                      officialVideo={board_item.officialVideo}
+                      artist={artist}
+                    />
+                  ))}
+                </InfiniteScroll>
               </ul>
             </div>
           </div>
