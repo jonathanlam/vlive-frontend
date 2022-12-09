@@ -30,6 +30,18 @@
     "bucket": "vlive-other"
   },
   {
+    "name": "Red Velvet",
+    "channel": "redvelvet",
+    "members": "3,804,336",
+    "bucket": "vlive-other"
+  },
+  {
+    "name": "aespa(에스파)",
+    "channel": "aespa",
+    "members": "1,147,649",
+    "bucket": "vlive-other"
+  },
+  {
     "name": "Kep1er",
     "channel": "kepler",
     "members": "814,856",

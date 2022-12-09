@@ -7,6 +7,8 @@ import * as dayjs from "dayjs";
 import { Link } from "react-router-dom";
 import PostAuthorDP from "../../components/icons/postAuthorDP";
 import axios from "axios";
+// import { Player } from "react-tuby";
+// import "react-tuby/css/main.css";
 
 const format_date = (timestamp) => {
   const d = dayjs(timestamp);
@@ -159,6 +161,7 @@ const VideoContainer = ({
                   },
                 }}
               />
+              {/* <Player src={video_url} /> */}
             </div>
             <div className="text_area--1z8D6">
               <span className="video_title--3Vd9y">
