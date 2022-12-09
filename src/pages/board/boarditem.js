@@ -36,6 +36,11 @@ function formatNum(n) {
   return Math.round(n / 1e5) / 10 + "M";
 }
 
+function get_thumbnail_ext(url) {
+  if (url.endsWith(".jpg")) return ".jpg";
+  return ".png";
+}
+
 const BoardItem = ({
   post_id,
   title,
@@ -48,8 +53,8 @@ const BoardItem = ({
   const views = officialVideo.playCount;
   const likes = officialVideo.likeCount;
   const comments = officialVideo.commentCount;
-
-  const thumbnail_url = `https://cdn.vlivearchive.com/file/${artist.bucket}/${post_id}/${post_id}-thumb.jpg`;
+  const thumbnail_ext = get_thumbnail_ext(officialVideo.thumb);
+  const thumbnail_url = `https://cdn.vlivearchive.com/file/${artist.bucket}/${post_id}/${post_id}-thumb${thumbnail_ext}`;
   return (
     <>
       <li className="post_item--3Brrv -video--1s9IA">

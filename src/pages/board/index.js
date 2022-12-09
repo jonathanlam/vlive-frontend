@@ -29,7 +29,6 @@ const Board = () => {
     axios
       .get(`/static/vods/${artist_name}_vods.json`)
       .then(function (response) {
-        console.log(response.data);
         setVodList(response.data);
       })
       .catch(function (error) {});
