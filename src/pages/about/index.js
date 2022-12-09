@@ -46,6 +46,12 @@ const About = () => {
                   available on other platforms such as YouTube.
                 </p>
                 <br></br>
+                <h2>Can you add more groups?</h2>
+                <p>
+                  My email is contact@vlivearchive.com. Feel free to get in
+                  contact about adding more groups and artists.
+                </p>
+                <br></br>
                 <h2>Can I contribute?</h2>
                 <p>
                   If you have videos or subtitles not on the platform, please
