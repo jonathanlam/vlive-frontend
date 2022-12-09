@@ -60,16 +60,21 @@ const About = () => {
                 </p>
                 <br></br>
                 <p>
-                  You can also contribute by donating on Patreon (coming soon)
-                  (for non-Australian residents) or donating on BeemIt for
-                  Australians. This will help with the costs of running this
-                  website. As you can imagine, running a global site of this
-                  scale with this many videos is expensive.
+                  You can also contribute by donating on Buy Me A Coffee (for
+                  non-Australian residents) or donating on BeemIt (@jonathanlam)
+                  for Australians. My BeemIt profile picture is a snake. This
+                  will help with the costs of running this website. As you can
+                  imagine, running a global site of this scale with this many
+                  videos is expensive.
                 </p>
                 <br></br>
                 <p>
                   For software developers, the front end is open source on
-                  GitHub.
+                  GitHub at{" "}
+                  <a href="https://github.com/jonathanlam/vlive-frontend">
+                    https://github.com/jonathanlam/vlive-frontend
+                  </a>
+                  .
                 </p>
                 <br></br>
                 <h2>Will this site be taken down?</h2>
@@ -85,27 +90,29 @@ const About = () => {
             </div>
           </div>
           <div className="layout_right--2_POD">
-            <button type="button" className="channel_share_button--jm5Vl">
-              Donate via Patreon coming soon
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 18 18"
-                className="icon_button--3GCg5"
-              >
-                <g
-                  stroke="#2B2B2E"
-                  stroke-width="1.6"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+            <a href="https://buymeacoffee.com/jonathanlam">
+              <button type="button" className="channel_share_button--jm5Vl">
+                Buy Me A Coffee
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 18 18"
+                  className="icon_button--3GCg5"
                 >
-                  <path d="M14.208 6.3L16.9 3.604 14.2.9"></path>
-                  <path d="M16.17 3.605h-1.56c-3.103 0-5.619 2.516-5.619 5.62"></path>
-                  <path d="M16 9.225V14.4c0 .994-.806 1.8-1.8 1.8H3.4c-.994 0-1.8-.806-1.8-1.8V4.5c0-.994.806-1.8 1.8-1.8h2.712"></path>
-                </g>
-              </svg>
-            </button>
+                  <g
+                    stroke="#2B2B2E"
+                    stroke-width="1.6"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M14.208 6.3L16.9 3.604 14.2.9"></path>
+                    <path d="M16.17 3.605h-1.56c-3.103 0-5.619 2.516-5.619 5.62"></path>
+                    <path d="M16 9.225V14.4c0 .994-.806 1.8-1.8 1.8H3.4c-.994 0-1.8-.806-1.8-1.8V4.5c0-.994.806-1.8 1.8-1.8h2.712"></path>
+                  </g>
+                </svg>
+              </button>
+            </a>
           </div>
         </div>
       </div>
