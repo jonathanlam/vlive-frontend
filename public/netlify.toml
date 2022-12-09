@@ -1,0 +1,4 @@
+[[redirects]]
+  from = "/files/*"
+  to = "https://cdn.vlivearchive.com/files"
+  status = 200
