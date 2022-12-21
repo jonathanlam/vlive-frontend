@@ -54,7 +54,7 @@ const BoardItem = ({
   const likes = officialVideo.likeCount;
   const comments = officialVideo.commentCount;
   const thumbnail_ext = get_thumbnail_ext(officialVideo.thumb);
-  const thumbnail_url = `https://cdn.vlivearchive.com/file/${artist.bucket}/${post_id}/${post_id}-thumb${thumbnail_ext}`;
+  const thumbnail_url = `https://vlivearchive.com/files/${artist.bucket}/${post_id}/${post_id}-thumb${thumbnail_ext}`;
   return (
     <>
       <li className="post_item--3Brrv -video--1s9IA">
