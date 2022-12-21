@@ -126,6 +126,12 @@
     "bucket": "vlive-other"
   },
   {
+    "name": "Weki Meki",
+    "channel": "wekimeki",
+    "members": "345,711",
+    "bucket": "vlive-other"
+  },
+  {
     "name": "위아이 (WEi)",
     "channel": "wei",
     "members": "169,337",
@@ -135,6 +141,12 @@
     "name": "LUCY 루시",
     "channel": "lucy",
     "members": "35,912",
+    "bucket": "vlive-other"
+  },
+  {
+    "name": "CLC",
+    "channel": "clc",
+    "members": "492,579",
     "bucket": "vlive-other"
   },
   {
@@ -153,6 +165,60 @@
     "name": "THE BOYZ",
     "channel": "theboyz",
     "members": "1,497,432",
+    "bucket": "vlive-other"
+  },
+  {
+    "name": "브레이브걸스 (Brave Girls)",
+    "channel": "bravegirls",
+    "members": "38,261",
+    "bucket": "vlive-other"
+  },
+  {
+    "name": "Wanna One",
+    "channel": "wannaone",
+    "members": "3,087,888",
+    "bucket": "vlive-other"
+  },
+  {
+    "name": "GOT7",
+    "channel": "got7",
+    "members": "9,104,803",
+    "bucket": "vlive-other"
+  },
+  {
+    "name": "AB6IX",
+    "channel": "ab6ix",
+    "members": "541,272",
+    "bucket": "vlive-other"
+  },
+  {
+    "name": "Girl's Day",
+    "channel": "girlsday",
+    "members": "1,525,624",
+    "bucket": "vlive-other"
+  },
+  {
+    "name": "GROOVL1N",
+    "channel": "groovl1n",
+    "members": "17,584",
+    "bucket": "vlive-other"
+  },
+  {
+    "name": "UNIQ",
+    "channel": "uniq",
+    "members": "338,416",
+    "bucket": "vlive-other"
+  },
+  {
+    "name": "Fanxy Red",
+    "channel": "fanxyred",
+    "members": "9,057",
+    "bucket": "vlive-other"
+  },
+  {
+    "name": "YENA(최예나)",
+    "channel": "yena",
+    "members": "69,124",
     "bucket": "vlive-other"
   }
 ]
