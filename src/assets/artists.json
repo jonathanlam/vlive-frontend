@@ -244,5 +244,17 @@
     "channel": "billlie",
     "members": "75,864",
     "bucket": "vlive-other"
+  },
+  {
+    "name": "EXID",
+    "channel": "exid",
+    "members": "1,859,870",
+    "bucket": "vlive-other"
+  },
+  {
+    "name": "LIGHTSUM",
+    "channel": "lightsum",
+    "members": "33,998",
+    "bucket": "vlive-other"
   }
 ]
