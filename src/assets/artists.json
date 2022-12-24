@@ -220,5 +220,23 @@
     "channel": "yena",
     "members": "69,124",
     "bucket": "vlive-other"
+  },
+  {
+    "name": "Lapillus",
+    "channel": "lapillus",
+    "members": "25,821",
+    "bucket": "vlive-other"
+  },
+  {
+    "name": "BANANA CULTURE",
+    "channel": "bananaculture",
+    "members": "50,395",
+    "bucket": "vlive-other"
+  },
+  {
+    "name": "Stray Kids",
+    "channel": "straykids",
+    "members": "8,070,740",
+    "bucket": "vlive-other"
   }
 ]
