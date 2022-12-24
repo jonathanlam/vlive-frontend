@@ -29,7 +29,7 @@ const Board = () => {
 
   useEffect(() => {
     axios
-      .get(`/static/vods/${artist_name}_vods.json`)
+      .get(`/static/vods/vods_${artist_name}.json`)
       .then(function (response) {
         setVodList(response.data);
       })
