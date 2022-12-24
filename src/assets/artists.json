@@ -238,5 +238,11 @@
     "channel": "straykids",
     "members": "8,070,740",
     "bucket": "vlive-other"
+  },
+  {
+    "name": "Billlie 빌리",
+    "channel": "billlie",
+    "members": "75,864",
+    "bucket": "vlive-other"
   }
 ]
