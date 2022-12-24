@@ -256,5 +256,47 @@
     "channel": "lightsum",
     "members": "33,998",
     "bucket": "vlive-other"
+  },
+  {
+    "name": "CHUNG HA",
+    "channel": "chungha",
+    "members": "559,870",
+    "bucket": "vlive-other"
+  },
+  {
+    "name": "BTOB",
+    "channel": "btob",
+    "members": "2,664,944",
+    "bucket": "vlive-other"
+  },
+  {
+    "name": "PENTAGON",
+    "channel": "pentagon",
+    "members": "1,288,280",
+    "bucket": "vlive-other"
+  },
+  {
+    "name": "ICHILLIN'",
+    "channel": "ichillin",
+    "members": "5,121",
+    "bucket": "vlive-other"
+  },
+  {
+    "name": "EPEX",
+    "channel": "epex",
+    "members": "99,390",
+    "bucket": "vlive-other"
+  },
+  {
+    "name": "EPEX",
+    "channel": "epex",
+    "members": "99,390",
+    "bucket": "vlive-other"
+  },
+  {
+    "name": "MOMOLAND",
+    "channel": "momoland",
+    "members": "714,741",
+    "bucket": "vlive-other"
   }
 ]
