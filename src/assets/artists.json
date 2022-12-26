@@ -292,5 +292,11 @@
     "channel": "momoland",
     "members": "714,741",
     "bucket": "vlive-other"
+  },
+  {
+    "name": "시그니처 (cignature)",
+    "channel": "cignature",
+    "members": "21,339",
+    "bucket": "vlive-other"
   }
 ]
