@@ -1,0 +1,37 @@
+import * as dayjs from "dayjs";
+
+function FMTtimestamp(timestamp) {
+  // i think after 2023 when vlive shuts down,
+  // we can just assume all dates will be of the second format and not require the check
+  const d = dayjs(timestamp);
+  //var curr_year = dayjs().year();
+  // this is intentionally == not === bc of type conversion
+  // if (curr_year == d.format("YYYY")) return d.format("MMM D");
+  // for dates in a different year
+  return d.format("MMM D, YYYY");
+}
+
+function fmtMSS(s) {
+  var seconds = parseInt(s, 10); // don't forget the second param
+  var hours = Math.floor(seconds / 3600);
+  var minutes = Math.floor((seconds - hours * 3600) / 60);
+  seconds = seconds - hours * 3600 - minutes * 60;
+
+  if (minutes < 10) minutes = "0" + minutes;
+  if (seconds < 10) seconds = "0" + seconds;
+  if (hours === 0) return minutes + ":" + seconds;
+  return hours + ":" + minutes + ":" + seconds;
+}
+
+function formatNum(n) {
+  if (n < 1000) return n;
+  if (n < 1000000) return Math.round(n / 1000).toString() + "K";
+  return Math.round(n / 1e5) / 10 + "M";
+}
+
+function get_thumbnail_ext(url) {
+  if (url.endsWith(".jpg")) return ".jpg";
+  return ".png";
+}
+
+export { formatNum, FMTtimestamp, fmtMSS, get_thumbnail_ext };

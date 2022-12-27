@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ChannelArea from "./../../components/channelarea.js";
-import ChannelInfo from "./channelinfo.js";
+import Suggestions from "./suggestions.js";
 import VideoContainer from "./videocontainer.js";
 import LayoutTop from "../../components/layouttop.js";
 import axios from "axios";
@@ -39,6 +39,7 @@ const Post = () => {
   if (search.length === 0) return <>not found</>;
   const channel = search[0];
   const post = search[1];
+  const suggestions = search[2];
 
   const bucket_map = {
     itzy: "vlive-itzy",
@@ -108,32 +109,7 @@ const Post = () => {
             />
           </div>
           <div className="layout_right--2_POD">
-            <div className="layout_info--1d6Aj">
-              <div className="info_wrap--2kzZi">
-                <ChannelInfo />
-              </div>
-            </div>
-            <button type="button" className="channel_share_button--jm5Vl">
-              Share this channel
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 18 18"
-                className="icon_button--3GCg5"
-              >
-                <g
-                  stroke="#2B2B2E"
-                  stroke-width="1.6"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="M14.208 6.3L16.9 3.604 14.2.9"></path>
-                  <path d="M16.17 3.605h-1.56c-3.103 0-5.619 2.516-5.619 5.62"></path>
-                  <path d="M16 9.225V14.4c0 .994-.806 1.8-1.8 1.8H3.4c-.994 0-1.8-.806-1.8-1.8V4.5c0-.994.806-1.8 1.8-1.8h2.712"></path>
-                </g>
-              </svg>
-            </button>
+            <Suggestions suggestions={suggestions} bucket={bucket} />
           </div>
         </div>
       </div>
