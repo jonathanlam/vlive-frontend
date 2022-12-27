@@ -30,8 +30,8 @@ function formatNum(n) {
 }
 
 function get_thumbnail_ext(url) {
-  if (url.endsWith(".jpg")) return ".jpg";
-  return ".png";
+  if (url.charAt(url.length - 4) === ".") return url.slice(-4);
+  if (url.charAt(url.length - 5) === ".") return url.slice(-5);
 }
 
 export { formatNum, FMTtimestamp, fmtMSS, get_thumbnail_ext };
