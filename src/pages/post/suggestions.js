@@ -32,7 +32,7 @@ const SuggestionItem = ({ post, bucket }) => {
             <strong class="title_text--3DDBL">{post.title}</strong>
           </div>
           <div class="writer_info--1uIIu">
-            <em class="writer--2b2Z_">{post.author.nickname}</em>
+            <em class="writer--2b2Z_">{post.channel.channelName}</em>
             <span class="upload_time--XVzL3">
               {FMTtimestamp(post.createdAt)}
             </span>
