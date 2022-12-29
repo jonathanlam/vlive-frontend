@@ -9,20 +9,10 @@ import { Link } from "react-router-dom";
 
 import { formatNum, FMTtimestamp, fmtMSS, get_thumbnail_ext } from "./../util";
 
-const BoardItem = ({
-  post_id,
-  title,
-  author,
-  createdAt,
-  officialVideo,
-  artist,
-}) => {
-  const duration = officialVideo.playTime;
-  const views = officialVideo.playCount;
-  const likes = officialVideo.likeCount;
-  const comments = officialVideo.commentCount;
-  const thumbnail_ext = get_thumbnail_ext(officialVideo.thumb);
-  const thumbnail_url = `https://vlivearchive.com/files/${artist.bucket}/${post_id}/${post_id}-thumb${thumbnail_ext}`;
+const BoardItem = ({ post, artist }) => {
+  const postId = post.postId;
+  const thumbnail_ext = get_thumbnail_ext(post.officialVideo.thumb);
+  const thumbnail_url = `https://vlivearchive.com/files/${artist.bucket}/${postId}/${postId}-thumb${thumbnail_ext}`;
   return (
     <>
       <li className="post_item--3Brrv -video--1s9IA">
@@ -58,12 +48,12 @@ const BoardItem = ({
               </div>
               <div className="profile_info--AI-HG">
                 <div className="writer_area--DbEU6">
-                  <em className="writer--pwvK2">{author.nickname}</em>
+                  <em className="writer--pwvK2">{post.author.nickname}</em>
                 </div>
                 <div className="add_info_area--SkRFe">
                   <div className="add_info--1sRxZ">
                     <span className="upload_time--wtBj9">
-                      {FMTtimestamp(createdAt)}
+                      {FMTtimestamp(post.createdAt)}
                     </span>
                   </div>
                 </div>
@@ -71,11 +61,11 @@ const BoardItem = ({
             </Link>
           </div>
         </div>
-        <Link className="post_area--3dKbo" to={"/post/" + post_id}>
+        <Link className="post_area--3dKbo" to={"/post/" + postId}>
           <div className="post_inner--3DzQ8">
             <div className="content_area--24ZuP">
               <div className="post_title--3sJDT">
-                <strong className="title_text--3s_ZV">{title}</strong>
+                <strong className="title_text--3s_ZV">{post.title}</strong>
               </div>
               <div className="post_reaction_area--J_jVq">
                 <div className="post_reaction_wrap--2u8Kx">
@@ -83,17 +73,23 @@ const BoardItem = ({
                     <span className="reaction_item--2lEs_">
                       <span className="blind">play</span>
                       <SmallPlayIcon />
-                      <span className="text--1T5Dt">{formatNum(views)}</span>
+                      <span className="text--1T5Dt">
+                        {formatNum(post.officialVideo.playCount)}
+                      </span>
                     </span>
                     <span className="reaction_item--2lEs_">
                       <span className="blind">like</span>
                       <SmallHeartIcon />
-                      <span className="text--1T5Dt">{formatNum(likes)}</span>
+                      <span className="text--1T5Dt">
+                        {formatNum(post.officialVideo.likeCount)}
+                      </span>
                     </span>
                     <span className="reaction_item--2lEs_">
                       <span className="blind">comment</span>
                       <SmallCommentIcon />
-                      <span className="text--1T5Dt">{formatNum(comments)}</span>
+                      <span className="text--1T5Dt">
+                        {formatNum(post.officialVideo.commentCount)}
+                      </span>
                     </span>
                   </div>
                 </div>
@@ -112,7 +108,7 @@ const BoardItem = ({
                     <span className="badge_area--1JrzS -bottom--13Qfe">
                       <em className="badge--1S36U -text--kJnBn">
                         <span className="blind">playTime</span>
-                        {fmtMSS(duration)}
+                        {fmtMSS(post.officialVideo.playTime)}
                       </em>
                     </span>
                     <span className="badge_area--1JrzS -bottom_left--1fhiE">

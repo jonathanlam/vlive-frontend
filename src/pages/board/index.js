@@ -148,14 +148,7 @@ const Board = () => {
                   loader={<h4>Loading...</h4>}
                 >
                   {data2.map((board_item, key) => (
-                    <BoardItem
-                      post_id={board_item.postId}
-                      title={board_item.title}
-                      author={board_item.author}
-                      createdAt={board_item.createdAt}
-                      officialVideo={board_item.officialVideo}
-                      artist={artist}
-                    />
+                    <BoardItem post={board_item} artist={artist} />
                   ))}
                 </InfiniteScroll>
               </ul>
