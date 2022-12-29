@@ -1,7 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const LayoutTop = () => {
+  const [languageOpen, setLanguageOpen] = useState(false);
+  const [language, setLanguage] = useState("English");
+
+  const handleLanguageOpen = () => {
+    setLanguageOpen(!languageOpen);
+  };
+
+  const handleSetEng = () => {
+    setLanguage("English");
+    setLanguageOpen(!languageOpen);
+  };
+
+  const handleSetKor = () => {
+    setLanguage("한국어");
+    setLanguageOpen(!languageOpen);
+  };
+
   return (
     <>
       <div className="layout_top">
@@ -44,6 +61,7 @@ const LayoutTop = () => {
                 tabindex="0"
                 className="role_button--3yKgf text_button--2agm9"
                 aria-disabled="false"
+                onClick={handleLanguageOpen}
               >
                 <div className="tooltip_wrap--1G2tM -floating--3tUph">
                   <span className="tooltip--1_jyV">
@@ -51,7 +69,7 @@ const LayoutTop = () => {
                   </span>
                 </div>
                 <span className="selector_text--3Ccgn" aria-hidden="true">
-                  English
+                  {language}
                 </span>
                 <svg
                   width="8"
@@ -65,6 +83,46 @@ const LayoutTop = () => {
                   ></path>
                 </svg>
               </div>
+              {languageOpen && (
+                <div class="dropdown_list--TVhCC">
+                  <div class="option_list_wrap--3MIAt gnb_selector--1XcSU -right--qYC-P">
+                    <div class="option_list_inner--2clnH -max_height_none--3HSOC">
+                      <ul class="option_list--3LKju">
+                        <li class="option_item--116DI">
+                          <button
+                            type="button"
+                            className={`option_content--Emqey -button--1xdgv ${
+                              language === "English" && "is_select--2FqjR"
+                            }`}
+                            onClick={handleSetEng}
+                          >
+                            <span class="option_text--1T9v2">
+                              <span class="text">
+                                <span class="main_text--2S-lP">English</span>
+                              </span>
+                            </span>
+                          </button>
+                        </li>
+                        <li class="option_item--116DI">
+                          <button
+                            type="button"
+                            className={`option_content--Emqey -button--1xdgv ${
+                              language === "한국어" && "is_select--2FqjR"
+                            }`}
+                            onClick={handleSetKor}
+                          >
+                            <span class="option_text--1T9v2">
+                              <span class="text">
+                                <span class="main_text--2S-lP">한국어</span>
+                              </span>
+                            </span>
+                          </button>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
