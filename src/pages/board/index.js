@@ -19,6 +19,151 @@ const get_artist_data = (name) => {
   return result[0];
 };
 
+const SettingsModal = ({ setSettingsOpen }) => {
+  const handleClose = () => {
+    setSettingsOpen(false);
+  };
+  return (
+    <div class="modal--1N199">
+      <div class="modal_wrap--1CX43 is_fixed--4RKjs">
+        <div class="modal_main--Zh78R">
+          <div class="modal_header--3NePP">
+            <div class="header_inner--2mKxp">
+              <h3 class="header_title--3U_rm">Options</h3>
+            </div>
+          </div>
+          <div class="modal_content--1N9Ky">
+            <div class="content_inner--KDiaa">
+              <div class="option_list--BvEwT -modal--Zu36t">
+                <strong class="option_group--2XSCk">Sort by</strong>
+                <ul>
+                  <li class="option_item--1XsJy">
+                    <button
+                      type="button"
+                      class="option_button--xMcVN is_select--1857x"
+                    >
+                      <span class="option_button_inner--2I_uR">
+                        <span class="option_title--X6IJe">Newest</span>
+                      </span>
+                      <span class="option_check--T2a2O">
+                        <svg width="24" height="24" viewBox="0 0 24 24">
+                          <path
+                            fill="none"
+                            stroke="#8D54E6"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2.5"
+                            d="M4.5 10.553L9.699 15.45 20.25 5.5"
+                          ></path>
+                        </svg>
+                        <span class="blind">selected</span>
+                      </span>
+                    </button>
+                  </li>
+                  <li class="option_item--1XsJy">
+                    <button type="button" class="option_button--xMcVN">
+                      <span class="option_button_inner--2I_uR">
+                        <span class="option_title--X6IJe">Oldest</span>
+                      </span>
+                    </button>
+                  </li>
+                  <li class="option_item--1XsJy">
+                    <button type="button" class="option_button--xMcVN">
+                      <span class="option_button_inner--2I_uR">
+                        <span class="option_title--X6IJe">Most popular</span>
+                      </span>
+                      <p class="option_description--3sfQ4">
+                        The "Most Popular" points are updated every 6 hours.
+                      </p>
+                    </button>
+                  </li>
+                </ul>
+                <strong class="option_group--2XSCk">By year</strong>
+                <ul>
+                  <li class="option_item--1XsJy">
+                    <button
+                      type="button"
+                      class="option_button--xMcVN is_select--1857x"
+                    >
+                      <span class="option_button_inner--2I_uR">
+                        <span class="option_title--X6IJe">All Years</span>
+                      </span>
+                      <span class="option_check--T2a2O">
+                        <svg width="24" height="24" viewBox="0 0 24 24">
+                          <path
+                            fill="none"
+                            stroke="#8D54E6"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2.5"
+                            d="M4.5 10.553L9.699 15.45 20.25 5.5"
+                          ></path>
+                        </svg>
+                        <span class="blind">selected</span>
+                      </span>
+                    </button>
+                  </li>
+                  <li class="option_item--1XsJy">
+                    <button type="button" class="option_button--xMcVN">
+                      <span class="option_button_inner--2I_uR">
+                        <span class="option_title--X6IJe">2022</span>
+                      </span>
+                    </button>
+                  </li>
+                  <li class="option_item--1XsJy">
+                    <button type="button" class="option_button--xMcVN">
+                      <span class="option_button_inner--2I_uR">
+                        <span class="option_title--X6IJe">2021</span>
+                      </span>
+                    </button>
+                  </li>
+                  <li class="option_item--1XsJy">
+                    <button type="button" class="option_button--xMcVN">
+                      <span class="option_button_inner--2I_uR">
+                        <span class="option_title--X6IJe">2020</span>
+                      </span>
+                    </button>
+                  </li>
+                  <li class="option_item--1XsJy">
+                    <button type="button" class="option_button--xMcVN">
+                      <span class="option_button_inner--2I_uR">
+                        <span class="option_title--X6IJe">2019</span>
+                      </span>
+                    </button>
+                  </li>
+                  <li class="option_item--1XsJy">
+                    <button type="button" class="option_button--xMcVN">
+                      <span class="option_button_inner--2I_uR">
+                        <span class="option_title--X6IJe">2018</span>
+                      </span>
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="modal_footer--1fc6a">
+            <button
+              type="button"
+              class="footer_button--1SsnD -cancel--24aAy"
+              onClick={handleClose}
+            >
+              Cancel
+            </button>
+            <button
+              type="button"
+              class="footer_button--1SsnD -ok--1d_jI"
+              onClick={handleClose}
+            >
+              Apply
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const ShareModal = ({ group, closeFn }) => {
   const openInNewTab = (url) => {
     window.open(url, "_blank", "noreferrer");
@@ -180,6 +325,11 @@ const Board = () => {
     setShareOpen(!shareOpen);
   };
 
+  const [settingsOpen, setSettingsOpen] = useState(false);
+  const handleSettingsOpen = () => {
+    setSettingsOpen(!settingsOpen);
+  };
+
   if (vod_list == null) return "loading...";
 
   const data2 = vod_list.slice(0, renderNum);
@@ -260,6 +410,7 @@ const Board = () => {
                       tabindex="0"
                       className="role_button--3yKgf setting_button--1aIh4"
                       aria-disabled="false"
+                      onClick={handleSettingsOpen}
                     >
                       <div className="tooltip_wrap--1G2tM">
                         <div className="">
@@ -280,6 +431,9 @@ const Board = () => {
                         </span>
                       </div>
                     </div>
+                    {settingsOpen && (
+                      <SettingsModal setSettingsOpen={setSettingsOpen} />
+                    )}
                   </div>
                 </div>
               </div>

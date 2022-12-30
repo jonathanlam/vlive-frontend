@@ -10,6 +10,57 @@ import axios from "axios";
 // import { Player } from "react-tuby";
 // import "react-tuby/css/main.css";
 
+const MoreOptions = ({ handler }) => {
+  return (
+    <div class="option_list_wrap--3MIAt -button_layer--1FBE8 -right15--2e4o3">
+      <div class="option_list_inner--2clnH">
+        <ul class="option_list--3LKju">
+          <li class="option_item--116DI -copy--dVBrE">
+            <button type="button" class="option_content--Emqey -button--1xdgv">
+              <span class="option_icon--31pt9"></span>
+              <span class="option_text--1T9v2">
+                <span class="text">
+                  <span class="main_text--2S-lP">Copy URL</span>
+                </span>
+              </span>
+            </button>
+          </li>
+          <li class="option_item--116DI -share--2Esfu">
+            <button type="button" class="option_content--Emqey -button--1xdgv">
+              <span class="option_icon--31pt9"></span>
+              <span class="option_text--1T9v2">
+                <span class="text">
+                  <span class="main_text--2S-lP">Share</span>
+                </span>
+              </span>
+            </button>
+          </li>
+          <li class="option_item--116DI -bookmark--3j7B6">
+            <button type="button" class="option_content--Emqey -button--1xdgv">
+              <span class="option_icon--31pt9"></span>
+              <span class="option_text--1T9v2">
+                <span class="text">
+                  <span class="main_text--2S-lP">Bookmark</span>
+                </span>
+              </span>
+            </button>
+          </li>
+          <li class="option_item--116DI -subtitles--vBl9U">
+            <button type="button" class="option_content--Emqey -button--1xdgv">
+              <span class="option_icon--31pt9"></span>
+              <span class="option_text--1T9v2">
+                <span class="text">
+                  <span class="main_text--2S-lP">Create V Fansubs</span>
+                </span>
+              </span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  );
+};
+
 const format_date = (timestamp) => {
   const d = dayjs(timestamp);
   return d.format("YYYY.MM.DD HH:MM");
@@ -31,6 +82,7 @@ const VideoContainer = ({
   const video_url = `https://f004.backblazeb2.com/file/${bucket}/${postId}/${postId}-video.mp4`;
 
   const [subtitles, setSubtitles] = useState(null); // = subtitles_list[postId] || [];
+  const [optionsOpen, setOptionsOpen] = useState(false);
 
   useEffect(() => {
     axios
@@ -40,6 +92,10 @@ const VideoContainer = ({
       })
       .catch(function (error) {});
   }, [postId]);
+
+  const handleOptions = () => {
+    setOptionsOpen(!optionsOpen);
+  };
 
   if (subtitles == null) return <>Loading</>;
 
@@ -106,7 +162,11 @@ const VideoContainer = ({
             <div className="tool_bar--27mXh">
               <div className="tool_item--pBQZp">
                 <div className="more_option_wrap--2qHGk">
-                  <button type="button" className="button_more_option--1klaM">
+                  <button
+                    type="button"
+                    className="button_more_option--1klaM"
+                    onClick={handleOptions}
+                  >
                     <span className="blind">More</span>
                     <svg
                       width="5"
@@ -120,6 +180,7 @@ const VideoContainer = ({
                       ></path>
                     </svg>
                   </button>
+                  {optionsOpen && <MoreOptions handler={handleOptions} />}
                 </div>
               </div>
             </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { formatNum, FMTtimestamp, fmtMSS, get_thumbnail_ext } from "./../util";
 
@@ -101,6 +101,10 @@ const SuggestionItem = ({ post, bucket }) => {
 };
 
 const Suggestions = ({ suggestions, bucket }) => {
+  const [autoplay, setAutoplay] = useState(true);
+  const handleAutoplay = () => {
+    setAutoplay(!autoplay);
+  };
   return (
     <>
       <div class="video_right--3clX5">
@@ -152,15 +156,13 @@ const Suggestions = ({ suggestions, bucket }) => {
                 </button>
               </div>
             </div>
-            <div class="auto_playing--33nsO">
-              <label class="button_switch--1qhU6 is_checked--fw8U2">
+            <div class="auto_playing--33nsO" onClick={handleAutoplay}>
+              <label
+                class={`button_switch--1qhU6 ${
+                  autoplay && "is_checked--fw8U2"
+                }`}
+              >
                 <span class="button_text--3Rm8s">Autoplay</span>
-                <input
-                  type="checkbox"
-                  class="blind"
-                  name="auto playing"
-                  checked=""
-                />
               </label>
             </div>
           </div>
