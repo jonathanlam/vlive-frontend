@@ -298,5 +298,35 @@
     "channel": "cignature",
     "members": "21,339",
     "bucket": "vlive-other"
+  },
+  {
+    "name": "SHINee",
+    "channel": "shinee",
+    "members": "552,076",
+    "bucket": "vlive-other"
+  },
+  {
+    "name": "핑크판타지 / PINKFANTASY",
+    "channel": "pinkfantasy",
+    "members": "15,268",
+    "bucket": "vlive-other"
+  },
+  {
+    "name": "스누퍼(SNUPER)",
+    "channel": "snuper",
+    "members": "94,281",
+    "bucket": "vlive-other"
+  },
+  {
+    "name": "VAV",
+    "channel": "vav",
+    "members": "233,549",
+    "bucket": "vlive-other"
+  },
+  {
+    "name": "에이스(A.C.E)",
+    "channel": "ace",
+    "members": "308,965",
+    "bucket": "vlive-other"
   }
 ]
