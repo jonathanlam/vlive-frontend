@@ -328,5 +328,23 @@
     "channel": "ace",
     "members": "308,965",
     "bucket": "vlive-other"
+  },
+  {
+    "name": "Brown Eyed Girls",
+    "channel": "browneyedgirls",
+    "members": "170,802",
+    "bucket": "vlive-other"
+  },
+  {
+    "name": "SHINHWA",
+    "channel": "shinhwa",
+    "members": "224,762",
+    "bucket": "vlive-other"
+  },
+  {
+    "name": "PIXY",
+    "channel": "pixy",
+    "members": "17,807",
+    "bucket": "vlive-other"
   }
 ]
