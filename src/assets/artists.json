@@ -3,241 +3,521 @@
     "name": "ITZY",
     "channel": "itzy",
     "members": "3,760,337",
-    "bucket": "vlive-itzy"
+    "bucket": "vlive-itzy",
+    "videoCount": 346,
+    "playCount": 63979942,
+    "likeCount": 3863422463,
+    "commentCount": 19717627,
+    "fplayCount": "64.0M",
+    "flikeCount": "3.86B",
+    "fcommentCount": "19.7M"
   },
   {
     "name": "Weeekly(위클리)",
     "channel": "weeekly",
     "members": "107,731",
-    "bucket": "vlive-weeekly"
+    "bucket": "vlive-weeekly",
+    "videoCount": 112,
+    "playCount": 2874111,
+    "likeCount": 484204508,
+    "commentCount": 715036,
+    "fplayCount": "2.9M",
+    "flikeCount": "484.2M",
+    "fcommentCount": "715.0K"
   },
   {
     "name": "이달의 소녀(LOONA)",
     "channel": "loona",
     "members": "526,133",
-    "bucket": "vlive-loona"
+    "bucket": "vlive-loona",
+    "videoCount": 331,
+    "playCount": 17215874,
+    "likeCount": 2756602970,
+    "commentCount": 6258722,
+    "fplayCount": "17.2M",
+    "flikeCount": "2.76B",
+    "fcommentCount": "6.3M"
   },
   {
     "name": "TWICE",
     "channel": "twice",
     "members": "10,559,137",
-    "bucket": "vlive-other"
+    "bucket": "vlive-other",
+    "videoCount": 680,
+    "playCount": 327465968,
+    "likeCount": 22282277712,
+    "commentCount": 95930744,
+    "fplayCount": "327.5M",
+    "flikeCount": "22.28B",
+    "fcommentCount": "95.9M"
   },
   {
     "name": "IVE",
     "channel": "ive",
     "members": "573,062",
-    "bucket": "vlive-other"
+    "bucket": "vlive-other",
+    "videoCount": 49,
+    "playCount": 4794156,
+    "likeCount": 139143748,
+    "commentCount": 1559955,
+    "fplayCount": "4.8M",
+    "flikeCount": "139.1M",
+    "fcommentCount": "1.6M"
   },
   {
     "name": "Red Velvet",
     "channel": "redvelvet",
     "members": "3,813,083",
-    "bucket": "vlive-other"
+    "bucket": "vlive-other",
+    "videoCount": 77,
+    "playCount": 28828576,
+    "likeCount": 2293638094,
+    "commentCount": 8201700,
+    "fplayCount": "28.8M",
+    "flikeCount": "2.29B",
+    "fcommentCount": "8.2M"
   },
   {
     "name": "aespa(에스파)",
     "channel": "aespa",
     "members": "1,163,198",
-    "bucket": "vlive-other"
+    "bucket": "vlive-other",
+    "videoCount": 2,
+    "playCount": 3459122,
+    "likeCount": 110200992,
+    "commentCount": 536997,
+    "fplayCount": "3.5M",
+    "flikeCount": "110.2M",
+    "fcommentCount": "537.0K"
   },
   {
     "name": "Kep1er",
     "channel": "kepler",
     "members": "820,007",
-    "bucket": "vlive-other"
+    "bucket": "vlive-other",
+    "videoCount": 65,
+    "playCount": 6284974,
+    "likeCount": 384451423,
+    "commentCount": 2549857,
+    "fplayCount": "6.3M",
+    "flikeCount": "384.5M",
+    "fcommentCount": "2.5M"
   },
   {
     "name": "NMIXX",
     "channel": "nmixx",
     "members": "429,238",
-    "bucket": "vlive-other"
+    "bucket": "vlive-other",
+    "videoCount": 57,
+    "playCount": 4365065,
+    "likeCount": 133347938,
+    "commentCount": 1696071,
+    "fplayCount": "4.4M",
+    "flikeCount": "133.3M",
+    "fcommentCount": "1.7M"
   },
   {
     "name": "JEON SOMI (전소미)",
     "channel": "somi",
     "members": "301,619",
-    "bucket": "vlive-other"
+    "bucket": "vlive-other",
+    "videoCount": 20,
+    "playCount": 742197,
+    "likeCount": 231500563,
+    "commentCount": 204422,
+    "fplayCount": "742.2K",
+    "flikeCount": "231.5M",
+    "fcommentCount": "204.4K"
   },
   {
     "name": "NU'EST",
     "channel": "nuest",
     "members": "1,236,298",
-    "bucket": "vlive-nuest"
+    "bucket": "vlive-nuest",
+    "videoCount": 352,
+    "playCount": 54911008,
+    "likeCount": 17031392402,
+    "commentCount": 26242371,
+    "fplayCount": "54.9M",
+    "flikeCount": "17.03B",
+    "fcommentCount": "26.2M"
   },
   {
     "name": "(G)I-DLE",
     "channel": "gidle",
     "members": "1,652,139",
-    "bucket": "vlive-gidle"
+    "bucket": "vlive-gidle",
+    "videoCount": 346,
+    "playCount": 53914061,
+    "likeCount": 3201507702,
+    "commentCount": 13993658,
+    "fplayCount": "53.9M",
+    "flikeCount": "3.20B",
+    "fcommentCount": "14.0M"
   },
   {
     "name": "CRAVITY",
     "channel": "cravity",
     "members": "387,505",
-    "bucket": "vlive-other"
+    "bucket": "vlive-other",
+    "videoCount": 389,
+    "playCount": 20233091,
+    "likeCount": 1815475102,
+    "commentCount": 7895099,
+    "fplayCount": "20.2M",
+    "flikeCount": "1.82B",
+    "fcommentCount": "7.9M"
   },
   {
     "name": "우주소녀(WJSN)",
     "channel": "wjsn",
     "members": "503,874",
-    "bucket": "vlive-other"
+    "bucket": "vlive-other",
+    "videoCount": 622,
+    "playCount": 31210808,
+    "likeCount": 7048095821,
+    "commentCount": 7585390,
+    "fplayCount": "31.2M",
+    "flikeCount": "7.05B",
+    "fcommentCount": "7.6M"
   },
   {
     "name": "IU",
     "channel": "iu",
     "members": "4,924,452",
-    "bucket": "vlive-other"
+    "bucket": "vlive-other",
+    "videoCount": 7,
+    "playCount": 3191211,
+    "likeCount": 137932375,
+    "commentCount": 1361875,
+    "fplayCount": "3.2M",
+    "flikeCount": "137.9M",
+    "fcommentCount": "1.4M"
   },
   {
     "name": "MAMAMOO",
     "channel": "mamamoo",
     "members": "3,604,513",
-    "bucket": "vlive-other"
+    "bucket": "vlive-other",
+    "videoCount": 194,
+    "playCount": 33246043,
+    "likeCount": 1475204732,
+    "commentCount": 8862187,
+    "fplayCount": "33.2M",
+    "flikeCount": "1.48B",
+    "fcommentCount": "8.9M"
   },
   {
     "name": "MONSTA X",
     "channel": "monstax",
     "members": "4,181,257",
-    "bucket": "vlive-other"
+    "bucket": "vlive-other",
+    "videoCount": 433,
+    "playCount": 89987301,
+    "likeCount": 14139720319,
+    "commentCount": 39645085,
+    "fplayCount": "90.0M",
+    "flikeCount": "14.14B",
+    "fcommentCount": "39.6M"
   },
   {
     "name": "MAJORS",
     "channel": "majors",
     "members": "9,088",
-    "bucket": "vlive-other"
+    "bucket": "vlive-other",
+    "videoCount": 38,
+    "playCount": 199477,
+    "likeCount": 165909600,
+    "commentCount": 72789,
+    "fplayCount": "199.5K",
+    "flikeCount": "165.9M",
+    "fcommentCount": "72.8K"
   },
   {
     "name": "ANS",
     "channel": "ans",
     "members": "9,968",
-    "bucket": "vlive-other"
+    "bucket": "vlive-other",
+    "videoCount": 52,
+    "playCount": 310399,
+    "likeCount": 22323650,
+    "commentCount": 127395,
+    "fplayCount": "310.4K",
+    "flikeCount": "22.3M",
+    "fcommentCount": "127.4K"
   },
   {
     "name": "GFRIEND",
     "channel": "gfriend",
     "members": "2,060,308",
-    "bucket": "vlive-other"
+    "bucket": "vlive-other",
+    "videoCount": 393,
+    "playCount": 44925597,
+    "likeCount": 6088023866,
+    "commentCount": 16364575,
+    "fplayCount": "44.9M",
+    "flikeCount": "6.09B",
+    "fcommentCount": "16.4M"
   },
   {
     "name": "VIVIZ (비비지)",
     "channel": "viviz",
     "members": "104,856",
-    "bucket": "vlive-other"
+    "bucket": "vlive-other",
+    "videoCount": 63,
+    "playCount": 1615841,
+    "likeCount": 455614529,
+    "commentCount": 563577,
+    "fplayCount": "1.6M",
+    "flikeCount": "455.6M",
+    "fcommentCount": "563.6K"
   },
   {
     "name": "Weki Meki",
     "channel": "wekimeki",
     "members": "345,744",
-    "bucket": "vlive-other"
+    "bucket": "vlive-other",
+    "videoCount": 747,
+    "playCount": 14515490,
+    "likeCount": 1919013417,
+    "commentCount": 4856044,
+    "fplayCount": "14.5M",
+    "flikeCount": "1.92B",
+    "fcommentCount": "4.9M"
   },
   {
     "name": "위아이 (WEi)",
     "channel": "wei",
     "members": "169,983",
-    "bucket": "vlive-other"
+    "bucket": "vlive-other",
+    "videoCount": 214,
+    "playCount": 9477214,
+    "likeCount": 531920507,
+    "commentCount": 3170540,
+    "fplayCount": "9.5M",
+    "flikeCount": "531.9M",
+    "fcommentCount": "3.2M"
   },
   {
     "name": "LUCY 루시",
     "channel": "lucy",
     "members": "36,165",
-    "bucket": "vlive-other"
+    "bucket": "vlive-other",
+    "videoCount": 43,
+    "playCount": 867199,
+    "likeCount": 44074611,
+    "commentCount": 354565,
+    "fplayCount": "867.2K",
+    "flikeCount": "44.1M",
+    "fcommentCount": "354.6K"
   },
   {
     "name": "CLC",
     "channel": "clc",
     "members": "492,556",
-    "bucket": "vlive-other"
+    "bucket": "vlive-other",
+    "videoCount": 206,
+    "playCount": 7845960,
+    "likeCount": 583859506,
+    "commentCount": 1404651,
+    "fplayCount": "7.8M",
+    "flikeCount": "583.9M",
+    "fcommentCount": "1.4M"
   },
   {
     "name": "DAY6",
     "channel": "day6",
     "members": "1,428,228",
-    "bucket": "vlive-other"
+    "bucket": "vlive-other",
+    "videoCount": 360,
+    "playCount": 42072800,
+    "likeCount": 2030720757,
+    "commentCount": 13397595,
+    "fplayCount": "42.1M",
+    "flikeCount": "2.03B",
+    "fcommentCount": "13.4M"
   },
   {
     "name": "SF9",
     "channel": "sf9",
     "members": "919,292",
-    "bucket": "vlive-other"
+    "bucket": "vlive-other",
+    "videoCount": 1254,
+    "playCount": 86780152,
+    "likeCount": 12757398046,
+    "commentCount": 36478825,
+    "fplayCount": "86.8M",
+    "flikeCount": "12.76B",
+    "fcommentCount": "36.5M"
   },
   {
     "name": "THE BOYZ",
     "channel": "theboyz",
     "members": "1,504,703",
-    "bucket": "vlive-other"
+    "bucket": "vlive-other",
+    "videoCount": 1002,
+    "playCount": 164229291,
+    "likeCount": 5923679471,
+    "commentCount": 54565129,
+    "fplayCount": "164.2M",
+    "flikeCount": "5.92B",
+    "fcommentCount": "54.6M"
   },
   {
     "name": "브레이브걸스 (Brave Girls)",
     "channel": "bravegirls",
     "members": "38,261",
-    "bucket": "vlive-other"
+    "bucket": "vlive-other",
+    "videoCount": 44,
+    "playCount": 1146193,
+    "likeCount": 33075638,
+    "commentCount": 181123,
+    "fplayCount": "1.1M",
+    "flikeCount": "33.1M",
+    "fcommentCount": "181.1K"
   },
   {
     "name": "Wanna One",
     "channel": "wannaone",
     "members": "3,088,086",
-    "bucket": "vlive-other"
+    "bucket": "vlive-other",
+    "videoCount": 56,
+    "playCount": 41286747,
+    "likeCount": 5254778782,
+    "commentCount": 28770844,
+    "fplayCount": "41.3M",
+    "flikeCount": "5.25B",
+    "fcommentCount": "28.8M"
   },
   {
     "name": "GOT7",
     "channel": "got7",
     "members": "9,106,442",
-    "bucket": "vlive-other"
+    "bucket": "vlive-other",
+    "videoCount": 570,
+    "playCount": 241178138,
+    "likeCount": 15570538479,
+    "commentCount": 72973189,
+    "fplayCount": "241.2M",
+    "flikeCount": "15.57B",
+    "fcommentCount": "73.0M"
   },
   {
     "name": "AB6IX",
     "channel": "ab6ix",
     "members": "541,302",
-    "bucket": "vlive-other"
+    "bucket": "vlive-other",
+    "videoCount": 393,
+    "playCount": 34797233,
+    "likeCount": 5161464998,
+    "commentCount": 10427559,
+    "fplayCount": "34.8M",
+    "flikeCount": "5.16B",
+    "fcommentCount": "10.4M"
   },
   {
     "name": "Girl's Day",
     "channel": "girlsday",
     "members": "1,525,656",
-    "bucket": "vlive-other"
+    "bucket": "vlive-other",
+    "videoCount": 100,
+    "playCount": 7445138,
+    "likeCount": 92480473,
+    "commentCount": 2505028,
+    "fplayCount": "7.4M",
+    "flikeCount": "92.5M",
+    "fcommentCount": "2.5M"
   },
   {
     "name": "GROOVL1N",
     "channel": "groovl1n",
     "members": "17,584",
-    "bucket": "vlive-other"
+    "bucket": "vlive-other",
+    "videoCount": 70,
+    "playCount": 814404,
+    "likeCount": 78138703,
+    "commentCount": 526575,
+    "fplayCount": "814.4K",
+    "flikeCount": "78.1M",
+    "fcommentCount": "526.6K"
   },
   {
     "name": "UNIQ",
     "channel": "uniq",
     "members": "338,441",
-    "bucket": "vlive-other"
+    "bucket": "vlive-other",
+    "videoCount": 47,
+    "playCount": 1295310,
+    "likeCount": 27213617,
+    "commentCount": 506266,
+    "fplayCount": "1.3M",
+    "flikeCount": "27.2M",
+    "fcommentCount": "506.3K"
   },
   {
     "name": "Fanxy Red",
     "channel": "fanxyred",
     "members": "9,058",
-    "bucket": "vlive-other"
+    "bucket": "vlive-other",
+    "videoCount": 8,
+    "playCount": 87543,
+    "likeCount": 6431878,
+    "commentCount": 7891,
+    "fplayCount": "87.5K",
+    "flikeCount": "6.4M",
+    "fcommentCount": "7.9K"
   },
   {
     "name": "YENA(최예나)",
     "channel": "yena",
     "members": "69,683",
-    "bucket": "vlive-other"
+    "bucket": "vlive-other",
+    "videoCount": 5,
+    "playCount": 128173,
+    "likeCount": 14600869,
+    "commentCount": 77381,
+    "fplayCount": "128.2K",
+    "flikeCount": "14.6M",
+    "fcommentCount": "77.4K"
   },
   {
     "name": "Lapillus",
     "channel": "lapillus",
     "members": "25,995",
-    "bucket": "vlive-other"
+    "bucket": "vlive-other",
+    "videoCount": 21,
+    "playCount": 132988,
+    "likeCount": 13290004,
+    "commentCount": 131033,
+    "fplayCount": "133.0K",
+    "flikeCount": "13.3M",
+    "fcommentCount": "131.0K"
   },
   {
     "name": "BANANA CULTURE",
     "channel": "bananaculture",
     "members": "50,395",
-    "bucket": "vlive-other"
+    "bucket": "vlive-other",
+    "videoCount": 33,
+    "playCount": 330655,
+    "likeCount": 29684529,
+    "commentCount": 102782,
+    "fplayCount": "330.7K",
+    "flikeCount": "29.7M",
+    "fcommentCount": "102.8K"
   },
   {
     "name": "Stray Kids",
     "channel": "straykids",
     "members": "8,094,520",
-    "bucket": "vlive-other"
+    "bucket": "vlive-other",
+    "videoCount": 846,
+    "playCount": 518356536,
+    "likeCount": 34365971178,
+    "commentCount": 225519157,
+    "fplayCount": "518.4M",
+    "flikeCount": "34.37B",
+    "fcommentCount": "225.5M"
   },
   {
     "name": "Billlie 빌리",
@@ -249,85 +529,183 @@
     "name": "EXID",
     "channel": "exid",
     "members": "1,859,890",
-    "bucket": "vlive-other"
+    "bucket": "vlive-other",
+    "videoCount": 151,
+    "playCount": 8193139,
+    "likeCount": 642655293,
+    "commentCount": 1943230,
+    "fplayCount": "8.2M",
+    "flikeCount": "642.7M",
+    "fcommentCount": "1.9M"
   },
   {
     "name": "LIGHTSUM",
     "channel": "lightsum",
     "members": "34,065",
-    "bucket": "vlive-other"
+    "bucket": "vlive-other",
+    "videoCount": 116,
+    "playCount": 883021,
+    "likeCount": 43609058,
+    "commentCount": 415511,
+    "fplayCount": "883.0K",
+    "flikeCount": "43.6M",
+    "fcommentCount": "415.5K"
   },
   {
     "name": "CHUNG HA",
     "channel": "chungha",
     "members": "559,898",
-    "bucket": "vlive-other"
+    "bucket": "vlive-other",
+    "videoCount": 100,
+    "playCount": 2965494,
+    "likeCount": 235363188,
+    "commentCount": 1021704,
+    "fplayCount": "3.0M",
+    "flikeCount": "235.4M",
+    "fcommentCount": "1.0M"
   },
   {
     "name": "BTOB",
     "channel": "btob",
     "members": "2,665,341",
-    "bucket": "vlive-other"
+    "bucket": "vlive-other",
+    "videoCount": 233,
+    "playCount": 26382671,
+    "likeCount": 2436995774,
+    "commentCount": 14307685,
+    "fplayCount": "26.4M",
+    "flikeCount": "2.44B",
+    "fcommentCount": "14.3M"
   },
   {
     "name": "PENTAGON",
     "channel": "pentagon",
     "members": "1,288,515",
-    "bucket": "vlive-other"
+    "bucket": "vlive-other",
+    "videoCount": 690,
+    "playCount": 39990973,
+    "likeCount": 2400952337,
+    "commentCount": 13593441,
+    "fplayCount": "40.0M",
+    "flikeCount": "2.40B",
+    "fcommentCount": "13.6M"
   },
   {
     "name": "ICHILLIN'",
     "channel": "ichillin",
     "members": "5,217",
-    "bucket": "vlive-other"
+    "bucket": "vlive-other",
+    "videoCount": 41,
+    "playCount": 214868,
+    "likeCount": 19643069,
+    "commentCount": 62264,
+    "fplayCount": "214.9K",
+    "flikeCount": "19.6M",
+    "fcommentCount": "62.3K"
   },
   {
     "name": "EPEX",
     "channel": "epex",
     "members": "99,755",
-    "bucket": "vlive-other"
+    "bucket": "vlive-other",
+    "videoCount": 99,
+    "playCount": 1535911,
+    "likeCount": 77281997,
+    "commentCount": 1146525,
+    "fplayCount": "1.5M",
+    "flikeCount": "77.3M",
+    "fcommentCount": "1.1M"
   },
   {
     "name": "MOMOLAND",
     "channel": "momoland",
     "members": "715,001",
-    "bucket": "vlive-other"
+    "bucket": "vlive-other",
+    "videoCount": 231,
+    "playCount": 8087054,
+    "likeCount": 450392992,
+    "commentCount": 1804718,
+    "fplayCount": "8.1M",
+    "flikeCount": "450.4M",
+    "fcommentCount": "1.8M"
   },
   {
     "name": "시그니처 (cignature)",
     "channel": "cignature",
     "members": "21,356",
-    "bucket": "vlive-other"
+    "bucket": "vlive-other",
+    "videoCount": 221,
+    "playCount": 1253044,
+    "likeCount": 74557827,
+    "commentCount": 468005,
+    "fplayCount": "1.3M",
+    "flikeCount": "74.6M",
+    "fcommentCount": "468.0K"
   },
   {
     "name": "SHINee",
     "channel": "shinee",
     "members": "552,076",
-    "bucket": "vlive-other"
+    "bucket": "vlive-other",
+    "videoCount": 114,
+    "playCount": 37664115,
+    "likeCount": 3138232288,
+    "commentCount": 11615676,
+    "fplayCount": "37.7M",
+    "flikeCount": "3.14B",
+    "fcommentCount": "11.6M"
   },
   {
     "name": "핑크판타지 / PINKFANTASY",
     "channel": "pinkfantasy",
     "members": "15,268",
-    "bucket": "vlive-other"
+    "bucket": "vlive-other",
+    "videoCount": 278,
+    "playCount": 837060,
+    "likeCount": 55246402,
+    "commentCount": 417705,
+    "fplayCount": "837.1K",
+    "flikeCount": "55.2M",
+    "fcommentCount": "417.7K"
   },
   {
     "name": "스누퍼(SNUPER)",
     "channel": "snuper",
     "members": "94,281",
-    "bucket": "vlive-other"
+    "bucket": "vlive-other",
+    "videoCount": 145,
+    "playCount": 1153699,
+    "likeCount": 55392550,
+    "commentCount": 744388,
+    "fplayCount": "1.2M",
+    "flikeCount": "55.4M",
+    "fcommentCount": "744.4K"
   },
   {
     "name": "VAV",
     "channel": "vav",
     "members": "233,549",
-    "bucket": "vlive-other"
+    "bucket": "vlive-other",
+    "videoCount": 613,
+    "playCount": 6084518,
+    "likeCount": 716879378,
+    "commentCount": 3922576,
+    "fplayCount": "6.1M",
+    "flikeCount": "716.9M",
+    "fcommentCount": "3.9M"
   },
   {
     "name": "에이스(A.C.E)",
     "channel": "ace",
     "members": "308,965",
-    "bucket": "vlive-other"
+    "bucket": "vlive-other",
+    "videoCount": 548,
+    "playCount": 16474375,
+    "likeCount": 2082122937,
+    "commentCount": 10235814,
+    "fplayCount": "16.5M",
+    "flikeCount": "2.08B",
+    "fcommentCount": "10.2M"
   },
   {
     "name": "Brown Eyed Girls",
@@ -346,5 +724,24 @@
     "channel": "pixy",
     "members": "17,807",
     "bucket": "vlive-other"
+  },
+  {
+    "name": "Ha Sung Woon",
+    "channel": "hasungwoon",
+    "members": "0",
+    "bucket": "vlive-other"
+  },
+  {
+    "name": "KNK",
+    "channel": "knk",
+    "members": "0",
+    "bucket": "vlive-other",
+    "videoCount": 415,
+    "playCount": 7112332,
+    "likeCount": 466720756,
+    "commentCount": 3714011,
+    "fplayCount": "7.1M",
+    "flikeCount": "466.7M",
+    "fcommentCount": "3.7M"
   }
 ]
