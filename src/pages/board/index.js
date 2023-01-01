@@ -136,7 +136,10 @@ const SettingsModal = ({ setSettingsOpen }) => {
             <button
               type="button"
               class="footer_button--1SsnD -ok--1d_jI"
-              onClick={handleClose}
+              onClick={() => {
+                alert("this feature is coming soon.");
+                handleClose();
+              }}
             >
               Apply
             </button>
