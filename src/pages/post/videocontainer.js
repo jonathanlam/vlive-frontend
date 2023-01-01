@@ -79,7 +79,8 @@ const VideoContainer = ({
   const plays = officialVideo.playCount.toLocaleString();
   const likes = officialVideo.likeCount.toLocaleString();
   const comments = officialVideo.commentCount.toLocaleString();
-  const video_url = `https://f004.backblazeb2.com/file/${bucket}/${postId}/${postId}-video.mp4`;
+  // const video_url = `https://f004.backblazeb2.com/file/${bucket}/${postId}/${postId}-video.mp4`;
+  const video_url = `https://cdn.vlivearchive.com/file/${bucket}/${postId}/${postId}-video.mp4`;
 
   const [subtitles, setSubtitles] = useState(null); // = subtitles_list[postId] || [];
   const [optionsOpen, setOptionsOpen] = useState(false);
