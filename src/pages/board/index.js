@@ -152,6 +152,13 @@ const ShareModal = ({ group, closeFn }) => {
     window.open(url, "_blank", "noreferrer");
   };
 
+  const handleClipboardCopy = () => {
+    navigator.clipboard.writeText(
+      `https%3A//www.vlivearchive.com/channel/${group}`
+    );
+    alert("Link has been copied to clipboard");
+  };
+
   return (
     <div class="modal--1N199" style={{ display: "flex" }}>
       <div class="modal_wrap--1CX43">
@@ -192,7 +199,15 @@ const ShareModal = ({ group, closeFn }) => {
                   </button>
                 </li>
                 <li class="share_button_item--1PMKT">
-                  <button type="button" class="share_button--1MvYV -twitter">
+                  <button
+                    type="button"
+                    class="share_button--1MvYV -twitter"
+                    onClick={() =>
+                      openInNewTab(
+                        `https://twitter.com/intent/tweet?text=https%3A//www.vlivearchive.com/channel/${group}`
+                      )
+                    }
+                  >
                     <span class="share_icon--3W0Mr">
                       <span class="icon_share--3jEj- -twitter--2WR-K">
                         <svg width="18" height="14" viewBox="0 0 18 14">
@@ -239,7 +254,11 @@ const ShareModal = ({ group, closeFn }) => {
                   </button>
                 </li>
                 <li class="share_button_item--1PMKT">
-                  <button type="button" class="share_button--1MvYV -link">
+                  <button
+                    type="button"
+                    class="share_button--1MvYV -link"
+                    onClick={handleClipboardCopy}
+                  >
                     <span class="share_icon--3W0Mr">
                       <span class="icon_share--3jEj- -link--1GzJ_">
                         <svg width="19px" height="19px" viewBox="0 0 19 19">
