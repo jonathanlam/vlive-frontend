@@ -48,8 +48,7 @@ const About = () => {
                 <br></br>
                 <h2>Can you add more groups?</h2>
                 <p>
-                  My email is contact@vlivearchive.com. Feel free to get in
-                  contact about adding more groups and artists.
+                  My email is contact@vlivearchive.com.
                 </p>
                 <br></br>
                 <h2>Can I contribute?</h2>
@@ -61,11 +60,11 @@ const About = () => {
                 <br></br>
                 <p>
                   You can also contribute by donating on Buy Me A Coffee (for
-                  non-Australian residents) or donating on BeemIt (@jonathanlam)
+                  non-Australian residents at https://buymeacoffee.com/jonathanlam ) or donating on BeemIt (@jonathanlam)
                   for Australians. My BeemIt profile picture is a snake. This
                   will help with the costs of running this website. As you can
                   imagine, running a global site of this scale with this many
-                  videos is expensive.
+                  videos is expensive. It costs about $50 USD per day to run.
                 </p>
                 <br></br>
                 <p>
