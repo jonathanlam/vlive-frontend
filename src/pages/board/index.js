@@ -23,6 +23,18 @@ const SettingsModal = ({ setSettingsOpen }) => {
   const handleClose = () => {
     setSettingsOpen(false);
   };
+
+  const yearOptions = [
+    "All Years",
+    "2022",
+    "2021",
+    "2020",
+    "2019",
+    "2018",
+    "2017 and earlier",
+  ];
+  const [year, setYear] = useState("All Years");
+
   return (
     <div class="modal--1N199">
       <div class="modal_wrap--1CX43 is_fixed--4RKjs">
@@ -80,64 +92,35 @@ const SettingsModal = ({ setSettingsOpen }) => {
                 </ul>
                 <strong class="option_group--2XSCk">By year</strong>
                 <ul>
-                  <li class="option_item--1XsJy">
-                    <button
-                      type="button"
-                      class="option_button--xMcVN is_select--1857x"
-                    >
-                      <span class="option_button_inner--2I_uR">
-                        <span class="option_title--X6IJe">All Years</span>
-                      </span>
-                      <span class="option_check--T2a2O">
-                        <svg width="24" height="24" viewBox="0 0 24 24">
-                          <path
-                            fill="none"
-                            stroke="#8D54E6"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2.5"
-                            d="M4.5 10.553L9.699 15.45 20.25 5.5"
-                          ></path>
-                        </svg>
-                        <span class="blind">selected</span>
-                      </span>
-                    </button>
-                  </li>
-                  <li class="option_item--1XsJy">
-                    <button type="button" class="option_button--xMcVN">
-                      <span class="option_button_inner--2I_uR">
-                        <span class="option_title--X6IJe">2022</span>
-                      </span>
-                    </button>
-                  </li>
-                  <li class="option_item--1XsJy">
-                    <button type="button" class="option_button--xMcVN">
-                      <span class="option_button_inner--2I_uR">
-                        <span class="option_title--X6IJe">2021</span>
-                      </span>
-                    </button>
-                  </li>
-                  <li class="option_item--1XsJy">
-                    <button type="button" class="option_button--xMcVN">
-                      <span class="option_button_inner--2I_uR">
-                        <span class="option_title--X6IJe">2020</span>
-                      </span>
-                    </button>
-                  </li>
-                  <li class="option_item--1XsJy">
-                    <button type="button" class="option_button--xMcVN">
-                      <span class="option_button_inner--2I_uR">
-                        <span class="option_title--X6IJe">2019</span>
-                      </span>
-                    </button>
-                  </li>
-                  <li class="option_item--1XsJy">
-                    <button type="button" class="option_button--xMcVN">
-                      <span class="option_button_inner--2I_uR">
-                        <span class="option_title--X6IJe">2018</span>
-                      </span>
-                    </button>
-                  </li>
+                  {yearOptions.map((yearmenu, key) => (
+                    <li class="option_item--1XsJy">
+                      <button
+                        type="button"
+                        class={`option_button--xMcVN ${
+                          year === yearmenu && "is_select--1857x"
+                        }`}
+                        onClick={() => setYear(yearmenu)}
+                      >
+                        <span class="option_button_inner--2I_uR">
+                          <span class="option_title--X6IJe">{yearmenu}</span>
+                        </span>
+                        {year === yearmenu && (
+                          <span class="option_check--T2a2O">
+                            <svg width="24" height="24" viewBox="0 0 24 24">
+                              <path
+                                fill="none"
+                                stroke="#8D54E6"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2.5"
+                                d="M4.5 10.553L9.699 15.45 20.25 5.5"
+                              ></path>
+                            </svg>
+                          </span>
+                        )}
+                      </button>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
