@@ -454,7 +454,7 @@ const Board = () => {
           <div className="layout_right--2_POD">
             <div className="layout_info--1d6Aj">
               <div className="info_wrap--2kzZi">
-                <ChannelInfo />
+                <ChannelInfo artist={artist} />
               </div>
             </div>
             <button

@@ -1,12 +1,13 @@
 import React from "react";
 
-const ChannelInfo = () => {
+const ChannelInfo = ({ artist }) => {
+  const thumbnail = "/static/img/dp/" + artist.channel + ".png";
   return (
     <>
       <h4 class="info_title--jwsgZ">Channel Information</h4>
       <ul class="info_stars_list--FduI_">
         <li class="info_stars_item--lE7Vk -circle--1DV88">
-          <span class="blind">ITZY</span>
+          <span class="blind">{artist.name}</span>
           <svg
             width="22"
             height="22"
@@ -25,6 +26,7 @@ const ChannelInfo = () => {
             </mask>
             <image
               mask="url(#channel-circle-thumbnail)"
+              href={thumbnail}
               x="0"
               y="0"
               width="100%"
@@ -37,23 +39,19 @@ const ChannelInfo = () => {
       <dl class="info_list">
         <div class="info_item--7iTKe">
           <dt class="info_item_title--3jI-M">Star's Videos</dt>
-          <dd class="info_item_detail---lBwJ">927</dd>
-        </div>
-        <div class="info_item--7iTKe">
-          <dt class="info_item_title--3jI-M">Star's Posts</dt>
-          <dd class="info_item_detail---lBwJ">1K</dd>
+          <dd class="info_item_detail---lBwJ">{artist.videoCount}</dd>
         </div>
         <div class="info_item--7iTKe">
           <dt class="info_item_title--3jI-M">Play</dt>
-          <dd class="info_item_detail---lBwJ">99.4M</dd>
+          <dd class="info_item_detail---lBwJ">{artist.fplayCount}</dd>
         </div>
         <div class="info_item--7iTKe">
           <dt class="info_item_title--3jI-M">Like</dt>
-          <dd class="info_item_detail---lBwJ">5.23B</dd>
+          <dd class="info_item_detail---lBwJ">{artist.flikeCount}</dd>
         </div>
         <div class="info_item--7iTKe">
           <dt class="info_item_title--3jI-M">Comments</dt>
-          <dd class="info_item_detail---lBwJ">21.5M</dd>
+          <dd class="info_item_detail---lBwJ">{artist.fcommentCount}</dd>
         </div>
       </dl>
     </>
