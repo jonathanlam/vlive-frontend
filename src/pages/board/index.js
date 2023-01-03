@@ -19,7 +19,14 @@ const get_artist_data = (name) => {
   return result[0];
 };
 
-const SettingsModal = ({ setSettingsOpen }) => {
+const SettingsModal = ({
+  year,
+  setYear,
+  sortBy,
+  setSortBy,
+  setSettingsOpen,
+  run,
+}) => {
   const handleClose = () => {
     setSettingsOpen(false);
   };
@@ -33,7 +40,8 @@ const SettingsModal = ({ setSettingsOpen }) => {
     "2018",
     "2017 and earlier",
   ];
-  const [year, setYear] = useState("All Years");
+
+  const sortOptions = ["Newest", "Oldest", "Most popular"];
 
   return (
     <div class="modal--1N199">
@@ -49,46 +57,35 @@ const SettingsModal = ({ setSettingsOpen }) => {
               <div class="option_list--BvEwT -modal--Zu36t">
                 <strong class="option_group--2XSCk">Sort by</strong>
                 <ul>
-                  <li class="option_item--1XsJy">
-                    <button
-                      type="button"
-                      class="option_button--xMcVN is_select--1857x"
-                    >
-                      <span class="option_button_inner--2I_uR">
-                        <span class="option_title--X6IJe">Newest</span>
-                      </span>
-                      <span class="option_check--T2a2O">
-                        <svg width="24" height="24" viewBox="0 0 24 24">
-                          <path
-                            fill="none"
-                            stroke="#8D54E6"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2.5"
-                            d="M4.5 10.553L9.699 15.45 20.25 5.5"
-                          ></path>
-                        </svg>
-                        <span class="blind">selected</span>
-                      </span>
-                    </button>
-                  </li>
-                  <li class="option_item--1XsJy">
-                    <button type="button" class="option_button--xMcVN">
-                      <span class="option_button_inner--2I_uR">
-                        <span class="option_title--X6IJe">Oldest</span>
-                      </span>
-                    </button>
-                  </li>
-                  <li class="option_item--1XsJy">
-                    <button type="button" class="option_button--xMcVN">
-                      <span class="option_button_inner--2I_uR">
-                        <span class="option_title--X6IJe">Most popular</span>
-                      </span>
-                      <p class="option_description--3sfQ4">
-                        The "Most Popular" points are updated every 6 hours.
-                      </p>
-                    </button>
-                  </li>
+                  {sortOptions.map((sortmenu, key) => (
+                    <li class="option_item--1XsJy">
+                      <button
+                        type="button"
+                        class={`option_button--xMcVN ${
+                          sortBy === sortmenu && "is_select--1857x"
+                        }`}
+                        onClick={() => setSortBy(sortmenu)}
+                      >
+                        <span class="option_button_inner--2I_uR">
+                          <span class="option_title--X6IJe">{sortmenu}</span>
+                        </span>
+                        {sortBy === sortmenu && (
+                          <span class="option_check--T2a2O">
+                            <svg width="24" height="24" viewBox="0 0 24 24">
+                              <path
+                                fill="none"
+                                stroke="#8D54E6"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2.5"
+                                d="M4.5 10.553L9.699 15.45 20.25 5.5"
+                              ></path>
+                            </svg>
+                          </span>
+                        )}
+                      </button>
+                    </li>
+                  ))}
                 </ul>
                 <strong class="option_group--2XSCk">By year</strong>
                 <ul>
@@ -137,7 +134,7 @@ const SettingsModal = ({ setSettingsOpen }) => {
               type="button"
               class="footer_button--1SsnD -ok--1d_jI"
               onClick={() => {
-                alert("this feature is coming soon.");
+                run();
                 handleClose();
               }}
             >
@@ -313,15 +310,60 @@ const Board = () => {
   // scrolling lazy loading?
   const artist = get_artist_data(channel_name);
   const [vod_list, setVodList] = useState(null);
+  const [vod_list_original, setVodListOriginal] = useState(null);
+  const [year, setYear] = useState("All Years");
+  const [sortBy, setSortBy] = useState("Newest");
 
   useEffect(() => {
     axios
       .get(`/static/vods/vods_${channel_name}.json`)
       .then(function (response) {
         setVodList(response.data);
+        setVodListOriginal(response.data);
       })
       .catch(function (error) {});
   }, [channel_name]);
+
+  const run_filter = () => {
+    var updated_list = [...vod_list_original];
+
+    // filter by year
+    if (year === "2022") {
+      updated_list = updated_list.filter(
+        (vid) => vid.createdAt >= 1640995200000 && vid.createdAt < 1672531200000
+      );
+    } else if (year === "2021") {
+      updated_list = updated_list.filter(
+        (vid) => vid.createdAt >= 1609459200000 && vid.createdAt < 1640995200000
+      );
+    } else if (year === "2020") {
+      updated_list = updated_list.filter(
+        (vid) => vid.createdAt >= 1577836800000 && vid.createdAt < 1609459200000
+      );
+    } else if (year === "2019") {
+      updated_list = updated_list.filter(
+        (vid) => vid.createdAt >= 1546300800000 && vid.createdAt < 1577836800000
+      );
+    } else if (year === "2018") {
+      updated_list = updated_list.filter(
+        (vid) => vid.createdAt >= 1514764800000 && vid.createdAt < 1546300800000
+      );
+    } else if (year === "2017 and earlier") {
+      updated_list = updated_list.filter(
+        (vid) => vid.createdAt < 1514764800000
+      );
+    }
+
+    // sort by oldest, newest, most popular
+    if (sortBy === "Oldest") {
+      updated_list = updated_list.reverse();
+    } else if (sortBy === "Most popular") {
+      updated_list = updated_list.sort(
+        (a, b) => b.officialVideo.likeCount - a.officialVideo.likeCount
+      );
+    }
+    setVodList(updated_list);
+  };
 
   const [renderNum, setRenderNum] = useState(20);
 
@@ -437,7 +479,14 @@ const Board = () => {
                       </div>
                     </div>
                     {settingsOpen && (
-                      <SettingsModal setSettingsOpen={setSettingsOpen} />
+                      <SettingsModal
+                        setSettingsOpen={setSettingsOpen}
+                        run={run_filter}
+                        year={year}
+                        setYear={setYear}
+                        sortBy={sortBy}
+                        setSortBy={setSortBy}
+                      />
                     )}
                   </div>
                 </div>
