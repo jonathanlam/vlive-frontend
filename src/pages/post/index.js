@@ -42,8 +42,8 @@ const Post = () => {
   const suggestions = search[2];
 
   const bucket_map = {
-    itzy: "vlive-itzy",
-    loona: "vlive-loona",
+    itzy: "vlive-01",
+    loona: "vlive-01",
     weeekly: "vlive-weeekly",
     nuest: "vlive-nuest",
     gidle: "vlive-gidle",

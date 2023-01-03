@@ -12,7 +12,7 @@ import { formatNum, FMTtimestamp, fmtMSS, get_thumbnail_ext } from "./../util";
 const BoardItem = ({ post, artist }) => {
   const postId = post.postId;
   const thumbnail_ext = get_thumbnail_ext(post.officialVideo.thumb);
-  const thumbnail_url = `https://vlivearchive.com/files/${artist.bucket}/${postId}/${postId}-thumb${thumbnail_ext}`;
+  const thumbnail_url = `https://${artist.bucket}.vlivearchive.com/${postId}/${postId}-thumb${thumbnail_ext}`;
   return (
     <>
       <li className="post_item--3Brrv -video--1s9IA">
