@@ -1,11 +1,19 @@
 import React from "react";
 
-const HeartIcon = () => {
+const HeartIcon = ({ liked }) => {
+  // default unliked
+  var color = "none";
+  var stroke = "#2B2B2E";
+
+  if (liked) {
+    color = "#F91880";
+    stroke = "none";
+  }
   return (
     <svg width="24" height="24" viewBox="0 0 24 25">
       <path
-        fill="none"
-        stroke="#2B2B2E"
+        fill={color}
+        stroke={stroke}
         stroke-linecap="round"
         stroke-linejoin="round"
         stroke-width="1.5"

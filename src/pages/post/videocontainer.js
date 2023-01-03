@@ -10,7 +10,7 @@ import axios from "axios";
 // import { Player } from "react-tuby";
 // import "react-tuby/css/main.css";
 
-const MoreOptions = ({ handler }) => {
+const MoreOptions = ({ handler, handleDownload }) => {
   return (
     <div class="option_list_wrap--3MIAt -button_layer--1FBE8 -right15--2e4o3">
       <div class="option_list_inner--2clnH">
@@ -41,6 +41,23 @@ const MoreOptions = ({ handler }) => {
               <span class="option_text--1T9v2">
                 <span class="text">
                   <span class="main_text--2S-lP">Bookmark</span>
+                </span>
+              </span>
+            </button>
+          </li>
+          <li class="option_item--116DI -bookmark--3j7B6">
+            <button
+              type="button"
+              class="option_content--Emqey -button--1xdgv"
+              onClick={() => {
+                handleDownload();
+                handler();
+              }}
+            >
+              <span class="option_icon--31pt9"></span>
+              <span class="option_text--1T9v2">
+                <span class="text">
+                  <span class="main_text--2S-lP">Download</span>
                 </span>
               </span>
             </button>
@@ -86,6 +103,11 @@ const VideoContainer = ({
   const [subtitles, setSubtitles] = useState(null); // = subtitles_list[postId] || [];
   const [optionsOpen, setOptionsOpen] = useState(false);
 
+  const handleDownload = () => {
+    const url = `https://api.vlivearchive.com/s3/${bucket}/${postId}/${postId}-video.mp4`;
+    console.log(url);
+  };
+
   useEffect(() => {
     axios
       .get(`https://api.vlivearchive.com/subtitles/${postId}`)
@@ -98,6 +120,8 @@ const VideoContainer = ({
   const handleOptions = () => {
     setOptionsOpen(!optionsOpen);
   };
+
+  const [userLiked, setUserLiked] = useState(false);
 
   if (subtitles == null) return <>Loading</>;
 
@@ -182,7 +206,12 @@ const VideoContainer = ({
                       ></path>
                     </svg>
                   </button>
-                  {optionsOpen && <MoreOptions handler={handleOptions} />}
+                  {optionsOpen && (
+                    <MoreOptions
+                      handler={handleOptions}
+                      handleDownload={handleDownload}
+                    />
+                  )}
                 </div>
               </div>
             </div>
@@ -240,9 +269,13 @@ const VideoContainer = ({
             <div className="post_detail_reaction_info--2nGeq">
               <div className="reaction_wrap">
                 <div className="reaction_item--2jbbr">
-                  <button type="button" className="emotion_icon--27Hbu">
+                  <button
+                    type="button"
+                    className="emotion_icon--27Hbu"
+                    onClick={() => setUserLiked(!userLiked)}
+                  >
                     <span className="icon_heart--2fiB9">
-                      <HeartIcon />
+                      <HeartIcon liked={userLiked} />
                       <span className="blind">Like</span>
                     </span>
                     <span className="count--3fVHm">{likes}</span>
