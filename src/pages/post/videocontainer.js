@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import ReactPlayer from "react-player";
 import CommentIcon from "../../components/icons/comment";
 import HeartIcon from "../../components/icons/heart";
-// import subtitles_list from "../../assets/itzy_subtitles.json";
 import * as dayjs from "dayjs";
 import { Link } from "react-router-dom";
 import PostAuthorDP from "../../components/icons/postAuthorDP";
@@ -98,7 +97,7 @@ const VideoContainer = ({
   const comments = officialVideo.commentCount.toLocaleString();
   // const video_url = `https://f004.backblazeb2.com/file/${bucket}/${postId}/${postId}-video.mp4`;
   //const video_url = `https://cdn.vlivearchive.com/file/${bucket}/${postId}/${postId}-video.mp4`;
-  const video_url = `https://${bucket}.jonathanlamao.com/${postId}/${postId}-video.mp4`;
+  const video_url = `https://${bucket}.jonathanlamao.com/${channel}/${postId}/${postId}-video.mp4`;
 
   const [subtitles, setSubtitles] = useState(null); // = subtitles_list[postId] || [];
   const [optionsOpen, setOptionsOpen] = useState(false);
