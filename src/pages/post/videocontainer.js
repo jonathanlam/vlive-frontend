@@ -103,8 +103,8 @@ const VideoContainer = ({
   const [optionsOpen, setOptionsOpen] = useState(false);
 
   const handleDownload = () => {
-    const url = `https://api.vlivearchive.com/s3/${bucket}/${postId}/${postId}-video.mp4`;
-    console.log(url);
+    const url = `https://api.vlivearchive.com/s3/${bucket}/${channel}/${postId}`;
+    window.location.href = url;
   };
 
   useEffect(() => {
