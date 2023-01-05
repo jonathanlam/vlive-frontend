@@ -22,8 +22,14 @@ const Landing = () => {
                   </a>
                 </h1>
               </div>
+              <a
+                href="https://buymeacoffee.com/jonathanlam"
+                className="HeaderView_link_sign__jZmkX"
+              >
+                Donate
+              </a>
               <Link to="/about" className="HeaderView_link_sign__jZmkX">
-                About
+                About and FAQ
               </Link>
             </div>
           </header>

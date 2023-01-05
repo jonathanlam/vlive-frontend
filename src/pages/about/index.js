@@ -35,7 +35,9 @@ const About = () => {
                   At first the project was to archive my favourite artists. I
                   also prioritised artists who aren't on Weverse, artists
                   without existing archives on Google Drive or similar
-                  platforms, and nugu groups.
+                  platforms, and nugu groups. A lot of people have emailed me
+                  and messaged me to add other groups too, and I will continue
+                  to add more.
                 </p>
                 <p>
                   <br></br>
@@ -43,12 +45,17 @@ const About = () => {
                 <p>
                   At the moment, only "lives" are uploaded, so pre-recorded
                   content is not uploaded because they are usually also
-                  available on other platforms such as YouTube.
+                  available on other platforms such as YouTube. Later on, I will
+                  add deleted lives and paid content.
                 </p>
                 <br></br>
                 <h2>Can you add more groups?</h2>
                 <p>
-                  My email is contact@vlivearchive.com.
+                  My email is contact@vlivearchive.com and twitter is
+                  @snake_lam. Please note that unless you send me a link to, for
+                  example, a Google Drive, or send me videos somehow, I can't
+                  download any groups or videos that have not already been
+                  previously archived by another team.
                 </p>
                 <br></br>
                 <h2>Can I contribute?</h2>
@@ -60,11 +67,12 @@ const About = () => {
                 <br></br>
                 <p>
                   You can also contribute by donating on Buy Me A Coffee (for
-                  non-Australian residents at https://buymeacoffee.com/jonathanlam ) or donating on BeemIt (@jonathanlam)
-                  for Australians. My BeemIt profile picture is a snake. This
-                  will help with the costs of running this website. As you can
-                  imagine, running a global site of this scale with this many
-                  videos is expensive. It costs about $50 USD per day to run.
+                  non-Australian residents at
+                  https://buymeacoffee.com/jonathanlam ) or donating on BeemIt
+                  (@jonathanlam) for Australians. My BeemIt profile picture is a
+                  snake. This will help with the costs of running this website.
+                  As you can imagine, running a global site of this scale with
+                  this many videos is expensive.
                 </p>
                 <br></br>
                 <p>
@@ -76,6 +84,28 @@ const About = () => {
                   .
                 </p>
                 <br></br>
+                <h2>Do you have a team?</h2>
+                <p>
+                  No. I'm just one normal person working hard on this. In the
+                  past few days, a few people have reached out to me on Twitter
+                  and Discord providing suggestions, help with translations,
+                  sending over more archived videos etc.
+                </p>
+                <br></br>
+                <p>
+                  My dream would be to start a team where we collectively work
+                  on adding every group on here, and ditch the many Google
+                  Drives out there. Get into contact with me on email or Twitter
+                  (@snake_lam) if you have a Google Drive or similar of videos.
+                  Peer to peer (torrents) also work if you know how to do that.
+                </p>
+                <br></br>
+                <p>
+                  If you do not have enough storage in your Google Drive to
+                  upload videos to send to me, contact me and I'll give you
+                  storage.
+                </p>
+                <br></br>
                 <h2>Will this site be taken down?</h2>
                 <br></br>
                 <p>
@@ -85,6 +115,22 @@ const About = () => {
                   cannot shut down my site.
                 </p>
                 <br></br>
+                <p>
+                  I did have to take the site down temporarily (of my own
+                  accord) from 2 Jan to 4 Jan, but this was because I did not
+                  anticipate the sudden demand on the website, causing my
+                  hosting fees to skyrocket. I have now fixed these issues, so I
+                  have brought back the site.
+                </p>
+                <br></br>
+                <h2>How come I can't see videos or thumbnails or subtitles?</h2>
+                <br></br>
+                <p>
+                  I am moving all my content from one server to another server
+                  which is cheaper to run. There is a lot of content and the
+                  transfer will take a while. I expect most content to be
+                  available by 7 January.
+                </p>
               </div>
             </div>
           </div>
