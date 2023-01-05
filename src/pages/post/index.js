@@ -41,16 +41,8 @@ const Post = () => {
   const post = search[1];
   const suggestions = search[2];
 
-  const bucket_map = {
-    itzy: "vlive-01",
-    loona: "vlive-01",
-    weeekly: "vlive-weeekly",
-    nuest: "vlive-nuest",
-    gidle: "vlive-gidle",
-  };
-
-  const bucket = bucket_map[channel] || "vlive-other";
   const artist = get_artist_data(channel);
+  const bucket = artist.bucket;
 
   return (
     <>
@@ -109,7 +101,11 @@ const Post = () => {
             />
           </div>
           <div className="layout_right--2_POD">
-            <Suggestions suggestions={suggestions} bucket={bucket} />
+            <Suggestions
+              suggestions={suggestions}
+              channel={channel}
+              bucket={bucket}
+            />
           </div>
         </div>
       </div>
