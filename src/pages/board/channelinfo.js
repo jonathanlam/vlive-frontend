@@ -1,7 +1,10 @@
 import React from "react";
 
 const ChannelInfo = ({ artist }) => {
-  const thumbnail = "/static/img/dp/" + artist.channel + ".png";
+  const thumbnail =
+    "https://raw.githubusercontent.com/jonathanlam/vlive-frontend/main/public/static/img/dp/" +
+    artist.channel +
+    ".png";
   return (
     <>
       <h4 class="info_title--jwsgZ">Channel Information</h4>

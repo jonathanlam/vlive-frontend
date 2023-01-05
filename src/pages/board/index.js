@@ -316,7 +316,9 @@ const Board = () => {
 
   useEffect(() => {
     axios
-      .get(`/static/vods/vods_${channel_name}.json`)
+      .get(
+        `https://raw.githubusercontent.com/jonathanlam/vlive-frontend/main/public/static/vods/vods_${channel_name}.json`
+      )
       .then(function (response) {
         setVodList(response.data);
         setVodListOriginal(response.data);

@@ -6,7 +6,16 @@ const ChannelArea = ({ artist }) => {
     <>
       <Link to={"/channel/" + artist.channel} class="channel_link--3kVMW">
         <span class="thumbnail_wrapper--1FNPC">
-          <img src={"/static/img/dp/"+artist.channel+ ".png"} alt="" width="76" height="76" />
+          <img
+            src={
+              "https://raw.githubusercontent.com/jonathanlam/vlive-frontend/main/public/static/img/dp/" +
+              artist.channel +
+              ".png"
+            }
+            alt=""
+            width="76"
+            height="76"
+          />
         </span>
         <strong class="channel_name--1VIVt" title="ITZY">
           {artist.name}

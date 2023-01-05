@@ -28,7 +28,11 @@ const BoardItem = ({ post, artist }) => {
                   style={{ width: "30px", height: "30px" }}
                 >
                   <PostAuthorDP
-                    image_url={"/static/img/dp/" + artist.channel + ".png"}
+                    image_url={
+                      "https://raw.githubusercontent.com/jonathanlam/vlive-frontend/main/public/static/img/dp/" +
+                      artist.channel +
+                      ".png"
+                    }
                   />
                   <svg
                     width="30"

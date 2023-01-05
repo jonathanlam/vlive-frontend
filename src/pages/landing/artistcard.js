@@ -11,7 +11,11 @@ const ArtistCard = ({ artist }) => {
         >
           <div className="HomeArtistListSlotView_artist_cover_wrap__TGsNP">
             <img
-              src={"/static/img/dp/"+artist.channel + ".png"}
+              src={
+                "https://raw.githubusercontent.com/jonathanlam/vlive-frontend/main/public/static/img/dp/" +
+                artist.channel +
+                ".png"
+              }
               width="208"
               height="208"
               className="HomeArtistListSlotView_cover_img__a2krk"
@@ -33,7 +37,16 @@ const ArtistCard = ({ artist }) => {
                     height: "100%",
                   }}
                 >
-                  <img src={"/static/img/dp/"+artist.channel+ ".png"} width="43" height="43" alt="" />
+                  <img
+                    src={
+                      "https://raw.githubusercontent.com/jonathanlam/vlive-frontend/main/public/static/img/dp/" +
+                      artist.channel +
+                      ".png"
+                    }
+                    width="43"
+                    height="43"
+                    alt=""
+                  />
                 </div>
               </div>
             </div>
