@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import ReactPlayer from "react-player";
+// import ReactPlayer from "react-player";
 import CommentIcon from "../../components/icons/comment";
 import HeartIcon from "../../components/icons/heart";
 import * as dayjs from "dayjs";
