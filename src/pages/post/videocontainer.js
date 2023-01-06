@@ -6,8 +6,8 @@ import * as dayjs from "dayjs";
 import { Link } from "react-router-dom";
 import PostAuthorDP from "../../components/icons/postAuthorDP";
 import axios from "axios";
-// import { Player } from "react-tuby";
-// import "react-tuby/css/main.css";
+import { Player } from "react-tuby";
+import "react-tuby/css/main.css";
 
 const MoreOptions = ({ handler, handleDownload }) => {
   return (
@@ -237,7 +237,7 @@ const VideoContainer = ({
                   ></track>
                 ))}
               </video> */}
-              <ReactPlayer
+              {/* <ReactPlayer
                 url={video_url}
                 height="400px"
                 width="100%"
@@ -255,8 +255,14 @@ const VideoContainer = ({
                     })),
                   },
                 }}
+              /> */}
+              <Player
+                src={video_url}
+                subtitles={subtitles.map((e) => ({
+                  url: `https://vlivearchive.com/subtitles/${e.file_name}?bucket=${bucket}&channel=${channel}`,
+                  language: e.name,
+                }))}
               />
-              {/* <Player src={video_url} /> */}
             </div>
             <div className="text_area--1z8D6">
               <span className="video_title--3Vd9y">
