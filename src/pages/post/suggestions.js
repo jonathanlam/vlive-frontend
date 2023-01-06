@@ -5,7 +5,7 @@ import { formatNum, FMTtimestamp, fmtMSS, get_thumbnail_ext } from "./../util";
 const SuggestionItem = ({ channel, post, bucket }) => {
   const thumbnail_ext = get_thumbnail_ext(post.officialVideo.thumb);
   const postId = post.postId;
-  const thumbnail_url = `https://${bucket}.jonathanlamao.com/${channel}/${postId}/${postId}-thumb${thumbnail_ext}`;
+  const thumbnail_url = `https://${bucket}.vlivearchive.com/${channel}/${postId}/${postId}-thumb${thumbnail_ext}`;
   return (
     <li className="post_item--3cirM">
       <Link to={"/post/" + post.postId} class="link_post--1dXdh">
