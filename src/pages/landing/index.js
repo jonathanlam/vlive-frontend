@@ -45,7 +45,7 @@ const Landing = () => {
                   <div className="HomeComponentView_component__oey5Q">
                     <ul className="HomeArtistListSlotView_artist_list__3fPzz">
                       {artists.map((artist, key) => (
-                        <ArtistCard artist={artist} />
+                        <ArtistCard artist={artist} key={key} />
                       ))}
                     </ul>
                   </div>
