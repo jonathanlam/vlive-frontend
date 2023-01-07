@@ -5,9 +5,11 @@ import "./styles3.css";
 import ArtistCard from "./artistcard.js";
 import artist_data from "../../assets/artists.json";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Landing = () => {
   const artists = artist_data;
+  const { t } = useTranslation();
 
   return (
     <>
@@ -26,10 +28,10 @@ const Landing = () => {
                 href="https://buymeacoffee.com/jonathanlam"
                 className="HeaderView_link_sign__jZmkX"
               >
-                Donate
+                {t("donate")}
               </a>
               <Link to="/about" className="HeaderView_link_sign__jZmkX">
-                About and FAQ
+                {t("aboutandfaq")}
               </Link>
             </div>
           </header>
@@ -40,7 +42,7 @@ const Landing = () => {
               <div>
                 <div className="HomeComponentView_component_area__nBJJk">
                   <strong className="HomeComponentView_title__wTRwM">
-                    Looking for V LIVE archives?
+                    {t("lookingforvlivearchives")}
                   </strong>
                   <div className="HomeComponentView_component__oey5Q">
                     <ul className="HomeArtistListSlotView_artist_list__3fPzz">
