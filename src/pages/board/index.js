@@ -75,9 +75,9 @@ const SettingsModal = ({
                               <path
                                 fill="none"
                                 stroke="#8D54E6"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2.5"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2.5"
                                 d="M4.5 10.553L9.699 15.45 20.25 5.5"
                               ></path>
                             </svg>
@@ -107,9 +107,9 @@ const SettingsModal = ({
                               <path
                                 fill="none"
                                 stroke="#8D54E6"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2.5"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2.5"
                                 d="M4.5 10.553L9.699 15.45 20.25 5.5"
                               ></path>
                             </svg>
@@ -501,7 +501,7 @@ const Board = () => {
                   loader={<h4>Loading...</h4>}
                 >
                   {data2.map((board_item, key) => (
-                    <BoardItem post={board_item} artist={artist} />
+                    <BoardItem post={board_item} artist={artist} key={key} />
                   ))}
                 </InfiniteScroll>
               </ul>
@@ -527,10 +527,10 @@ const Board = () => {
               >
                 <g
                   stroke="#2B2B2E"
-                  stroke-width="1.6"
+                  strokeWidth="1.6"
                   fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 >
                   <path d="M14.208 6.3L16.9 3.604 14.2.9"></path>
                   <path d="M16.17 3.605h-1.56c-3.103 0-5.619 2.516-5.619 5.62"></path>

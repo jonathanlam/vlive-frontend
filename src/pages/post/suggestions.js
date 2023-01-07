@@ -128,9 +128,9 @@ const Suggestions = ({ suggestions, channel, bucket }) => {
                     <path
                       fill="none"
                       stroke="#2B2B2E"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
                       d="M.99975639 1.00068078L5.99970844 6.0501303.99975639 11.00058488"
                     ></path>
                   </svg>
@@ -146,9 +146,9 @@ const Suggestions = ({ suggestions, channel, bucket }) => {
                     <path
                       fill="none"
                       stroke="#2B2B2E"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
                       d="M.99975639 1.00068078L5.99970844 6.0501303.99975639 11.00058488"
                     ></path>
                   </svg>

@@ -146,10 +146,10 @@ const About = () => {
                 >
                   <g
                     stroke="#2B2B2E"
-                    stroke-width="1.6"
+                    strokeWidth="1.6"
                     fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   >
                     <path d="M14.208 6.3L16.9 3.604 14.2.9"></path>
                     <path d="M16.17 3.605h-1.56c-3.103 0-5.619 2.516-5.619 5.62"></path>

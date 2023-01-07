@@ -58,7 +58,7 @@ const LayoutTop = () => {
             <div className="button_wrap--3tCh_">
               <div
                 role="button"
-                tabindex="0"
+                tabIndex="0"
                 className="role_button--3yKgf text_button--2agm9"
                 aria-disabled="false"
                 onClick={handleLanguageOpen}
