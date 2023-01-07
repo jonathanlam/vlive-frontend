@@ -1,21 +1,22 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const LayoutTop = () => {
   const [languageOpen, setLanguageOpen] = useState(false);
-  const [language, setLanguage] = useState("English");
+  const { t, i18n } = useTranslation();
 
   const handleLanguageOpen = () => {
     setLanguageOpen(!languageOpen);
   };
 
   const handleSetEng = () => {
-    setLanguage("English");
+    i18n.changeLanguage("en");
     setLanguageOpen(!languageOpen);
   };
 
   const handleSetKor = () => {
-    setLanguage("한국어");
+    i18n.changeLanguage("kr");
     setLanguageOpen(!languageOpen);
   };
 
@@ -52,7 +53,7 @@ const LayoutTop = () => {
             <div className="button_wrap--3tCh_"></div>
             <div className="button_wrap--3tCh_">
               <button type="button" className="text_button--2agm9">
-                Login
+                {t("login")}
               </button>
             </div>
             <div className="button_wrap--3tCh_">
@@ -69,7 +70,7 @@ const LayoutTop = () => {
                   </span>
                 </div>
                 <span className="selector_text--3Ccgn" aria-hidden="true">
-                  {language}
+                  {t("language")}
                 </span>
                 <svg
                   width="8"
@@ -92,8 +93,8 @@ const LayoutTop = () => {
                           <button
                             type="button"
                             className={`option_content--Emqey -button--1xdgv ${
-                              language === "English" && "is_select--2FqjR"
-                            }`}
+                              t("language") === "English" && "is_select--2FqjR"
+                              }`}
                             onClick={handleSetEng}
                           >
                             <span className="option_text--1T9v2">
@@ -107,8 +108,8 @@ const LayoutTop = () => {
                           <button
                             type="button"
                             className={`option_content--Emqey -button--1xdgv ${
-                              language === "한국어" && "is_select--2FqjR"
-                            }`}
+                              t("language") === "한국어" && "is_select--2FqjR"
+                              }`}
                             onClick={handleSetKor}
                           >
                             <span className="option_text--1T9v2">
