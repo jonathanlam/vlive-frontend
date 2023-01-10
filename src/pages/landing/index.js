@@ -5,11 +5,11 @@ import "./styles3.css";
 import ArtistCard from "./artistcard.js";
 import artist_data from "../../assets/artists.json";
 // import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
+//import { useTranslation } from "react-i18next";
 
 const Landing = () => {
   const artists = artist_data;
-  const { t } = useTranslation();
+  //const { t } = useTranslation();
 
   return (
     <>
