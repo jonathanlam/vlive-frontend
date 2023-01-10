@@ -1,0 +1,89 @@
+div.heart {
+  width: 30px;
+  height: 30px;
+  opacity: 1;
+  position: absolute;
+  bottom: 0;
+}
+div.heart i {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 1;
+}
+
+@keyframes flowOne {
+  0% {
+    opacity: 0;
+    bottom: 0;
+    left: 14%;
+  }
+  40% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+    left: 0;
+  }
+  60% {
+    opacity: 0.2;
+  }
+  80% {
+    bottom: 80%;
+  }
+  100% {
+    opacity: 0;
+    bottom: 100%;
+    left: 18%;
+  }
+}
+@keyframes flowTwo {
+  0% {
+    opacity: 0;
+    bottom: 0;
+    left: 0;
+  }
+  40% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+    left: 11%;
+  }
+  60% {
+    opacity: 0.2;
+  }
+  80% {
+    bottom: 60%;
+  }
+  100% {
+    opacity: 0;
+    bottom: 80%;
+    left: 0;
+  }
+}
+@keyframes flowThree {
+  0% {
+    opacity: 0;
+    bottom: 0;
+    left: 0;
+  }
+  40% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+    left: 30%;
+  }
+  60% {
+    opacity: 0.2;
+  }
+  80% {
+    bottom: 70%;
+  }
+  100% {
+    opacity: 0;
+    bottom: 90%;
+    left: 0;
+  }
+}

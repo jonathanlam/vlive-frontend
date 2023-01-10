@@ -9,7 +9,11 @@ import { useParams } from "react-router";
 
 import artist_data from "../../assets/artists.json";
 
+import Fab from "@mui/material/Fab";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+
 import "../styles.css";
+import "./heart.css";
 
 const get_artist_data = (name) => {
   var result = artist_data.filter((obj) => {
@@ -18,6 +22,86 @@ const get_artist_data = (name) => {
   if (result.length === 0) return null;
   return result[0];
 };
+
+const Heart = () => {
+  const flows = ["flowOne", "flowTwo", "flowThree"];
+
+  const colours = [
+    "#847bb9",
+    "#FF5733",
+    "#fce473",
+    "#f68b39",
+    "#ed6c63",
+    "#97cd76",
+    "#35b1d1",
+  ];
+  const colour = colours[Math.floor(Math.random() * 6)];
+  const ttl = (Math.random() * 2 + 1.2).toFixed(1) * 900;
+
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setVisible(false);
+    }, ttl);
+    return () => clearTimeout(timer);
+  }, []);
+
+  const flow = flows[Math.floor(Math.random() * 3)];
+
+  if (!visible) return <div></div>;
+
+  return (
+    <div
+      className="heart"
+      style={{
+        color: colour,
+        fontSize: Math.floor(Math.random() * (50 - 22) + 22),
+        animation: `${flow} 3s linear`,
+      }}
+    >
+      <i className="fa fa-heart"></i>
+    </div>
+  );
+};
+
+const Hearts = () => {
+  const [hearts, setHearts] = useState([<Heart />]);
+
+  function addHeart() {
+    setHearts([...hearts, <Heart />]);
+  }
+
+  return (
+    <>
+      <Fab
+        size="medium"
+        sx={{
+          backgroundColor: "#ee0520",
+          //color: "danger",
+          position: "fixed",
+          bottom: 20,
+          right: 20,
+          display: { xs: "block", md: "none" },
+        }}
+        onClick={addHeart}
+      >
+        <FavoriteIcon />
+      </Fab>
+      <div
+        style={{
+          height: "600px",
+          position: "fixed",
+          bottom: 20,
+          right: 80,
+        }}
+      >
+        {hearts.map((h, key) => h)}
+      </div>
+    </>
+  );
+};
+
 const Post = () => {
   const { post_id } = useParams();
   //const search = data.filter((board_item) => board_item.postId === post_id);
@@ -107,6 +191,8 @@ const Post = () => {
               bucket={bucket}
             />
           </div>
+
+          <Hearts />
         </div>
       </div>
     </>
