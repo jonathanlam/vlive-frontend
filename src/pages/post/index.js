@@ -36,11 +36,11 @@ const Heart = () => {
     "#35b1d1",
   ];
   const colour = colours[Math.floor(Math.random() * 6)];
-  const ttl = (Math.random() * 2 + 1.2).toFixed(1) * 900;
 
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
+    const ttl = (Math.random() * 2 + 1.2).toFixed(1) * 900;
     const timer = setTimeout(() => {
       setVisible(false);
     }, ttl);
