@@ -1,6 +1,4 @@
 [[redirects]]
   from = "/subtitles/*"
-  to = "https://:bucket.vlivearchive.com/:channel:splat"
-  bucket = {bucket = ":bucket"}
-  channel = {channel = ":channel"}
+  to = "https://vlivearchive.com/subtitles/:splat"
   status = 200
