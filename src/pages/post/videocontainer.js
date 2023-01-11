@@ -90,6 +90,7 @@ const VideoContainer = ({
   author,
   channel,
   artist,
+  alt_url,
 }) => {
   // format as raw number but with commas
   const plays = officialVideo.playCount.toLocaleString();
@@ -98,7 +99,8 @@ const VideoContainer = ({
   // const video_url = `https://f004.backblazeb2.com/file/${bucket}/${postId}/${postId}-video.mp4`;
   //const video_url = `https://cdn.vlivearchive.com/file/${bucket}/${postId}/${postId}-video.mp4`;
   //const video_url = `https://${bucket}.jonathanlamao.com/${channel}/${postId}/${postId}-video.mp4`;
-  const video_url = `https://api.vlivearchive.com/s3/${bucket}/${channel}/${postId}`;
+  var video_url = `https://api.vlivearchive.com/s3/${bucket}/${channel}/${postId}`;
+  if (alt_url) video_url = alt_url;
 
   const [subtitles, setSubtitles] = useState(null); // = subtitles_list[postId] || [];
   const [optionsOpen, setOptionsOpen] = useState(false);
