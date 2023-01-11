@@ -1,4 +1,0 @@
-[[redirects]]
-  from = "/subtitles/*"
-  to = "https://vlivearchive.com/subtitles/:splat"
-  status = 200
