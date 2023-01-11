@@ -250,7 +250,7 @@ const VideoContainer = ({
                     },
                     tracks: subtitles.map((e) => ({
                       kind: "subtitles",
-                      src: `https://vlivearchive.com/subtitles/${e.file_name}?bucket=${bucket}&channel=${channel}`,
+                      src: `/subtitles/${e.file_name}?bucket=${bucket}&channel=${channel}`,
                       srcLang: e.name,
                       label: e.name,
                     })),
