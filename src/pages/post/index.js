@@ -66,7 +66,7 @@ const Heart = () => {
 };
 
 const Hearts = () => {
-  const [hearts, setHearts] = useState([<Heart />]);
+  const [hearts, setHearts] = useState([]);
 
   function addHeart() {
     setHearts([...hearts, <Heart />]);
@@ -124,6 +124,7 @@ const Post = () => {
   const channel = search[0];
   const post = search[1];
   const suggestions = search[2];
+  const alt_url = search[3];
 
   const artist = get_artist_data(channel);
   const bucket = artist.bucket;
@@ -182,6 +183,7 @@ const Post = () => {
               author={post.author}
               channel={channel}
               artist={artist}
+              alt_url={alt_url}
             />
           </div>
           <div className="layout_right--2_POD">
