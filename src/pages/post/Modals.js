@@ -5,10 +5,11 @@ const SubtitlesModal = ({ subs, setSubsOpen, bucket, channel }) => {
     setSubsOpen(false);
   }
 
-  function handleDownload(e) {
-    window.open(
-      `https://vlivearchive.com/subtitles/${e.file_name}?bucket=${bucket}&channel=${channel}`
-    );
+  function handleDownload(e, srt) {
+    // set srt = 0 for vtt files, or srt=1 for srt files
+    var url = `https://vlivearchive.com/subtitles/${e.file_name}?bucket=${bucket}&channel=${channel}`;
+    if (srt === 1) url = url.replaceAll("vtt", "srt");
+    window.open(url);
   }
 
   return (
@@ -23,13 +24,30 @@ const SubtitlesModal = ({ subs, setSubsOpen, bucket, channel }) => {
           <div class="modal_content--1N9Ky">
             <div class="content_inner--KDiaa">
               <div class="option_list--BvEwT -modal--Zu36t">
+                <strong class="option_group--2XSCk">VTT format</strong>
                 <ul>
                   {subs.map((sub, key) => (
                     <li class="option_item--1XsJy">
                       <button
                         type="button"
                         class="option_button--xMcVN"
-                        onClick={() => handleDownload(sub)}
+                        onClick={() => handleDownload(sub, 0)}
+                      >
+                        <span class="option_button_inner--2I_uR">
+                          <span class="option_title--X6IJe">{sub.name}</span>
+                        </span>
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+                <strong class="option_group--2XSCk">SRT format</strong>
+                <ul>
+                  {subs.map((sub, key) => (
+                    <li class="option_item--1XsJy">
+                      <button
+                        type="button"
+                        class="option_button--xMcVN"
+                        onClick={() => handleDownload(sub, 1)}
                       >
                         <span class="option_button_inner--2I_uR">
                           <span class="option_title--X6IJe">{sub.name}</span>
