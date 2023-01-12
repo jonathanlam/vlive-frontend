@@ -6,76 +6,9 @@ import * as dayjs from "dayjs";
 import { Link } from "react-router-dom";
 import PostAuthorDP from "../../components/icons/postAuthorDP";
 import axios from "axios";
+import { SubtitlesModal, MoreOptions } from "./Modals";
 // import { Player } from "react-tuby";
 // import "react-tuby/css/main.css";
-
-const MoreOptions = ({ handler, handleDownload }) => {
-  return (
-    <div class="option_list_wrap--3MIAt -button_layer--1FBE8 -right15--2e4o3">
-      <div class="option_list_inner--2clnH">
-        <ul class="option_list--3LKju">
-          <li class="option_item--116DI -copy--dVBrE">
-            <button type="button" class="option_content--Emqey -button--1xdgv">
-              <span class="option_icon--31pt9"></span>
-              <span class="option_text--1T9v2">
-                <span class="text">
-                  <span class="main_text--2S-lP">Copy URL</span>
-                </span>
-              </span>
-            </button>
-          </li>
-          <li class="option_item--116DI -share--2Esfu">
-            <button type="button" class="option_content--Emqey -button--1xdgv">
-              <span class="option_icon--31pt9"></span>
-              <span class="option_text--1T9v2">
-                <span class="text">
-                  <span class="main_text--2S-lP">Share</span>
-                </span>
-              </span>
-            </button>
-          </li>
-          <li class="option_item--116DI -bookmark--3j7B6">
-            <button type="button" class="option_content--Emqey -button--1xdgv">
-              <span class="option_icon--31pt9"></span>
-              <span class="option_text--1T9v2">
-                <span class="text">
-                  <span class="main_text--2S-lP">Bookmark</span>
-                </span>
-              </span>
-            </button>
-          </li>
-          <li class="option_item--116DI -bookmark--3j7B6">
-            <button
-              type="button"
-              class="option_content--Emqey -button--1xdgv"
-              onClick={() => {
-                handleDownload();
-                handler();
-              }}
-            >
-              <span class="option_icon--31pt9"></span>
-              <span class="option_text--1T9v2">
-                <span class="text">
-                  <span class="main_text--2S-lP">Download</span>
-                </span>
-              </span>
-            </button>
-          </li>
-          <li class="option_item--116DI -subtitles--vBl9U">
-            <button type="button" class="option_content--Emqey -button--1xdgv">
-              <span class="option_icon--31pt9"></span>
-              <span class="option_text--1T9v2">
-                <span class="text">
-                  <span class="main_text--2S-lP">Create V Fansubs</span>
-                </span>
-              </span>
-            </button>
-          </li>
-        </ul>
-      </div>
-    </div>
-  );
-};
 
 const format_date = (timestamp) => {
   const d = dayjs(timestamp);
@@ -104,6 +37,7 @@ const VideoContainer = ({
 
   const [subtitles, setSubtitles] = useState(null); // = subtitles_list[postId] || [];
   const [optionsOpen, setOptionsOpen] = useState(false);
+  const [subsOpen, setSubsOpen] = useState(false);
 
   const handleDownload = () => {
     const url = `https://api.vlivearchive.com/s3/${bucket}/${channel}/${postId}`;
@@ -119,9 +53,13 @@ const VideoContainer = ({
       .catch(function (error) {});
   }, [postId]);
 
-  const handleOptions = () => {
+  function handleOptions() {
     setOptionsOpen(!optionsOpen);
-  };
+  }
+
+  function handleSubs() {
+    setSubsOpen(!subsOpen);
+  }
 
   const [userLiked, setUserLiked] = useState(false);
 
@@ -216,6 +154,15 @@ const VideoContainer = ({
                     <MoreOptions
                       handler={handleOptions}
                       handleDownload={handleDownload}
+                      handleSubs={handleSubs}
+                    />
+                  )}
+                  {subsOpen && (
+                    <SubtitlesModal
+                      subs={subtitles}
+                      setSubsOpen={setSubsOpen}
+                      bucket={bucket}
+                      channel={channel}
                     />
                   )}
                 </div>
