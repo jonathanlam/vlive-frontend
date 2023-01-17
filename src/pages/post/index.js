@@ -189,7 +189,7 @@ const Post = () => {
           </div>
 
           <Hearts />
-          <Adsense client="ca-pub-3850710731106550" slot="7259870550" />
+          <Adsense client="ca-pub-3850710731106550" slot="6249513304" />
         </div>
       </div>
     </>
