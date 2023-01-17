@@ -11,6 +11,7 @@ import artist_data from "../../assets/artists.json";
 
 import Fab from "@mui/material/Fab";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import { Adsense } from "@ctrl/react-adsense";
 
 import "../styles.css";
 import "./heart.css";
@@ -127,7 +128,6 @@ const Post = () => {
   const alt_url = search[3];
 
   const artist = get_artist_data(channel);
-  const bucket = artist.bucket;
 
   return (
     <>
@@ -179,22 +179,17 @@ const Post = () => {
               title={post.title}
               postId={post.postId}
               officialVideo={post.officialVideo}
-              bucket={bucket}
               author={post.author}
-              channel={channel}
               artist={artist}
               alt_url={alt_url}
             />
           </div>
           <div className="layout_right--2_POD">
-            <Suggestions
-              suggestions={suggestions}
-              channel={channel}
-              bucket={bucket}
-            />
+            <Suggestions suggestions={suggestions} artist={artist} />
           </div>
 
           <Hearts />
+          <Adsense client="ca-pub-3850710731106550" slot="7259870550" />
         </div>
       </div>
     </>

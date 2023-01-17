@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import PostAuthorDP from "../../components/icons/postAuthorDP";
 import axios from "axios";
 import { SubtitlesModal, MoreOptions } from "./Modals";
+import { get_thumbnail_ext } from "./../util";
 // import { Player } from "react-tuby";
 // import "react-tuby/css/main.css";
 
@@ -19,9 +20,7 @@ const VideoContainer = ({
   postId,
   title,
   officialVideo,
-  bucket,
   author,
-  channel,
   artist,
   alt_url,
 }) => {
@@ -32,15 +31,19 @@ const VideoContainer = ({
   // const video_url = `https://f004.backblazeb2.com/file/${bucket}/${postId}/${postId}-video.mp4`;
   //const video_url = `https://cdn.vlivearchive.com/file/${bucket}/${postId}/${postId}-video.mp4`;
   //const video_url = `https://${bucket}.jonathanlamao.com/${channel}/${postId}/${postId}-video.mp4`;
-  var video_url = `https://api.vlivearchive.com/s3/${bucket}/${channel}/${postId}`;
+  var video_url = `https://api.vlivearchive.com/s3/${artist.bucket}/${artist.channel}/${postId}`;
   if (alt_url) video_url = alt_url;
+
+  //const thumbnail_url = `https://${artist.bucket}.vlivearchive.com/${artist.channel}/${postId}/${postId}-thumb${thumbnail_ext}`;
+  const thumbnail_ext = get_thumbnail_ext(officialVideo.thumb);
+  const thumbnail_url = `https://${artist.bucket}.vlivearchive.com/${artist.channel}/${postId}/${postId}-thumb${thumbnail_ext}`;
 
   const [subtitles, setSubtitles] = useState(null); // = subtitles_list[postId] || [];
   const [optionsOpen, setOptionsOpen] = useState(false);
   const [subsOpen, setSubsOpen] = useState(false);
 
   const handleDownload = () => {
-    const url = `https://api.vlivearchive.com/s3/${bucket}/${channel}/${postId}`;
+    const url = `https://api.vlivearchive.com/s3/${artist.bucket}/${artist.channel}/${postId}`;
     window.location.href = url;
   };
 
@@ -72,7 +75,7 @@ const VideoContainer = ({
           <div className="post_header--7D-xg -video--3Fg6w">
             <div className="writer_info--3Sw41">
               <div className="writer_thumbnail_wrap--JM7vB">
-                <Link to={"/channel/" + channel}>
+                <Link to={"/channel/" + artist.channel}>
                   <div
                     className="thumbnail_wrap--1h0cv -mask--3jxwe"
                     style={{ width: "30px", height: "30px" }}
@@ -117,7 +120,7 @@ const VideoContainer = ({
                 <div className="writer_info_textarea--1rXDF">
                   <Link
                     className="writer_link--3fEhm"
-                    to={"/channel/" + channel}
+                    to={"/channel/" + artist.channel}
                   >
                     <span className="text--3pN_c">{author.nickname}</span>
                   </Link>
@@ -155,14 +158,14 @@ const VideoContainer = ({
                       handler={handleOptions}
                       handleDownload={handleDownload}
                       handleSubs={handleSubs}
+                      thumbnail_url={thumbnail_url}
                     />
                   )}
                   {subsOpen && (
                     <SubtitlesModal
                       subs={subtitles}
                       setSubsOpen={setSubsOpen}
-                      bucket={bucket}
-                      channel={channel}
+                      artist={artist}
                     />
                   )}
                 </div>
@@ -199,7 +202,7 @@ const VideoContainer = ({
                     },
                     tracks: subtitles.map((e) => ({
                       kind: "subtitles",
-                      src: `/subtitles/${e.file_name}?bucket=${bucket}&channel=${channel}`,
+                      src: `/subtitles/${e.file_name}?bucket=${artist.bucket}&channel=${artist.channel}`,
                       srcLang: e.name,
                       label: e.name,
                     })),

@@ -1,13 +1,13 @@
 import React from "react";
 
-const SubtitlesModal = ({ subs, setSubsOpen, bucket, channel }) => {
+const SubtitlesModal = ({ subs, setSubsOpen, artist }) => {
   function handleClose() {
     setSubsOpen(false);
   }
 
   function handleDownload(e, srt) {
     // set srt = 0 for vtt files, or srt=1 for srt files
-    var url = `https://vlivearchive.com/subtitles/${e.file_name}?bucket=${bucket}&channel=${channel}`;
+    var url = `https://vlivearchive.com/subtitles/${e.file_name}?bucket=${artist.bucket}&channel=${artist.channel}`;
     if (srt === 1) url = url.replaceAll("vtt", "srt");
     window.open(url);
   }
@@ -74,7 +74,16 @@ const SubtitlesModal = ({ subs, setSubsOpen, bucket, channel }) => {
   );
 };
 
-const MoreOptions = ({ handler, handleDownload, handleSubs }) => {
+const MoreOptions = ({
+  handler,
+  handleDownload,
+  handleSubs,
+  thumbnail_url,
+}) => {
+  function downloadThumbnail() {
+    window.open(thumbnail_url);
+  }
+
   return (
     <div class="option_list_wrap--3MIAt -button_layer--1FBE8 -right15--2e4o3">
       <div class="option_list_inner--2clnH">
@@ -121,7 +130,7 @@ const MoreOptions = ({ handler, handleDownload, handleSubs }) => {
               <span class="option_icon--31pt9"></span>
               <span class="option_text--1T9v2">
                 <span class="text">
-                  <span class="main_text--2S-lP">Download</span>
+                  <span class="main_text--2S-lP">Download Video</span>
                 </span>
               </span>
             </button>
@@ -139,6 +148,24 @@ const MoreOptions = ({ handler, handleDownload, handleSubs }) => {
               <span class="option_text--1T9v2">
                 <span class="text">
                   <span class="main_text--2S-lP">Download Subtitles</span>
+                </span>
+              </span>
+            </button>
+          </li>
+          <li class="option_item--116DI -subtitles--vBl9U">
+            <button
+              type="button"
+              class="option_content--Emqey -button--1xdgv"
+              onClick={() => {
+                downloadThumbnail();
+                handler();
+              }}
+            >
+              <span class="option_icon--31pt9"></span>
+              <span class="option_text--1T9v2">
+                {/* FIX ICON BEFORE COMMITTING */}
+                <span class="text">
+                  <span class="main_text--2S-lP">Download Thumbnail</span>
                 </span>
               </span>
             </button>

@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { formatNum, FMTtimestamp, fmtMSS, get_thumbnail_ext } from "./../util";
 
-const SuggestionItem = ({ channel, post, bucket }) => {
+const SuggestionItem = ({ post, artist }) => {
   const thumbnail_ext = get_thumbnail_ext(post.officialVideo.thumb);
   const postId = post.postId;
-  const thumbnail_url = `https://${bucket}.vlivearchive.com/${channel}/${postId}/${postId}-thumb${thumbnail_ext}`;
+  const thumbnail_url = `https://${artist.bucket}.vlivearchive.com/${artist.channel}/${postId}/${postId}-thumb${thumbnail_ext}`;
   return (
     <li className="post_item--3cirM">
       <Link to={"/post/" + post.postId} class="link_post--1dXdh">
@@ -100,7 +100,7 @@ const SuggestionItem = ({ channel, post, bucket }) => {
   );
 };
 
-const Suggestions = ({ suggestions, channel, bucket }) => {
+const Suggestions = ({ suggestions, artist }) => {
   const [autoplay, setAutoplay] = useState(true);
   const handleAutoplay = () => {
     setAutoplay(!autoplay);
@@ -168,7 +168,7 @@ const Suggestions = ({ suggestions, channel, bucket }) => {
           </div>
           <ul class="video_post_list--3xf_l">
             {suggestions.map((post, key) => (
-              <SuggestionItem channel={channel} post={post} bucket={bucket} />
+              <SuggestionItem post={post} artist={artist} />
             ))}
           </ul>
         </div>

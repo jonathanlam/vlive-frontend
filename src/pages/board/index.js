@@ -152,12 +152,14 @@ const ShareModal = ({ group, closeFn }) => {
     window.open(url, "_blank", "noreferrer");
   };
 
-  const handleClipboardCopy = () => {
+  //
+  function handleClipboardCopy() {
     navigator.clipboard.writeText(
-      `https%3A//www.vlivearchive.com/channel/${group}`
+      `https://www.vlivearchive.com/channel/${group}`
     );
-    alert("Link has been copied to clipboard");
-  };
+    // clipboard does not save when using an alert
+    //alert("Link has been copied to clipboard");
+  }
 
   return (
     <div class="modal--1N199" style={{ display: "flex" }}>
