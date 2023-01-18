@@ -23,12 +23,12 @@ const Board = () => {
 
   useEffect(() => {
     axios
-      .get(
-        `https://raw.githubusercontent.com/jonathanlam/vlive-frontend/main/public/static/vods/vods_${channel_name}.json`
-      )
+      .get(`https://api.vlivearchive.com/posts/${channel_name}/${board_id}`)
       .then(function (response) {
-        setVodList(response.data);
-        setVodListOriginal(response.data);
+        setVodList(response.data.sort((a, b) => b.createdAt - a.createdAt));
+        setVodListOriginal(
+          response.data.sort((a, b) => b.createdAt - a.createdAt)
+        );
       })
       .catch(function (error) {});
 
@@ -38,7 +38,7 @@ const Board = () => {
         setArtist(response.data);
       })
       .catch(function (error) {});
-  }, [channel_name]);
+  }, [channel_name, board_id]);
 
   const run_filter = () => {
     var updated_list = [...vod_list_original];
@@ -71,8 +71,10 @@ const Board = () => {
     }
 
     // sort by oldest, newest, most popular
-    if (sortBy === "Oldest") {
-      updated_list = updated_list.reverse();
+    if (sortBy === "Newest") {
+      updated_list = updated_list.sort((a, b) => b.createdAt - a.createdAt);
+    } else if (sortBy === "Oldest") {
+      updated_list = updated_list.sort((a, b) => a.createdAt - b.createdAt);
     } else if (sortBy === "Most popular") {
       updated_list = updated_list.sort(
         (a, b) => b.officialVideo.likeCount - a.officialVideo.likeCount
