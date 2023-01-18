@@ -174,41 +174,35 @@ const VideoContainer = ({
           </div>
           <div className="detail_content_wrap--A4_IF">
             <div className="player_area--1jBsZ">
-              {/* <video
-                width="100%"
-                height="400px"
-                crossorigin="anonymous"
-                controls
-              >
-                <source src={video_url} type="video/mp4" />
-                {subtitles.map((e) => (
-                  <track
-                    src={`https://cdn.vlivearchive.com/file/${bucket}/${e.file_name}`}
-                    kind="subtitles"
-                    srclang={e.name}
-                    label={e.name}
-                  ></track>
-                ))}
-              </video> */}
-              <ReactPlayer
-                url={video_url}
-                height="400px"
-                width="100%"
-                controls={true}
-                config={{
-                  file: {
-                    attributes: {
-                      crossOrigin: true,
+              {alt_url?.includes("drive.google.com") ? (
+                <iframe
+                  src={alt_url}
+                  title="Video"
+                  allow="autoplay"
+                  width="100%"
+                  height="400px"
+                ></iframe>
+              ) : (
+                <ReactPlayer
+                  url={video_url}
+                  height="400px"
+                  width="100%"
+                  controls={true}
+                  config={{
+                    file: {
+                      attributes: {
+                        crossOrigin: true,
+                      },
+                      tracks: subtitles.map((e) => ({
+                        kind: "subtitles",
+                        src: `/subtitles/${e.file_name}?bucket=${artist.bucket}&channel=${artist.channel}`,
+                        srcLang: e.name,
+                        label: e.name,
+                      })),
                     },
-                    tracks: subtitles.map((e) => ({
-                      kind: "subtitles",
-                      src: `/subtitles/${e.file_name}?bucket=${artist.bucket}&channel=${artist.channel}`,
-                      srcLang: e.name,
-                      label: e.name,
-                    })),
-                  },
-                }}
-              />
+                  }}
+                />
+              )}
               {/* <Player
                 src={video_url}
                 subtitles={subtitles.map((e) => ({
