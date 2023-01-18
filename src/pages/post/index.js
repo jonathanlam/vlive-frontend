@@ -7,22 +7,12 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router";
 
-import artist_data from "../../assets/artists.json";
-
 import Fab from "@mui/material/Fab";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { Adsense } from "@ctrl/react-adsense";
 
 import "../styles.css";
 import "./heart.css";
-
-const get_artist_data = (name) => {
-  var result = artist_data.filter((obj) => {
-    return obj.channel === name;
-  });
-  if (result.length === 0) return null;
-  return result[0];
-};
 
 const Heart = () => {
   const flows = ["flowOne", "flowTwo", "flowThree"];
@@ -105,10 +95,8 @@ const Hearts = () => {
 
 const Post = () => {
   const { post_id } = useParams();
-  //const search = data.filter((board_item) => board_item.postId === post_id);
-  //if (search.length === 0) return <>No post found</>;
-
   const [search, setSearch] = useState(null);
+
   useEffect(() => {
     axios
       .get(`https://api.vlivearchive.com/post/${post_id}`)
@@ -121,13 +109,11 @@ const Post = () => {
   }, [post_id]);
 
   if (search === null) return <>loading</>;
-  if (search.length === 0) return <>not found</>;
-  const channel = search[0];
-  const post = search[1];
-  const suggestions = search[2];
-  const alt_url = search[3];
-
-  const artist = get_artist_data(channel);
+  if (search === "not found") return <>not found</>;
+  const post = search.post;
+  const artist = search.artist;
+  const suggestions = search.suggestions;
+  const alt_url = search.youtube;
 
   return (
     <>
@@ -157,7 +143,7 @@ const Post = () => {
                       </svg>
                       <Link
                         className="board_link--10CG-"
-                        to={"/channel/" + channel}
+                        to={"/channel/" + artist.channel}
                       >
                         {artist.name} Board
                         <em className="blind">selected</em>

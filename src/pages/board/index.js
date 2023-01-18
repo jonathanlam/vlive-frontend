@@ -7,25 +7,13 @@ import { useParams } from "react-router";
 import "../styles.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import artist_data from "../../assets/artists.json";
 
 import InfiniteScroll from "react-infinite-scroll-component";
 import { SettingsModal, ShareModal } from "./modals";
 
-const get_artist_data = (name) => {
-  var result = artist_data.filter((obj) => {
-    return obj.channel === name;
-  });
-  if (result.length === 0) return null;
-  return result[0];
-};
-
 const Board = () => {
   const { channel_name } = useParams();
-  // use axios to grab from /static/vods/${group}.json
-  // loading screen
-  // scrolling lazy loading?
-  const artist = get_artist_data(channel_name);
+  const [artist, setArtist] = useState(null);
   const [vod_list, setVodList] = useState(null);
   const [vod_list_original, setVodListOriginal] = useState(null);
   const [year, setYear] = useState("All Years");
@@ -39,6 +27,13 @@ const Board = () => {
       .then(function (response) {
         setVodList(response.data);
         setVodListOriginal(response.data);
+      })
+      .catch(function (error) {});
+
+    axios
+      .get(`https://api.vlivearchive.com/channel/${channel_name}`)
+      .then(function (response) {
+        setArtist(response.data);
       })
       .catch(function (error) {});
   }, [channel_name]);
@@ -96,7 +91,7 @@ const Board = () => {
     setSettingsOpen(!settingsOpen);
   };
 
-  if (vod_list == null) return "loading...";
+  if (vod_list == null || artist == null) return "loading...";
 
   const data2 = vod_list.slice(0, renderNum);
   const fetchNextData = () => {
