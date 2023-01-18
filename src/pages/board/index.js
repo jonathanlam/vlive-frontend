@@ -6,10 +6,42 @@ import LayoutTop from "./../../components/layouttop.js";
 import { useParams } from "react-router";
 import "../styles.css";
 import axios from "axios";
+import Skeleton from "@mui/material/Skeleton";
+import Box from "@mui/material/Box";
 
 import InfiniteScroll from "react-infinite-scroll-component";
 import { SettingsModal, ShareModal } from "./modals";
 import { BoardList, BoardListSpecial } from "./../../components/BoardGroupList";
+
+const BoardItemSkeleton = () => {
+  return (
+    <li className="post_item--3Brrv -video--1s9IA">
+      <Box
+        sx={{
+          mr: 3,
+          ml: 3,
+          pt: 2,
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
+        <Box sx={{ mr: 2 }}>
+          <Skeleton variant="circular" width={30} height={30} />
+        </Box>
+        <Box sx={{ width: "100%" }}>
+          <Skeleton height={30} width={100} />
+        </Box>
+      </Box>
+      <Box sx={{ ml: 3, mr: 3, pb: 2, display: "flex", alignItems: "center" }}>
+        <Box width="90%">
+          <Skeleton width="80%" height={40} />
+          <Skeleton width="30%" height={40} />
+        </Box>
+        <Skeleton variant="rounded" width={80} height={80} />
+      </Box>
+    </li>
+  );
+};
 
 const Board = () => {
   const { channel_name } = useParams();
@@ -23,19 +55,19 @@ const Board = () => {
 
   useEffect(() => {
     axios
+      .get(`https://api.vlivearchive.com/channel/${channel_name}`)
+      .then(function (response) {
+        setArtist(response.data);
+      })
+      .catch(function (error) {});
+
+    axios
       .get(`https://api.vlivearchive.com/posts/${channel_name}/${board_id}`)
       .then(function (response) {
         setVodList(response.data.sort((a, b) => b.createdAt - a.createdAt));
         setVodListOriginal(
           response.data.sort((a, b) => b.createdAt - a.createdAt)
         );
-      })
-      .catch(function (error) {});
-
-    axios
-      .get(`https://api.vlivearchive.com/channel/${channel_name}`)
-      .then(function (response) {
-        setArtist(response.data);
       })
       .catch(function (error) {});
   }, [channel_name, board_id]);
@@ -95,9 +127,9 @@ const Board = () => {
     setSettingsOpen(!settingsOpen);
   };
 
-  if (vod_list == null || artist == null) return "loading...";
+  if (artist == null) return "loading...";
 
-  const data2 = vod_list.slice(0, renderNum);
+  const data2 = vod_list?.slice(0, renderNum);
   const fetchNextData = () => {
     setRenderNum(renderNum + 20);
   };
@@ -190,16 +222,24 @@ const Board = () => {
                 </div>
               </div>
               <ul className="post_list--1l_nP">
-                <InfiniteScroll
-                  dataLength={renderNum}
-                  next={fetchNextData}
-                  hasMore={true}
-                  loader={<h4>Loading...</h4>}
-                >
-                  {data2.map((board_item, key) => (
-                    <BoardItem post={board_item} artist={artist} key={key} />
-                  ))}
-                </InfiniteScroll>
+                {vod_list ? (
+                  <InfiniteScroll
+                    dataLength={renderNum}
+                    next={fetchNextData}
+                    hasMore={true}
+                    loader={<h4>Loading...</h4>}
+                  >
+                    {data2.map((board_item, key) => (
+                      <BoardItem post={board_item} artist={artist} key={key} />
+                    ))}
+                  </InfiniteScroll>
+                ) : (
+                  <>
+                    <BoardItemSkeleton />
+                    <BoardItemSkeleton />
+                    <BoardItemSkeleton />
+                  </>
+                )}
               </ul>
             </div>
           </div>
