@@ -134,8 +134,6 @@ const Board = () => {
     setRenderNum(renderNum + 20);
   };
 
-  //if (board_id) return "additional boards not done yet";
-
   return (
     <>
       <div className="layout--2CJge">

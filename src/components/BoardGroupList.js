@@ -56,8 +56,6 @@ const VlivePlusBoardItem = ({ artist, board, active_board }) => {
 };
 
 const StdBoardItem = ({ artist, board, active_board }) => {
-  console.log(active_board);
-  console.log(board.id);
   return (
     <li
       className={`board_item--8Emtz ${
