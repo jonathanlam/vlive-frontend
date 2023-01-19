@@ -53,7 +53,7 @@ const PostList = ({ posts, renderNum, fetchNextData, artist }) => {
       </>
     );
 
-  if (posts.length == 0) return <div>no posts in this channel</div>;
+  if (posts.length === 0) return <div>no posts in this channel</div>;
 
   return (
     <InfiniteScroll

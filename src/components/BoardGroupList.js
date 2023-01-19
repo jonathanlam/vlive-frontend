@@ -36,12 +36,11 @@ const BoardList = ({ artist, active_board, setVodList }) => {
 };
 
 const VlivePlusBoardItem = ({ artist, board, active_board, setVodList }) => {
-  // needs double not triple equals here because different types.
   // highlights the currently active board.
   return (
     <li
       className={`board_item--8Emtz ${
-        active_board == board.id && "is_active--3yXYJ"
+        parseInt(active_board) === board.id && "is_active--3yXYJ"
       }`}
     >
       <div class="badge_vliveplus--13ZOr">
@@ -64,7 +63,7 @@ const StdBoardItem = ({ artist, board, active_board, setVodList }) => {
   return (
     <li
       className={`board_item--8Emtz ${
-        active_board == board.id && "is_active--3yXYJ"
+        parseInt(active_board) === board.id && "is_active--3yXYJ"
       }`}
     >
       <svg
