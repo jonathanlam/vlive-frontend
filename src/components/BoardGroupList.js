@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const BoardList = ({ artist, active_board }) => {
+const BoardList = ({ artist, active_board, setVodList }) => {
   return (
     <li className="board_group_item--uTaOQ">
       <strong className="group_name--2Ufyg">Official</strong>
@@ -22,7 +22,11 @@ const BoardList = ({ artist, active_board }) => {
               d="M12 0c3.314 0 6 2.686 6 6v6c0 3.314-2.686 6-6 6H6c-3.314 0-6-2.686-6-6V6c0-3.314 2.686-6 6-6h6zm-.66 10.303l-1.887 1.373.648.436 1.165.78c.11.075.248.096.376.06.24-.068.38-.319.31-.559l-.376-1.325-.236-.765zm-2.19-5.73c-.235-.082-.493.042-.576.277l-.872 2.48H4.897c-.138 0-.269.063-.354.171-.156.196-.123.48.073.636l2.156 1.711-.706 2.482c-.037.132-.012.275.068.387.146.203.429.25.632.104l6.496-4.671c.118-.085.188-.222.188-.367 0-.25-.202-.453-.452-.453h-2.699l-.871-2.48c-.046-.129-.148-.23-.277-.276z"
             ></path>
           </svg>
-          <Link className="board_link--10CG-" to={"/channel/" + artist.channel}>
+          <Link
+            className="board_link--10CG-"
+            to={"/channel/" + artist.channel}
+            onClick={() => setVodList(null)}
+          >
             {artist.name} Board
           </Link>
         </li>
@@ -31,7 +35,7 @@ const BoardList = ({ artist, active_board }) => {
   );
 };
 
-const VlivePlusBoardItem = ({ artist, board, active_board }) => {
+const VlivePlusBoardItem = ({ artist, board, active_board, setVodList }) => {
   // needs double not triple equals here because different types.
   // highlights the currently active board.
   return (
@@ -48,6 +52,7 @@ const VlivePlusBoardItem = ({ artist, board, active_board }) => {
       <Link
         className="board_link--10CG- -vlive_plus--3X-PI"
         to={`/channel/${artist.channel}/${board.id}`}
+        onClick={() => setVodList(null)}
       >
         VLIVE+ Board
       </Link>
@@ -55,7 +60,7 @@ const VlivePlusBoardItem = ({ artist, board, active_board }) => {
   );
 };
 
-const StdBoardItem = ({ artist, board, active_board }) => {
+const StdBoardItem = ({ artist, board, active_board, setVodList }) => {
   return (
     <li
       className={`board_item--8Emtz ${
@@ -76,6 +81,7 @@ const StdBoardItem = ({ artist, board, active_board }) => {
       <Link
         className="board_link--10CG-"
         to={`/channel/${artist.channel}/${board.id}`}
+        onClick={() => setVodList(null)}
       >
         {board.name}
       </Link>
@@ -83,7 +89,7 @@ const StdBoardItem = ({ artist, board, active_board }) => {
   );
 };
 
-const BoardListSpecial = ({ artist, active_board }) => {
+const BoardListSpecial = ({ artist, active_board, setVodList }) => {
   const boards = artist.boards;
   //const boards = [
   //  { name: "VLIVE+", id: 4 },
@@ -105,12 +111,14 @@ const BoardListSpecial = ({ artist, active_board }) => {
               artist={artist}
               board={board}
               active_board={active_board}
+              setVodList={setVodList}
             />
           ) : (
             <StdBoardItem
               artist={artist}
               board={board}
               active_board={active_board}
+              setVodList={setVodList}
             />
           )
         )}

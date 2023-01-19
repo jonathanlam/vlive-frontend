@@ -43,6 +43,32 @@ const BoardItemSkeleton = () => {
   );
 };
 
+const PostList = ({ posts, renderNum, fetchNextData, artist }) => {
+  if (posts == null)
+    return (
+      <>
+        <BoardItemSkeleton />
+        <BoardItemSkeleton />
+        <BoardItemSkeleton />
+      </>
+    );
+
+  if (posts.length == 0) return <div>no posts in this channel</div>;
+
+  return (
+    <InfiniteScroll
+      dataLength={renderNum}
+      next={fetchNextData}
+      hasMore={true}
+      loader={<h4>Loading...</h4>}
+    >
+      {posts.map((board_item, key) => (
+        <BoardItem post={board_item} artist={artist} key={key} />
+      ))}
+    </InfiniteScroll>
+  );
+};
+
 const Board = () => {
   const { channel_name } = useParams();
   var { board_id } = useParams();
@@ -145,8 +171,16 @@ const Board = () => {
                 <ChannelArea artist={artist} />
               </div>
               <ul className="board_group_list--3BSLj">
-                <BoardList artist={artist} active_board={board_id} />
-                <BoardListSpecial artist={artist} active_board={board_id} />
+                <BoardList
+                  artist={artist}
+                  active_board={board_id}
+                  setVodList={setVodList}
+                />
+                <BoardListSpecial
+                  artist={artist}
+                  active_board={board_id}
+                  setVodList={setVodList}
+                />
               </ul>
             </nav>
           </div>
@@ -220,24 +254,12 @@ const Board = () => {
                 </div>
               </div>
               <ul className="post_list--1l_nP">
-                {vod_list ? (
-                  <InfiniteScroll
-                    dataLength={renderNum}
-                    next={fetchNextData}
-                    hasMore={true}
-                    loader={<h4>Loading...</h4>}
-                  >
-                    {data2.map((board_item, key) => (
-                      <BoardItem post={board_item} artist={artist} key={key} />
-                    ))}
-                  </InfiniteScroll>
-                ) : (
-                  <>
-                    <BoardItemSkeleton />
-                    <BoardItemSkeleton />
-                    <BoardItemSkeleton />
-                  </>
-                )}
+                <PostList
+                  posts={data2}
+                  renderNum={renderNum}
+                  fetchNextData={fetchNextData}
+                  artist={artist}
+                />
               </ul>
             </div>
           </div>
