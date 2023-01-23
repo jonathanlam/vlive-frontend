@@ -30,8 +30,8 @@ const VideoContainer = ({
   const comments = officialVideo.commentCount.toLocaleString();
   // const video_url = `https://f004.backblazeb2.com/file/${bucket}/${postId}/${postId}-video.mp4`;
   //const video_url = `https://cdn.vlivearchive.com/file/${bucket}/${postId}/${postId}-video.mp4`;
-  //const video_url = `https://${bucket}.jonathanlamao.com/${channel}/${postId}/${postId}-video.mp4`;
-  var video_url = `https://api.vlivearchive.com/s3/${artist.bucket}/${artist.channel}/${postId}`;
+  var video_url = `https://${bucket}.vlivearchive.com/${channel}/${postId}/${postId}-video.mp4`;
+  //var video_url = `https://api.vlivearchive.com/s3/${artist.bucket}/${artist.channel}/${postId}`;
   if (alt_url) video_url = alt_url;
 
   //const thumbnail_url = `https://${artist.bucket}.vlivearchive.com/${artist.channel}/${postId}/${postId}-thumb${thumbnail_ext}`;
