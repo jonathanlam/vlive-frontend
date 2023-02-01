@@ -95,18 +95,26 @@ const Hearts = () => {
 
 const Post = () => {
   const { post_id } = useParams();
+  const { video_seq } = useParams();
   const [search, setSearch] = useState(null);
 
   useEffect(() => {
+    var url = "";
+    if (post_id) {
+      url = `https://api.vlivearchive.com/post/${post_id}`;
+    } else if (video_seq) {
+      url = `https://api.vlivearchive.com/video/${video_seq}`;
+    }
+
     axios
-      .get(`https://api.vlivearchive.com/post/${post_id}`)
+      .get(url)
       .then(function (response) {
         setSearch(response.data);
       })
       .catch(function (error) {
         console.log("wtfffff");
       });
-  }, [post_id]);
+  }, [post_id, video_seq]);
 
   if (search === null) return <>loading</>;
   if (search === "not found") return <>not found</>;

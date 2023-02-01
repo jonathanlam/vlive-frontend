@@ -9,6 +9,7 @@ const routing = (props) => {
     <Routes>
       <Route path="/" element={<Landing />}></Route>
       <Route path="/post/:post_id" element={<Post />}></Route>
+      <Route path="/video/:video_seq" element={<Post />}></Route>
       <Route path="/channel/:channel_name" exact element={<Board />}></Route>
       <Route
         path="/channel/:channel_name/:board_id"
