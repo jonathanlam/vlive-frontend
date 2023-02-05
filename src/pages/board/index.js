@@ -78,6 +78,7 @@ const Board = () => {
   const [vod_list_original, setVodListOriginal] = useState(null);
   const [year, setYear] = useState("All Years");
   const [sortBy, setSortBy] = useState("Newest");
+  const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
     axios
@@ -138,6 +139,13 @@ const Board = () => {
         (a, b) => b.officialVideo.likeCount - a.officialVideo.likeCount
       );
     }
+
+    if (searchText !== "") {
+      updated_list = updated_list.filter((vid) =>
+        vid?.title?.toLowerCase().includes(searchText.toLowerCase())
+      );
+    }
+
     setVodList(updated_list);
   };
 
@@ -248,6 +256,8 @@ const Board = () => {
                         setYear={setYear}
                         sortBy={sortBy}
                         setSortBy={setSortBy}
+                        searchText={searchText}
+                        setSearchText={setSearchText}
                       />
                     )}
                   </div>

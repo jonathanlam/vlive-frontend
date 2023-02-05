@@ -6,6 +6,8 @@ const SettingsModal = ({
   sortBy,
   setSortBy,
   setSettingsOpen,
+  searchText,
+  setSearchText,
   run,
 }) => {
   const handleClose = () => {
@@ -100,6 +102,14 @@ const SettingsModal = ({
                     </li>
                   ))}
                 </ul>
+                <strong class="option_group--2XSCk">Search By Name</strong>
+                <input
+                  class="option_group--2XSCk"
+                  type="text"
+                  placeholder="Search"
+                  value={searchText}
+                  onChange={(e) => setSearchText(e.target.value)}
+                />
               </div>
             </div>
           </div>
