@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import CommentIcon from "../../components/icons/comment";
 import HeartIcon from "../../components/icons/heart";
 import * as dayjs from "dayjs";
 import { Link } from "react-router-dom";
 import PostAuthorDP from "../../components/icons/postAuthorDP";
-import axios from "axios";
 import { SubtitlesModal, MoreOptions } from "./Modals";
 import VideoPlayer from "./VideoPlayer.js";
 import { get_thumbnail_ext } from "./../util";
@@ -26,7 +25,6 @@ const VideoContainer = ({ post, channel }) => {
   const thumbnail_ext = get_thumbnail_ext(post.officialVideo.thumb);
   const thumbnail_url = `https://vlive-thumbs.s3.us-west-004.backblazeb2.com/${post.postId}/${post.postId}-thumb${thumbnail_ext}`;
 
-  const [subtitles, setSubtitles] = useState(null); // = subtitles_list[postId] || [];
   const [optionsOpen, setOptionsOpen] = useState(false);
   const [subsOpen, setSubsOpen] = useState(false);
 
@@ -34,15 +32,6 @@ const VideoContainer = ({ post, channel }) => {
     const url = `https://api.vlivearchive.com/s3/${channel.bucket}/${channel.channelAlias}/${post.postId}`;
     window.location.href = url;
   };
-
-  useEffect(() => {
-    axios
-      .get(`https://api.vlivearchive.com/subtitles/${post.postId}`)
-      .then(function (response) {
-        setSubtitles(response.data);
-      })
-      .catch(function (error) {});
-  }, [post.postId]);
 
   function handleOptions() {
     setOptionsOpen(!optionsOpen);
@@ -53,8 +42,6 @@ const VideoContainer = ({ post, channel }) => {
   }
 
   const [userLiked, setUserLiked] = useState(false);
-
-  if (subtitles == null) return <>Loading</>;
 
   return (
     <>
@@ -147,7 +134,6 @@ const VideoContainer = ({ post, channel }) => {
                   )}
                   {subsOpen && (
                     <SubtitlesModal
-                      subs={subtitles}
                       setSubsOpen={setSubsOpen}
                       channel={channel}
                     />
