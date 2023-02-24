@@ -2,96 +2,15 @@ import React, { useState, useEffect } from "react";
 import ChannelArea from "./../../components/channelarea.js";
 import Suggestions from "./suggestions.js";
 import VideoContainer from "./videocontainer.js";
+import Hearts from "./Hearts.js";
 import LayoutTop from "../../components/layouttop.js";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router";
 
-import Fab from "@mui/material/Fab";
-import FavoriteIcon from "@mui/icons-material/Favorite";
 import { Adsense } from "@ctrl/react-adsense";
 
 import "../styles.css";
-import "./heart.css";
-
-const Heart = () => {
-  const flows = ["flowOne", "flowTwo", "flowThree"];
-
-  const colours = [
-    "#847bb9",
-    "#FF5733",
-    "#fce473",
-    "#f68b39",
-    "#ed6c63",
-    "#97cd76",
-    "#35b1d1",
-  ];
-  const colour = colours[Math.floor(Math.random() * 6)];
-
-  const [visible, setVisible] = useState(true);
-
-  useEffect(() => {
-    const ttl = (Math.random() * 2 + 1.2).toFixed(1) * 900;
-    const timer = setTimeout(() => {
-      setVisible(false);
-    }, ttl);
-    return () => clearTimeout(timer);
-  }, []);
-
-  const flow = flows[Math.floor(Math.random() * 3)];
-
-  if (!visible) return <div></div>;
-
-  return (
-    <div
-      className="heart"
-      style={{
-        color: colour,
-        fontSize: Math.floor(Math.random() * (50 - 22) + 22),
-        animation: `${flow} 3s linear`,
-      }}
-    >
-      <i className="fa fa-heart"></i>
-    </div>
-  );
-};
-
-const Hearts = () => {
-  const [hearts, setHearts] = useState([]);
-
-  function addHeart() {
-    setHearts([...hearts, <Heart />]);
-  }
-
-  return (
-    <>
-      <Fab
-        size="medium"
-        sx={{
-          backgroundColor: "#ee0520",
-          //color: "danger",
-          position: "fixed",
-          bottom: 20,
-          right: 20,
-          display: { xs: "block", md: "none" },
-        }}
-        onClick={addHeart}
-      >
-        <FavoriteIcon />
-      </Fab>
-      <div
-        style={{
-          height: "600px",
-          position: "fixed",
-          bottom: 20,
-          right: 80,
-        }}
-      >
-        {hearts.map((h, key) => h)}
-      </div>
-    </>
-  );
-};
 
 const Post = () => {
   const { post_id } = useParams();
@@ -101,15 +20,16 @@ const Post = () => {
   useEffect(() => {
     var url = "";
     if (post_id) {
-      url = `https://api.vlivearchive.com/post/${post_id}`;
+      url = `https://api.vlivearchive.com/post/${post_id}/page`;
     } else if (video_seq) {
-      url = `https://api.vlivearchive.com/video/${video_seq}`;
+      url = `https://api.vlivearchive.com/video/${video_seq}/page`;
     }
 
     axios
       .get(url)
       .then(function (response) {
         setSearch(response.data);
+        document.title = "VLIVE - " + response.data.post.title;
       })
       .catch(function (error) {
         console.log("wtfffff");
@@ -119,9 +39,8 @@ const Post = () => {
   if (search === null) return <>loading</>;
   if (search === "not found") return <>not found</>;
   const post = search.post;
-  const artist = search.artist;
+  const channel = search.channel;
   const suggestions = search.suggestions;
-  const alt_url = search.youtube;
 
   return (
     <>
@@ -131,7 +50,7 @@ const Post = () => {
           <div className="snb--dI3H2">
             <nav className="nav--Lwe6x">
               <div className="channel_area--3-r0f">
-                <ChannelArea artist={artist} />
+                <ChannelArea channel={channel} />
               </div>
               <ul className="board_group_list--3BSLj">
                 <li className="board_group_item--uTaOQ">
@@ -151,10 +70,9 @@ const Post = () => {
                       </svg>
                       <Link
                         className="board_link--10CG-"
-                        to={"/channel/" + artist.channel}
+                        to={"/channel/" + channel.channelCode}
                       >
-                        {artist.name} Board
-                        <em className="blind">selected</em>
+                        {channel.channelName} Board
                       </Link>
                     </li>
                   </ul>
@@ -166,20 +84,15 @@ const Post = () => {
           <div className="layout_content--3-hGQ">
             <div className="lnb--3RTnS -right_menu_text--23eET">
               <div className="lnb_inner--1EWFM">
-                <h2 className="lnb_pc_title--1lAio">{artist.name} Board</h2>
+                <h2 className="lnb_pc_title--1lAio">
+                  {channel.channelName} Board
+                </h2>
               </div>
             </div>
-            <VideoContainer
-              title={post.title}
-              postId={post.postId}
-              officialVideo={post.officialVideo}
-              author={post.author}
-              artist={artist}
-              alt_url={alt_url}
-            />
+            <VideoContainer post={post} channel={channel} />
           </div>
           <div className="layout_right--2_POD">
-            <Suggestions suggestions={suggestions} artist={artist} />
+            <Suggestions suggestions={suggestions} />
           </div>
 
           <Hearts />

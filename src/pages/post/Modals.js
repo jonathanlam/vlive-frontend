@@ -1,13 +1,13 @@
 import React from "react";
 
-const SubtitlesModal = ({ subs, setSubsOpen, artist }) => {
+const SubtitlesModal = ({ subs, setSubsOpen, channel }) => {
   function handleClose() {
     setSubsOpen(false);
   }
 
   function handleDownload(e, srt) {
     // set srt = 0 for vtt files, or srt=1 for srt files
-    var url = `https://vlivearchive.com/subtitles/${e.file_name}?bucket=${artist.bucket}&channel=${artist.channel}`;
+    var url = `https://vlivearchive.com/subtitles/${e.file_name}?bucket=${channel.bucket}&channel=${channel.channelAlias}`;
     if (srt === 1) url = url.replaceAll("vtt", "srt");
     window.open(url);
   }

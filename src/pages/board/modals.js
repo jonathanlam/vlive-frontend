@@ -109,6 +109,7 @@ const SettingsModal = ({
                   placeholder="Search"
                   value={searchText}
                   onChange={(e) => setSearchText(e.target.value)}
+                  style={{}}
                 />
               </div>
             </div>

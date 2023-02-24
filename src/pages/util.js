@@ -28,7 +28,7 @@ function fmtMSS(s) {
 function formatNum(n) {
   if (n == null) return "0";
   if (n < 1000) return n;
-  if (n < 1000000) return Math.round(n / 1000).toString() + "K";
+  if (n < 1e6) return Math.round(n / 1000).toString() + "K";
   return Math.round(n / 1e5) / 10 + "M";
 }
 

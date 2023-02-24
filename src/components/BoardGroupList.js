@@ -1,14 +1,35 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const BoardList = ({ artist, active_board, setVodList }) => {
+const BoardGroupList = ({ channel, boards, activeBoard, setActiveBoard }) => {
+  var default_board = -1; // default LIVE board, excluding vlive+ etc
+
+  if (boards.length === 1) {
+    default_board = boards[0];
+  }
+  return (
+    <DefaultBoard
+      channel={channel}
+      default_board={default_board}
+      activeBoard={activeBoard}
+      setActiveBoard={setActiveBoard}
+    />
+  );
+};
+
+const DefaultBoard = ({
+  channel,
+  default_board,
+  activeBoard,
+  setActiveBoard,
+}) => {
   return (
     <li className="board_group_item--uTaOQ">
       <strong className="group_name--2Ufyg">Official</strong>
       <ul className="board_list--iksmp">
         <li
           className={`board_item--8Emtz ${
-            active_board === 0 && "is_active--3yXYJ"
+            activeBoard === default_board.boardId && "is_active--3yXYJ"
           }`}
         >
           <svg
@@ -24,10 +45,10 @@ const BoardList = ({ artist, active_board, setVodList }) => {
           </svg>
           <Link
             className="board_link--10CG-"
-            to={"/channel/" + artist.channel}
-            onClick={() => setVodList(null)}
+            to={`/channel/${channel.channelCode}/board/${default_board.boardId}`}
+            onClick={() => setActiveBoard(default_board.boardId)}
           >
-            {artist.name} Board
+            {default_board.title}
           </Link>
         </li>
       </ul>
@@ -126,4 +147,4 @@ const BoardListSpecial = ({ artist, active_board, setVodList }) => {
   );
 };
 
-export { BoardList, BoardListSpecial };
+export default BoardGroupList;

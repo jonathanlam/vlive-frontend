@@ -1,16 +1,13 @@
 import React from "react";
 
-const ChannelInfo = ({ artist }) => {
-  const thumbnail =
-    "https://raw.githubusercontent.com/jonathanlam/vlive-frontend/main/public/static/img/dp/" +
-    artist.channel +
-    ".png";
+const ChannelInfo = ({ channel }) => {
+  const thumbnail = `https://api.vlivearchive.com/pfp/${channel.channelCode}.png`;
   return (
     <>
       <h4 class="info_title--jwsgZ">Channel Information</h4>
       <ul class="info_stars_list--FduI_">
         <li class="info_stars_item--lE7Vk -circle--1DV88">
-          <span class="blind">{artist.name}</span>
+          <span class="blind">{channel.channelName}</span>
           <svg
             width="22"
             height="22"
@@ -42,19 +39,25 @@ const ChannelInfo = ({ artist }) => {
       <dl class="info_list">
         <div class="info_item--7iTKe">
           <dt class="info_item_title--3jI-M">Star's Videos</dt>
-          <dd class="info_item_detail---lBwJ">{artist.videoCount}</dd>
+          <dd class="info_item_detail---lBwJ">{channel.fVideoCountOfStar}</dd>
         </div>
         <div class="info_item--7iTKe">
           <dt class="info_item_title--3jI-M">Play</dt>
-          <dd class="info_item_detail---lBwJ">{artist.fplayCount}</dd>
+          <dd class="info_item_detail---lBwJ">
+            {channel.fVideoPlayCountOfStar}
+          </dd>
         </div>
         <div class="info_item--7iTKe">
           <dt class="info_item_title--3jI-M">Like</dt>
-          <dd class="info_item_detail---lBwJ">{artist.flikeCount}</dd>
+          <dd class="info_item_detail---lBwJ">
+            {channel.fVideoLikeCountOfStar}
+          </dd>
         </div>
         <div class="info_item--7iTKe">
           <dt class="info_item_title--3jI-M">Comments</dt>
-          <dd class="info_item_detail---lBwJ">{artist.fcommentCount}</dd>
+          <dd class="info_item_detail---lBwJ">
+            {channel.fVideoCommentCountOfStar}
+          </dd>
         </div>
       </dl>
     </>

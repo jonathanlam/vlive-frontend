@@ -1,33 +1,31 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const ChannelArea = ({ artist }) => {
+const ChannelArea = ({ channel }) => {
   return (
     <>
-      <Link to={"/channel/" + artist.channel} class="channel_link--3kVMW">
+      <Link to={"/channel/" + channel.channelCode} class="channel_link--3kVMW">
         <span class="thumbnail_wrapper--1FNPC">
           <img
-            src={
-              "https://raw.githubusercontent.com/jonathanlam/vlive-frontend/main/public/static/img/dp/" +
-              artist.channel +
-              ".png"
-            }
+            src={`https://api.vlivearchive.com/pfp/${channel.channelCode}.png`}
             alt=""
             width="76"
             height="76"
           />
         </span>
-        <strong class="channel_name--1VIVt" title="ITZY">
-          {artist.name}
-        </strong>
+        <strong class="channel_name--1VIVt">{channel.channelName}</strong>
       </Link>
       <span class="member--36HZL">
-        Members <span class="number">{artist.members}</span>
+        Members{" "}
+        <span class="number">{channel.memberCount.toLocaleString()}</span>
       </span>
       <button class="register_button--1QhmP">Join</button>
       <ul class="menu_list--1Xv9-">
         <li class="menu_item--2Pf5K -home--1oM8u">
-          <Link href={"/channel/" + artist.channel} class="menu_link--2EiO4">
+          <Link
+            href={"/channel/" + channel.channelCode}
+            class="menu_link--2EiO4"
+          >
             <span>HOME</span>
           </Link>
         </li>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import ReactPlayer from "react-player";
+
 import CommentIcon from "../../components/icons/comment";
 import HeartIcon from "../../components/icons/heart";
 import * as dayjs from "dayjs";
@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import PostAuthorDP from "../../components/icons/postAuthorDP";
 import axios from "axios";
 import { SubtitlesModal, MoreOptions } from "./Modals";
+import VideoPlayer from "./VideoPlayer.js";
 import { get_thumbnail_ext } from "./../util";
 // import { Player } from "react-tuby";
 // import "react-tuby/css/main.css";
@@ -16,45 +17,32 @@ const format_date = (timestamp) => {
   return d.format("YYYY.MM.DD HH:MM");
 };
 
-const VideoContainer = ({
-  postId,
-  title,
-  officialVideo,
-  author,
-  artist,
-  alt_url,
-}) => {
+const VideoContainer = ({ post, channel }) => {
   // format as raw number but with commas
-  const plays = officialVideo.playCount.toLocaleString();
-  const likes = officialVideo.likeCount.toLocaleString();
-  const comments = officialVideo.commentCount.toLocaleString();
-  // const video_url = `https://f004.backblazeb2.com/file/${bucket}/${postId}/${postId}-video.mp4`;
-  //const video_url = `https://cdn.vlivearchive.com/file/${bucket}/${postId}/${postId}-video.mp4`;
-  var video_url = `https://${artist.bucket}.vlivearchive.com/${artist.channel}/${postId}/${postId}-video.mp4`;
-  //var video_url = `https://api.vlivearchive.com/s3/${artist.bucket}/${artist.channel}/${postId}`;
-  if (alt_url) video_url = alt_url;
+  const plays = post.officialVideo.playCount.toLocaleString();
+  const likes = post.officialVideo.likeCount.toLocaleString();
+  const comments = post.officialVideo.commentCount.toLocaleString();
 
-  //const thumbnail_url = `https://${artist.bucket}.vlivearchive.com/${artist.channel}/${postId}/${postId}-thumb${thumbnail_ext}`;
-  const thumbnail_ext = get_thumbnail_ext(officialVideo.thumb);
-  const thumbnail_url = `https://${artist.bucket}.vlivearchive.com/${artist.channel}/${postId}/${postId}-thumb${thumbnail_ext}`;
+  const thumbnail_ext = get_thumbnail_ext(post.officialVideo.thumb);
+  const thumbnail_url = `https://vlive-thumbs.s3.us-west-004.backblazeb2.com/${post.postId}/${post.postId}-thumb${thumbnail_ext}`;
 
   const [subtitles, setSubtitles] = useState(null); // = subtitles_list[postId] || [];
   const [optionsOpen, setOptionsOpen] = useState(false);
   const [subsOpen, setSubsOpen] = useState(false);
 
   const handleDownload = () => {
-    const url = `https://api.vlivearchive.com/s3/${artist.bucket}/${artist.channel}/${postId}`;
+    const url = `https://api.vlivearchive.com/s3/${channel.bucket}/${channel.channelAlias}/${post.postId}`;
     window.location.href = url;
   };
 
   useEffect(() => {
     axios
-      .get(`https://api.vlivearchive.com/subtitles/${postId}`)
+      .get(`https://api.vlivearchive.com/subtitles/${post.postId}`)
       .then(function (response) {
         setSubtitles(response.data);
       })
       .catch(function (error) {});
-  }, [postId]);
+  }, [post.postId]);
 
   function handleOptions() {
     setOptionsOpen(!optionsOpen);
@@ -75,17 +63,13 @@ const VideoContainer = ({
           <div className="post_header--7D-xg -video--3Fg6w">
             <div className="writer_info--3Sw41">
               <div className="writer_thumbnail_wrap--JM7vB">
-                <Link to={"/channel/" + artist.channel}>
+                <Link to={"/channel/" + channel.channelCode}>
                   <div
                     className="thumbnail_wrap--1h0cv -mask--3jxwe"
                     style={{ width: "30px", height: "30px" }}
                   >
                     <PostAuthorDP
-                      image_url={
-                        "https://raw.githubusercontent.com/jonathanlam/vlive-frontend/main/public/static/img/dp/" +
-                        artist.channel +
-                        ".png"
-                      }
+                      image_url={`https://api.vlivearchive.com/pfp/${channel.channelCode}.png`}
                     />
                     <svg
                       width="30"
@@ -120,14 +104,14 @@ const VideoContainer = ({
                 <div className="writer_info_textarea--1rXDF">
                   <Link
                     className="writer_link--3fEhm"
-                    to={"/channel/" + artist.channel}
+                    to={"/channel/" + channel.channelCode}
                   >
-                    <span className="text--3pN_c">{author.nickname}</span>
+                    <span className="text--3pN_c">{post.author.nickname}</span>
                   </Link>
                 </div>
                 <div className="post_info_wrap--3oPz4">
                   <span className="post_info--3AqO0">
-                    {format_date(officialVideo.createdAt)}
+                    {format_date(post.officialVideo.createdAt)}
                   </span>
                 </div>
               </div>
@@ -165,7 +149,7 @@ const VideoContainer = ({
                     <SubtitlesModal
                       subs={subtitles}
                       setSubsOpen={setSubsOpen}
-                      artist={artist}
+                      channel={channel}
                     />
                   )}
                 </div>
@@ -174,49 +158,14 @@ const VideoContainer = ({
           </div>
           <div className="detail_content_wrap--A4_IF">
             <div className="player_area--1jBsZ">
-              {alt_url?.includes("drive.google.com") ? (
-                <iframe
-                  src={alt_url}
-                  title="Video"
-                  allow="autoplay"
-                  width="100%"
-                  height="400px"
-                ></iframe>
-              ) : (
-                <ReactPlayer
-                  url={video_url}
-                  height="400px"
-                  width="100%"
-                  controls={true}
-                  config={{
-                    file: {
-                      attributes: {
-                        crossOrigin: true,
-                      },
-                      tracks: subtitles.map((e) => ({
-                        kind: "subtitles",
-                        src: `/subtitles/${e.file_name}?bucket=${artist.bucket}&channel=${artist.channel}`,
-                        srcLang: e.name,
-                        label: e.name,
-                      })),
-                    },
-                  }}
-                />
-              )}
-              {/* <Player
-                src={video_url}
-                subtitles={subtitles.map((e) => ({
-                  url: `https://vlivearchive.com/subtitles/${e.file_name}?bucket=${bucket}&channel=${channel}`,
-                  language: e.name,
-                }))}
-              /> */}
+              <VideoPlayer post={post} channel={channel} />
             </div>
             <div className="text_area--1z8D6">
               <span className="video_title--3Vd9y">
                 <em className="badge--3Jtfu video--hdj7f video_badge--28HR1 -replay--3cQGr">
                   <span className="blind">REPLAY</span>
                 </em>
-                <strong>{title}</strong>
+                <strong>{post.title}</strong>
               </span>
               <span className="play_count--3NwBL">Play {plays}</span>
             </div>

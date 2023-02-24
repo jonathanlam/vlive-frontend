@@ -9,10 +9,10 @@ import { Link } from "react-router-dom";
 
 import { formatNum, FMTtimestamp, fmtMSS, get_thumbnail_ext } from "./../util";
 
-const BoardItem = ({ post, artist }) => {
+const BoardItem = ({ post, channel }) => {
   const postId = post.postId;
   const thumbnail_ext = get_thumbnail_ext(post.officialVideo.thumb);
-  const thumbnail_url = `https://${artist.bucket}.vlivearchive.com/${artist.channel}/${postId}/${postId}-thumb${thumbnail_ext}`;
+  const thumbnail_url = `https://vlive-thumbs.s3.us-west-004.backblazeb2.com/${postId}/${postId}-thumb${thumbnail_ext}`;
   return (
     <>
       <li className="post_item--3Brrv -video--1s9IA">
@@ -20,7 +20,7 @@ const BoardItem = ({ post, artist }) => {
           <div className="profile_info--13f_P">
             <Link
               className="link_profile--2SQHn"
-              to={"/channel/" + artist.channel}
+              to={"/channel/" + channel.channelCode}
             >
               <div className="profile_thumbnail--1k1fr">
                 <div
@@ -28,11 +28,7 @@ const BoardItem = ({ post, artist }) => {
                   style={{ width: "30px", height: "30px" }}
                 >
                   <PostAuthorDP
-                    image_url={
-                      "https://raw.githubusercontent.com/jonathanlam/vlive-frontend/main/public/static/img/dp/" +
-                      artist.channel +
-                      ".png"
-                    }
+                    image_url={`https://api.vlivearchive.com/pfp/${channel.channelCode}.png`}
                   />
                   <svg
                     width="30"
@@ -92,7 +88,7 @@ const BoardItem = ({ post, artist }) => {
                       <span className="blind">comment</span>
                       <SmallCommentIcon />
                       <span className="text--1T5Dt">
-                        {formatNum(post.officialVideo.commentCount)}
+                        {formatNum(post.totalCommentCount)}
                       </span>
                     </span>
                   </div>

@@ -11,7 +11,7 @@ import Box from "@mui/material/Box";
 
 import InfiniteScroll from "react-infinite-scroll-component";
 import { SettingsModal, ShareModal } from "./modals";
-import { BoardList, BoardListSpecial } from "./../../components/BoardGroupList";
+import BoardGroupList from "./../../components/BoardGroupList";
 
 const BoardItemSkeleton = () => {
   return (
@@ -43,7 +43,7 @@ const BoardItemSkeleton = () => {
   );
 };
 
-const PostList = ({ posts, renderNum, fetchNextData, artist }) => {
+const PostList = ({ posts, renderNum, fetchNextData, channel }) => {
   if (posts == null)
     return (
       <>
@@ -63,44 +63,70 @@ const PostList = ({ posts, renderNum, fetchNextData, artist }) => {
       loader={<h4>Loading...</h4>}
     >
       {posts.map((board_item, key) => (
-        <BoardItem post={board_item} artist={artist} key={key} />
+        <BoardItem post={board_item} channel={channel} key={key} />
       ))}
     </InfiniteScroll>
   );
 };
 
 const Board = () => {
-  const { channel_name } = useParams();
+  var { channelCode } = useParams();
   var { board_id } = useParams();
-  board_id = board_id || 0;
-  const [artist, setArtist] = useState(null);
+  const [activeBoard, setActiveBoard] = useState(board_id);
+
+  const [channel, setChannel] = useState(null);
+  const [boards, setBoards] = useState(null);
   const [vod_list, setVodList] = useState(null);
   const [vod_list_original, setVodListOriginal] = useState(null);
+  const [liveOnly, setLiveOnly] = useState(true);
   const [year, setYear] = useState("All Years");
   const [sortBy, setSortBy] = useState("Newest");
   const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
     axios
-      .get(`https://api.vlivearchive.com/channel/${channel_name}`)
+      .get(`https://api.vlivearchive.com/channel/${channelCode}`)
       .then(function (response) {
-        setArtist(response.data);
+        setChannel(response.data.channel);
+        setBoards(response.data.boards);
+        setActiveBoard(response.data.boards[0].boardId);
+        document.title = "VLIVE - " + response.data.channel.channelName;
       })
       .catch(function (error) {});
+  }, [channelCode]);
 
+  useEffect(() => {
+    if (activeBoard == null) return;
+
+    setVodList(null);
     axios
-      .get(`https://api.vlivearchive.com/posts/${channel_name}/${board_id}`)
+      .get(`https://api.vlivearchive.com/board/${activeBoard}`)
       .then(function (response) {
-        setVodList(response.data.sort((a, b) => b.createdAt - a.createdAt));
-        setVodListOriginal(
-          response.data.sort((a, b) => b.createdAt - a.createdAt)
+        // to do: set current board, which will be used to highlight the active board
+        setVodList(
+          response.data.posts
+            .filter(
+              (post) =>
+                "badges" in post.officialVideo &&
+                post.officialVideo.badges.includes("LIVE_TO_VOD")
+            )
+            .sort((a, b) => b.createdAt - a.createdAt)
         );
+        setVodListOriginal(response.data.posts);
       })
       .catch(function (error) {});
-  }, [channel_name, board_id]);
+  }, [activeBoard]);
 
   const run_filter = () => {
+    if (vod_list_original == null) return;
+
     var updated_list = [...vod_list_original];
+    if (liveOnly)
+      updated_list = vod_list_original.filter(
+        (post) =>
+          "badges" in post.officialVideo &&
+          post.officialVideo.badges.includes("LIVE_TO_VOD")
+      );
 
     // filter by year
     if (year === "2022") {
@@ -149,6 +175,8 @@ const Board = () => {
     setVodList(updated_list);
   };
 
+  useEffect(run_filter, [liveOnly]);
+
   const [renderNum, setRenderNum] = useState(20);
 
   const [shareOpen, setShareOpen] = useState(false);
@@ -161,7 +189,7 @@ const Board = () => {
     setSettingsOpen(!settingsOpen);
   };
 
-  if (artist == null) return "loading...";
+  if (channel == null) return "loading...";
 
   const data2 = vod_list?.slice(0, renderNum);
   const fetchNextData = () => {
@@ -176,18 +204,14 @@ const Board = () => {
           <div className="snb--dI3H2">
             <nav className="nav--Lwe6x">
               <div className="channel_area--3-r0f">
-                <ChannelArea artist={artist} />
+                <ChannelArea channel={channel} />
               </div>
               <ul className="board_group_list--3BSLj">
-                <BoardList
-                  artist={artist}
-                  active_board={board_id}
-                  setVodList={setVodList}
-                />
-                <BoardListSpecial
-                  artist={artist}
-                  active_board={board_id}
-                  setVodList={setVodList}
+                <BoardGroupList
+                  channel={channel}
+                  boards={boards}
+                  activeBoard={activeBoard}
+                  setActiveBoard={setActiveBoard}
                 />
               </ul>
             </nav>
@@ -196,7 +220,9 @@ const Board = () => {
           <div className="layout_content--3-hGQ">
             <div className="lnb--3RTnS -right_menu_text--23eET">
               <div className="lnb_inner--1EWFM">
-                <h2 className="lnb_pc_title--1lAio">{artist.name} Board</h2>
+                <h2 className="lnb_pc_title--1lAio">
+                  {channel.channelName} Board
+                </h2>
               </div>
             </div>
             <div className="board_container--jTnd3">
@@ -206,18 +232,21 @@ const Board = () => {
                     <div className="option_sort_inner--3qFbz">
                       <button
                         type="button"
-                        className="option_button--aH3-H is_active--j3lJ2"
+                        className={`option_button--aH3-H ${
+                          !liveOnly && "is_active--j3lJ2"
+                        }`}
+                        onClick={() => setLiveOnly(false)}
                       >
-                        ALL<em className="blind">Selected</em>
+                        ALL
                       </button>
-                      <button type="button" className="option_button--aH3-H">
-                        Videos
-                      </button>
-                      <button type="button" className="option_button--aH3-H">
-                        Images
-                      </button>
-                      <button type="button" className="option_button--aH3-H">
-                        Star's Pick
+                      <button
+                        type="button"
+                        className={`option_button--aH3-H ${
+                          liveOnly && "is_active--j3lJ2"
+                        }`}
+                        onClick={() => setLiveOnly(true)}
+                      >
+                        Live Streams
                       </button>
                     </div>
                   </div>
@@ -268,7 +297,7 @@ const Board = () => {
                   posts={data2}
                   renderNum={renderNum}
                   fetchNextData={fetchNextData}
-                  artist={artist}
+                  channel={channel}
                 />
               </ul>
             </div>
@@ -276,7 +305,7 @@ const Board = () => {
           <div className="layout_right--2_POD">
             <div className="layout_info--1d6Aj">
               <div className="info_wrap--2kzZi">
-                <ChannelInfo artist={artist} />
+                <ChannelInfo channel={channel} />
               </div>
             </div>
             <button
@@ -308,7 +337,7 @@ const Board = () => {
         </div>
       </div>
       {shareOpen && (
-        <ShareModal group={channel_name} closeFn={handleShareOpen} />
+        <ShareModal group={channelCode} closeFn={handleShareOpen} />
       )}
     </>
   );
