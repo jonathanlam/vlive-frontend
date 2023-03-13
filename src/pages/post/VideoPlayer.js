@@ -10,7 +10,7 @@ const VideoPlayer = ({ post, channel }) => {
     video_url = `https://${channel.bucket}.vlivearchive.com/${channel.channelAlias}/${post.postId}/${post.postId}-video.mp4`;
   }
 
-  //if (post?.alt_url?.primary) video_url = post.alt_url.primary;
+  if (post?.alt_url?.primary) video_url = post.alt_url.primary;
 
   var subtitles = post?.subtitles || [];
 
