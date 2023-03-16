@@ -1,15 +1,37 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./styles1.css";
 import "./styles2.css";
 import "./styles3.css";
 import ArtistCard from "./artistcard.js";
-import artist_data from "../../assets/artists.json";
+import axios from "axios";
 // import { Link } from "react-router-dom";
 //import { useTranslation } from "react-i18next";
 
+import InfiniteScroll from "react-infinite-scroll-component";
+
 const Landing = () => {
-  const artists = artist_data;
   //const { t } = useTranslation();
+
+  const [channelList, setChannelList] = React.useState([]);
+
+  const [renderNum, setRenderNum] = React.useState(20);
+
+  const fetchNextData = () => {
+    setRenderNum(renderNum + 20);
+  };
+
+  useEffect(() => {
+    axios
+      .get(`https://api.vlivearchive.com/channels?page=${renderNum / 20}`)
+      .then(function (response) {
+        setChannelList((channelList) => [...channelList, ...response.data]);
+      })
+      .catch(function (error) {});
+  }, [renderNum]);
+
+  if (channelList.length === 0) {
+    return "Loading...";
+  }
 
   return (
     <>
@@ -34,10 +56,18 @@ const Landing = () => {
                     Archived groups
                   </strong>
                   <div className="HomeComponentView_component__oey5Q">
-                    <ul className="HomeArtistListSlotView_artist_list__3fPzz">
-                      {artists.map((artist, key) => (
-                        <ArtistCard artist={artist} key={key} />
-                      ))}
+                    <ul>
+                      <InfiniteScroll
+                        className="HomeArtistListSlotView_artist_list__3fPzz"
+                        dataLength={renderNum}
+                        next={fetchNextData}
+                        hasMore={true}
+                        loader={<h4>Loading...</h4>}
+                      >
+                        {channelList.map((channel, key) => (
+                          <ArtistCard channel={channel} key={key} />
+                        ))}
+                      </InfiniteScroll>
                     </ul>
                   </div>
                 </div>
