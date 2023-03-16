@@ -29,7 +29,7 @@ const VideoContainer = ({ post, channel }) => {
   const [subsOpen, setSubsOpen] = useState(false);
 
   const handleDownload = () => {
-    const url = `https://api.vlivearchive.com/s3/${channel.bucket}/${channel.channelAlias}/${post.postId}`;
+    const url = `https://api.vlivearchive.com/download/${post.officialVideo.videoSeq}`;
     window.location.href = url;
   };
 
