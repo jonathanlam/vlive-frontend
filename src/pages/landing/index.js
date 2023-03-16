@@ -1,9 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./styles1.css";
 import "./styles2.css";
 import "./styles3.css";
 import ArtistCard from "./artistcard.js";
 import axios from "axios";
+import TextField from "@mui/material/TextField";
+import SearchIcon from "@mui/icons-material/Search";
+import InputAdornment from "@mui/material/InputAdornment";
+
 // import { Link } from "react-router-dom";
 //import { useTranslation } from "react-i18next";
 
@@ -15,6 +19,7 @@ const Landing = () => {
   const [channelList, setChannelList] = React.useState([]);
 
   const [renderNum, setRenderNum] = React.useState(20);
+  const [hasMore, setHasMore] = useState(true);
 
   const fetchNextData = () => {
     setRenderNum(renderNum + 20);
@@ -32,6 +37,18 @@ const Landing = () => {
   if (channelList.length === 0) {
     return "Loading...";
   }
+
+  const handleSearch = (value) => {
+    setHasMore(value.length === 0);
+
+    if (value.length === 1) return;
+    axios
+      .get(`https://api.vlivearchive.com/channels/search?q=${value}`)
+      .then(function (response) {
+        setChannelList(response.data);
+      })
+      .catch(function (error) {});
+  };
 
   return (
     <>
@@ -55,13 +72,26 @@ const Landing = () => {
                   <strong className="HomeComponentView_title__wTRwM">
                     Archived groups
                   </strong>
+                  <TextField
+                    label="Search"
+                    sx={{ mt: 2 }}
+                    variant="outlined"
+                    InputProps={{
+                      startAdornment: (
+                        <InputAdornment position="start">
+                          <SearchIcon />
+                        </InputAdornment>
+                      ),
+                    }}
+                    onChange={(e) => handleSearch(e.target.value)}
+                  />
                   <div className="HomeComponentView_component__oey5Q">
                     <ul>
                       <InfiniteScroll
                         className="HomeArtistListSlotView_artist_list__3fPzz"
                         dataLength={renderNum}
                         next={fetchNextData}
-                        hasMore={true}
+                        hasMore={hasMore}
                         loader={<h4>Loading...</h4>}
                       >
                         {channelList.map((channel, key) => (
