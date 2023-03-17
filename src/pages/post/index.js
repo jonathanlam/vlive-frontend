@@ -42,6 +42,10 @@ const Post = () => {
   const channel = search.channel;
   const suggestions = search.suggestions;
 
+  const channelUrl = channel.channelAlias
+    ? channel.channelAlias
+    : channel.channelCode;
+
   return (
     <>
       <div className="layout--2CJge">
@@ -70,7 +74,7 @@ const Post = () => {
                       </svg>
                       <Link
                         className="board_link--10CG-"
-                        to={"/channel/" + channel.channelCode}
+                        to={"/channel/" + channelUrl}
                       >
                         {channel.channelName} Board
                       </Link>

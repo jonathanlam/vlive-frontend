@@ -20,6 +20,10 @@ const OfficialBoards = ({
   activeBoard,
   setActiveBoard,
 }) => {
+  const channelUrl = channel.channelAlias
+    ? channel.channelAlias
+    : channel.channelCode;
+
   return (
     <li className="board_group_item--uTaOQ">
       <strong className="group_name--2Ufyg">Official</strong>
@@ -43,7 +47,7 @@ const OfficialBoards = ({
             </svg>
             <Link
               className="board_link--10CG-"
-              to={`/channel/${channel.channelCode}/board/${board.boardId}`}
+              to={`/channel/${channelUrl}/board/${board.boardId}`}
               onClick={() => setActiveBoard(board.boardId)}
             >
               {board.title}

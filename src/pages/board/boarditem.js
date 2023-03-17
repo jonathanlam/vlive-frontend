@@ -13,15 +13,16 @@ const BoardItem = ({ post, channel }) => {
   const postId = post.postId;
   const thumbnail_ext = get_thumbnail_ext(post.officialVideo.thumb);
   const thumbnail_url = `https://vlive-thumbs.s3.us-west-004.backblazeb2.com/${postId}/${postId}-thumb${thumbnail_ext}`;
+  const channelUrl = channel.channelAlias
+    ? channel.channelAlias
+    : channel.channelCode;
+
   return (
     <>
       <li className="post_item--3Brrv -video--1s9IA">
         <div className="profile_area--2YO97">
           <div className="profile_info--13f_P">
-            <Link
-              className="link_profile--2SQHn"
-              to={"/channel/" + channel.channelCode}
-            >
+            <Link className="link_profile--2SQHn" to={"/channel/" + channelUrl}>
               <div className="profile_thumbnail--1k1fr">
                 <div
                   className="thumbnail_wrap--1h0cv -mask--3jxwe"

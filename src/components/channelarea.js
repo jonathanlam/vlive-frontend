@@ -2,6 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const ChannelArea = ({ channel }) => {
+  const channelUrl = channel.channelAlias
+    ? channel.channelAlias
+    : channel.channelCode;
   return (
     <>
       <Link to={"/channel/" + channel.channelCode} class="channel_link--3kVMW">
@@ -22,10 +25,7 @@ const ChannelArea = ({ channel }) => {
       <button class="register_button--1QhmP">Join</button>
       <ul class="menu_list--1Xv9-">
         <li class="menu_item--2Pf5K -home--1oM8u">
-          <Link
-            href={"/channel/" + channel.channelCode}
-            class="menu_link--2EiO4"
-          >
+          <Link href={"/channel/" + channelUrl} class="menu_link--2EiO4">
             <span>HOME</span>
           </Link>
         </li>

@@ -2,12 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const ArtistCard = ({ channel }) => {
+  const channelUrl = channel.channelAlias
+    ? channel.channelAlias
+    : channel.channelCode;
   return (
     <>
       <li className="HomeArtistListSlotView_artist_item__a6gAX">
         <Link
           className="HomeArtistListSlotView_artist_link__Mjm6r"
-          to={"/channel/" + channel.channelCode}
+          to={"/channel/" + channelUrl}
         >
           <div className="HomeArtistListSlotView_artist_cover_wrap__TGsNP">
             <img

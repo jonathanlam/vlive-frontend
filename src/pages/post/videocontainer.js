@@ -43,6 +43,10 @@ const VideoContainer = ({ post, channel }) => {
 
   const [userLiked, setUserLiked] = useState(false);
 
+  const channelUrl = channel.channelAlias
+    ? channel.channelAlias
+    : channel.channelCode;
+
   return (
     <>
       <div className="video_content--2NTB_">
@@ -50,7 +54,7 @@ const VideoContainer = ({ post, channel }) => {
           <div className="post_header--7D-xg -video--3Fg6w">
             <div className="writer_info--3Sw41">
               <div className="writer_thumbnail_wrap--JM7vB">
-                <Link to={"/channel/" + channel.channelCode}>
+                <Link to={"/channel/" + channelUrl}>
                   <div
                     className="thumbnail_wrap--1h0cv -mask--3jxwe"
                     style={{ width: "30px", height: "30px" }}
@@ -91,7 +95,7 @@ const VideoContainer = ({ post, channel }) => {
                 <div className="writer_info_textarea--1rXDF">
                   <Link
                     className="writer_link--3fEhm"
-                    to={"/channel/" + channel.channelCode}
+                    to={"/channel/" + channelUrl}
                   >
                     <span className="text--3pN_c">{post.author.nickname}</span>
                   </Link>
