@@ -15,6 +15,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 
 const Landing = () => {
   //const { t } = useTranslation();
+  document.title = "V LIVE";
 
   const [channelList, setChannelList] = React.useState([]);
 
