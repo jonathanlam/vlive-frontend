@@ -9,11 +9,7 @@ const VideoPlayer = ({ post, channel }) => {
   if (channel.bucket) {
     video_url = `https://${channel.bucket}.vlivearchive.com/${channel.channelAlias}/${post.postId}/${post.postId}-video.mp4`;
   }
-
-  if (post?.alt_url?.primary) video_url = post.alt_url.primary;
-
-  var subtitles = post?.subtitles || [];
-
+  
   // for Google Drive
   if (post?.alt_url?.iframe)
     return (
@@ -25,6 +21,12 @@ const VideoPlayer = ({ post, channel }) => {
         height="400px"
       ></iframe>
     );
+
+  if (post?.alt_url?.primary) video_url = post.alt_url.primary;
+
+  var subtitles = post?.subtitles || [];
+
+  
 
   return (
     <ReactPlayer
