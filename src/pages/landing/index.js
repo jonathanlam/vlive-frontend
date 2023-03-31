@@ -70,8 +70,10 @@ const Landing = () => {
             <div className="HomePageView_home_main__JwIMd">
               <div>
                 <div className="HomeComponentView_component_area__nBJJk">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/MegaUpload_FBI-Banner.jpg" />
+                  <br><br><br>
                   <strong className="HomeComponentView_title__wTRwM">
-                    Archived groups
+                    April Fools! All the videos are still here
                   </strong>
                   <TextField
                     label="Search"
