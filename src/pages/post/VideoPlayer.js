@@ -1,6 +1,16 @@
 import React from "react";
 import ReactPlayer from "react-player";
 
+function formatSubLabel(caption) {
+  var label = caption.label;
+  if (caption.type === "cp") label += " (official)";
+  if (caption.type === "auto") label += " (auto)";
+  if (caption.type === "fan") label += " (fan)";
+
+  if (caption.fanName !== "") label += ` by ${caption.fanName}`;
+  return label;
+}
+
 const VideoPlayer = ({ post, channel }) => {
   var video_url = "https://vlive-11.vlivearchive.com/placeholder.mp4";
 
@@ -9,7 +19,7 @@ const VideoPlayer = ({ post, channel }) => {
   if (channel.bucket) {
     video_url = `https://${channel.bucket}.vlivearchive.com/${channel.channelAlias}/${post.postId}/${post.postId}-video.mp4`;
   }
-  
+
   // for Google Drive
   if (post?.alt_url?.iframe)
     return (
@@ -24,9 +34,7 @@ const VideoPlayer = ({ post, channel }) => {
 
   if (post?.alt_url?.primary) video_url = post.alt_url.primary;
 
-  var subtitles = post?.subtitles || [];
-
-  
+  var subtitles = post?.captions || [];
 
   return (
     <ReactPlayer
@@ -42,8 +50,8 @@ const VideoPlayer = ({ post, channel }) => {
           tracks: subtitles.map((e) => ({
             kind: "subtitles",
             src: `/subtitles/${e.file_name}`,
-            srcLang: e.name,
-            label: e.name,
+            srcLang: e.language,
+            label: formatSubLabel(e),
           })),
         },
       }}
