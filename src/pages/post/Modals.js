@@ -1,13 +1,23 @@
 import React from "react";
 
-const SubtitlesModal = ({ subs, setSubsOpen, channel }) => {
+function formatSubLabel(caption) {
+  var label = caption.label;
+  if (caption.type === "cp") label += " (official)";
+  if (caption.type === "auto") label += " (auto)";
+  if (caption.type === "fan") label += " (fan)";
+
+  if (caption.fanName !== "") label += ` by ${caption.fanName}`;
+  return label;
+}
+
+const SubtitlesModal = ({ subs, setSubsOpen }) => {
   function handleClose() {
     setSubsOpen(false);
   }
 
   function handleDownload(e, srt) {
     // set srt = 0 for vtt files, or srt=1 for srt files
-    var url = `https://vlivearchive.com/subtitles/${e.file_name}`;
+    var url = `https://subtitle.vlivearchive.com/files/${e.file_name}`;
     if (srt === 1) url = url.replaceAll("vtt", "srt");
     window.open(url);
   }
@@ -34,7 +44,9 @@ const SubtitlesModal = ({ subs, setSubsOpen, channel }) => {
                         onClick={() => handleDownload(sub, 0)}
                       >
                         <span class="option_button_inner--2I_uR">
-                          <span class="option_title--X6IJe">{sub.name}</span>
+                          <span class="option_title--X6IJe">
+                            {formatSubLabel(sub)}
+                          </span>
                         </span>
                       </button>
                     </li>
@@ -50,7 +62,9 @@ const SubtitlesModal = ({ subs, setSubsOpen, channel }) => {
                         onClick={() => handleDownload(sub, 1)}
                       >
                         <span class="option_button_inner--2I_uR">
-                          <span class="option_title--X6IJe">{sub.name}</span>
+                          <span class="option_title--X6IJe">
+                            {formatSubLabel(sub)}
+                          </span>
                         </span>
                       </button>
                     </li>

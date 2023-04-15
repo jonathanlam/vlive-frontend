@@ -138,8 +138,8 @@ const VideoContainer = ({ post, channel }) => {
                   )}
                   {subsOpen && (
                     <SubtitlesModal
+                      subs={post?.captions || []}
                       setSubsOpen={setSubsOpen}
-                      channel={channel}
                     />
                   )}
                 </div>
