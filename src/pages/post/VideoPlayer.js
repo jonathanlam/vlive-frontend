@@ -60,12 +60,12 @@ const VideoPlayer = ({ post, channel, thumbnail_url }) => {
     // />
     <Player
       src={video_url}
-      poster={thumbnail_url}
-      subtitles={subtitles.map((e) => ({
-        url: `/subtitles/${e.file_name}`,
-        lang: e.language,
-        language: formatSubLabel(e),
-      }))}
+      //poster={thumbnail_url}
+      //subtitles={subtitles.map((e) => ({
+      //  url: `/subtitles/${e.file_name}`,
+      //  lang: e.language,
+      //  language: formatSubLabel(e),
+      //}))}
     />
   );
 };
