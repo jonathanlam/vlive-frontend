@@ -8,8 +8,6 @@ import PostAuthorDP from "../../components/icons/postAuthorDP";
 import { SubtitlesModal, MoreOptions } from "./Modals";
 import VideoPlayer from "./VideoPlayer.js";
 import { get_thumbnail_ext } from "./../util";
-// import { Player } from "react-tuby";
-// import "react-tuby/css/main.css";
 
 const format_date = (timestamp) => {
   const d = dayjs(timestamp);
@@ -148,7 +146,11 @@ const VideoContainer = ({ post, channel }) => {
           </div>
           <div className="detail_content_wrap--A4_IF">
             <div className="player_area--1jBsZ">
-              <VideoPlayer post={post} channel={channel} />
+              <VideoPlayer
+                post={post}
+                channel={channel}
+                thumbnail_url={thumbnail_url}
+              />
             </div>
             <div className="text_area--1z8D6">
               <span className="video_title--3Vd9y">
