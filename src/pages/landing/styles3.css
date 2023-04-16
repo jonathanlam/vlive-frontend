@@ -302,7 +302,8 @@
   display: block;
 }
 .HeaderView_logo__esVJ4:before {
-  background: no-repeat url("/static/img/logo.png") 0 0 / contain;
+  background: no-repeat url("https://vlivearchive.com/static/img/favicon.png") 0
+    0 / contain;
   content: "";
   display: block;
   height: 60px;

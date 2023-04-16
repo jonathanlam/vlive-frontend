@@ -1,7 +1,7 @@
 import React from "react";
 //import ReactPlayer from "react-player";
 import { Player } from "react-tuby";
-import "react-tuby/css/main.css";
+import "./player.css";
 
 function formatSubLabel(caption) {
   var label = caption.label;
