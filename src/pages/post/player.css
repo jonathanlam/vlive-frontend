@@ -86,7 +86,7 @@
   z-index: 1;
 }
 .tuby-show {
-  opacity: 100% !important;
+  opacity: 1 !important;
   visibility: visible !important;
 }
 .tuby-icon-md {
