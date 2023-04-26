@@ -58,7 +58,7 @@ const Hearts = () => {
       <Fab
         size="medium"
         sx={{
-          backgroundColor: "#ee0520",
+          backgroundColor: "#FF4C51",
           //color: "danger",
           position: "fixed",
           bottom: 20,
