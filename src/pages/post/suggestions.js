@@ -4,7 +4,7 @@ import { formatNum, FMTtimestamp, fmtMSS, get_thumbnail_ext } from "./../util";
 
 const SuggestionItem = ({ post }) => {
   const thumbnail_ext = get_thumbnail_ext(post.officialVideo.thumb);
-  const postId = post.postId;
+  //const postId = post.postId;
   const thumbnail_url = `https://thumbs-sm.vlivearchive.com/${post.officialVideo.videoSeq}${thumbnail_ext}`;
   return (
     <li className="post_item--3cirM">
