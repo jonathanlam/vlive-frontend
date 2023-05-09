@@ -21,7 +21,7 @@ const VideoContainer = ({ post, channel }) => {
   const comments = post.officialVideo.commentCount.toLocaleString();
 
   const thumbnail_ext = get_thumbnail_ext(post.officialVideo.thumb);
-  const thumbnail_url = `https://vlive-thumbs.s3.us-west-004.backblazeb2.com/${post.postId}/${post.postId}-thumb${thumbnail_ext}`;
+  const thumbnail_url = `https://thumbs.vlivearchive.com/${post.officialVideo.videoSeq}${thumbnail_ext}`;
 
   const [optionsOpen, setOptionsOpen] = useState(false);
   const [subsOpen, setSubsOpen] = useState(false);
