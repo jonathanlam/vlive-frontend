@@ -21,18 +21,6 @@ const VideoPlayer = ({ post, channel, thumbnail_url }) => {
     video_url = `https://${channel.bucket}.vlivearchive.com/${channel.channelAlias}/${post.postId}/${post.postId}-video.mp4`;
   }
 
-  // for Google Drive
-  if (post?.alt_url?.iframe)
-    return (
-      <iframe
-        src={post.alt_url.iframe}
-        title="Video"
-        allow="autoplay"
-        width="100%"
-        height="400px"
-      ></iframe>
-    );
-
   if (post?.alt_url?.primary) video_url = post.alt_url.primary;
 
   var subtitles = post?.captions || [];
